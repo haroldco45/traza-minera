@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Traza Minera — La ruta legal del mineral | Vibras Positivas HM</title>
+<meta name="description" content="Lleva la trazabilidad de tu mineral desde la mina hasta la venta: proveedores, lotes, certificados de origen, ruta del lote, alertas e informes. Hecha en Caucasia para el Bajo Cauca.">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<!-- OG / Twitter -->
+<meta property="og:title" content="Traza Minera — La ruta legal del mineral">
+<meta property="og:description" content="Del socavón a la venta, todo en regla. Proveedores, lotes, certificados de origen y alertas para la trazabilidad minera obligatoria desde el 19 de noviembre de 2026.">
+<meta property="og:image" content="https://traza-minera.netlify.app/og.png">
+<meta property="og:url" content="https://traza-minera.netlify.app/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Traza Minera — La ruta legal del mineral">
+<meta name="twitter:description" content="Del socavón a la venta, todo en regla. App de trazabilidad minera de Vibras Positivas HM.">
+<meta name="twitter:image" content="https://traza-minera.netlify.app/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d0d0d;--ink2:#1a1a1a;--ink3:#262626;--paper:#f6f3ec;--white:#fff;
+  --gold:#d4a017;--gold2:#f2c94c;--gold3:#8a6a0c;--red:#c62828;--green:#2e7d32;--amber:#e08a00;
+  --muted:#8c8c8c;--line:#2f2f2f;--r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Barlow,system-ui,sans-serif;background:var(--ink);color:#eee;line-height:1.45;padding-bottom:84px;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.cond{font-family:"Barlow Condensed",Barlow,sans-serif;letter-spacing:.3px}
+a{color:var(--gold2)}
+button{font-family:inherit;cursor:pointer}
+input,select,textarea{font-family:inherit;font-size:16px;width:100%;padding:12px 13px;border-radius:10px;border:1px solid #3a3a3a;background:#141414;color:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);border-color:transparent}
+label{display:block;font-size:13px;color:#bdbdbd;margin:12px 0 5px;font-weight:600;text-transform:uppercase;letter-spacing:.6px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+/* Top bar */
+.top{position:sticky;top:0;z-index:40;background:rgba(13,13,13,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:10px}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Barlow Condensed";font-weight:800;font-size:22px;color:#fff;text-decoration:none}
+.mono{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--gold2),var(--gold3));color:var(--ink);display:grid;place-items:center;font-weight:800;font-size:16px}
+.brand small{display:block;font-family:Barlow;font-weight:500;font-size:11px;color:var(--muted);letter-spacing:.4px}
+.toplinks{display:flex;gap:8px}
+.chip{border:1px solid #444;background:transparent;color:#ddd;padding:7px 12px;border-radius:999px;font-size:13px;font-weight:600}
+.chip.on,.chip:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+
+/* Ticker */
+.ticker{background:var(--gold);color:var(--ink);overflow:hidden;white-space:nowrap;font-weight:700;font-size:13px;letter-spacing:.4px;text-transform:uppercase}
+.ticker div{display:inline-block;padding:8px 0;animation:tick 38s linear infinite}
+.ticker span{margin:0 28px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Hero */
+.hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;overflow:hidden;background:#111}
+.hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease;transform:scale(1.08);animation:kb 22s ease-in-out infinite alternate}
+.hero .bg.on{opacity:1}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.hero .fallback{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 20%,rgba(242,201,76,.35),transparent 55%),radial-gradient(ellipse at 20% 80%,rgba(138,106,12,.5),transparent 60%),linear-gradient(160deg,#1b1b1b,#070707)}
+@keyframes kb{from{transform:scale(1.08) translate(0,0)}to{transform:scale(1.18) translate(-2%,-2%)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.55) 45%,rgba(13,13,13,1) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-bottom:40px;padding-top:90px}
+.kicker{display:inline-block;background:rgba(212,160,23,.18);border:1px solid var(--gold);color:var(--gold2);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.hero h1{font-size:clamp(44px,9vw,92px);line-height:.92;margin:16px 0 12px;color:#fff;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--gold2)}
+.hero p.lead{font-size:clamp(17px,2.4vw,21px);max-width:640px;color:#e7e7e7}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{border:0;border-radius:12px;padding:14px 20px;font-weight:700;font-size:16px;transition:transform .15s,box-shadow .15s}
+.btn:active{transform:scale(.97)}
+.btn.gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--ink);box-shadow:0 8px 30px rgba(212,160,23,.35)}
+.btn.ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.dark{background:var(--ink3);color:#fff;border:1px solid #3a3a3a}
+.btn.red{background:var(--red);color:#fff}
+.btn.sm{padding:9px 13px;font-size:14px;border-radius:10px}
+
+/* Countdown */
+.count{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.count .u{background:rgba(0,0,0,.55);border:1px solid rgba(242,201,76,.45);border-radius:12px;padding:10px 14px;min-width:78px;text-align:center}
+.count b{display:block;font-family:"Barlow Condensed";font-size:36px;color:var(--gold2);line-height:1}
+.count small{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#ccc}
+.count .note{align-self:center;color:#ddd;font-size:14px;max-width:260px}
+
+/* Sections */
+section.view{display:none;animation:fade .45s ease}
+section.view.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.sechead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:30px 0 14px;flex-wrap:wrap}
+.sechead h2{font-size:34px;text-transform:uppercase;color:#fff}
+.sechead p{color:var(--muted);font-size:14px}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:-30px;position:relative;z-index:3}
+.kpi{background:linear-gradient(160deg,#1e1e1e,#121212);border:1px solid var(--line);border-radius:var(--r);padding:16px;position:relative;overflow:hidden}
+.kpi::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--gold),transparent)}
+.kpi b{font-family:"Barlow Condensed";font-size:38px;color:#fff;display:block;line-height:1.05}
+.kpi span{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;font-weight:600}
+.kpi.alert b{color:#ff7a6e}
+
+/* Chain */
+.chain{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.link{position:relative;border-radius:var(--r);overflow:hidden;min-height:210px;display:flex;align-items:flex-end;background:#1a1a1a;border:1px solid var(--line)}
+.link .ph{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .8s}
+.link:hover .ph{transform:scale(1.07)}
+.link::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 25%,rgba(0,0,0,.88))}
+.link div.t{position:relative;z-index:2;padding:14px}
+.link .n{font-family:"Barlow Condensed";font-size:46px;color:var(--gold2);line-height:.9;opacity:.9}
+.link h3{font-size:22px;text-transform:uppercase;color:#fff}
+.link p{font-size:13px;color:#d0d0d0}
+
+/* Cards / lists */
+.card{background:#151515;border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.list{display:grid;gap:10px}
+.row{background:#151515;border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:center;transition:border-color .2s,transform .2s}
+.row:hover{border-color:var(--gold3);transform:translateY(-1px)}
+.row .thumb{width:62px;height:62px;border-radius:10px;background:#222 center/cover;flex:0 0 62px;display:grid;place-items:center;font-family:"Barlow Condensed";font-weight:800;color:var(--gold2);font-size:20px}
+.row .main{flex:1;min-width:0}
+.row .main b{display:block;font-size:17px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .main small{color:var(--muted);font-size:13px}
+.row .side{text-align:right;font-family:"Barlow Condensed";font-size:22px;color:var(--gold2)}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:3px 8px;border-radius:6px;margin-right:4px}
+.tag.ok{background:rgba(46,125,50,.2);color:#7fd18a}
+.tag.warn{background:rgba(224,138,0,.2);color:#ffbf5e}
+.tag.bad{background:rgba(198,40,40,.22);color:#ff8a80}
+.tag.n{background:#262626;color:#ccc}
+.empty{text-align:center;color:var(--muted);padding:30px 10px;border:1px dashed #333;border-radius:var(--r)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.toolbar input,.toolbar select{flex:1;min-width:160px}
+
+/* Timeline */
+.steps{display:flex;gap:4px;margin:12px 0 18px}
+.steps i{flex:1;height:8px;border-radius:4px;background:#2a2a2a;position:relative;overflow:hidden}
+.steps i.done::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--gold3),var(--gold2));animation:grow .7s ease forwards;transform-origin:left}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.tl{position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:linear-gradient(var(--gold),#333)}
+.ev{position:relative;margin-bottom:14px;background:#141414;border:1px solid var(--line);border-radius:12px;padding:12px}
+.ev::before{content:"";position:absolute;left:-23px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--gold2);box-shadow:0 0 0 4px rgba(242,201,76,.2)}
+.ev b{color:#fff;text-transform:uppercase;font-family:"Barlow Condensed";font-size:19px}
+.ev small{color:var(--muted)}
+
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:60;display:none;align-items:flex-end;justify-content:center}
+.modal.on{display:flex;animation:fade .25s}
+.sheet{background:#111;border:1px solid #333;border-radius:20px 20px 0 0;width:100%;max-width:720px;max-height:92vh;overflow:auto;padding:20px 18px 30px}
+@media(min-width:760px){.modal{align-items:center}.sheet{border-radius:20px}}
+.sheet h3{font-size:28px;text-transform:uppercase;color:#fff;margin-bottom:4px}
+.sheet .x{float:right;background:#222;border:0;color:#fff;border-radius:10px;padding:8px 12px;font-weight:700}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+.calc{margin-top:14px;padding:12px;border-radius:12px;background:rgba(212,160,23,.1);border:1px solid rgba(212,160,23,.4);font-size:15px}
+.calc b{color:var(--gold2);font-family:"Barlow Condensed";font-size:24px}
+.privacy{font-size:12px;color:#9a9a9a;margin-top:10px;padding:10px;border-left:3px solid var(--gold3);background:#161616;border-radius:6px}
+.photo-prev{margin-top:8px;width:100%;max-height:220px;object-fit:cover;border-radius:12px;display:none}
+
+/* Alerts */
+.al{border-left:4px solid var(--amber)}
+.al.bad{border-left-color:var(--red)}
+.al.ok{border-left-color:var(--green)}
+
+/* Norma */
+.norm{display:grid;gap:12px}
+.norm .card h3{font-size:22px;color:var(--gold2);text-transform:uppercase;margin-bottom:6px}
+.norm .card p,.norm .card li{color:#d6d6d6;font-size:15px}
+.norm ul{padding-left:18px}
+
+/* Table */
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid #2a2a2a}
+th{color:var(--gold2);font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.6px}
+.tscroll{overflow:auto}
+
+/* Bottom nav (text only) */
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(10,10,10,.96);border-top:1px solid var(--line);backdrop-filter:blur(10px);padding-bottom:env(safe-area-inset-bottom)}
+.nav .wrap{display:flex;justify-content:space-between;padding:0 6px}
+.nav button{flex:1;background:none;border:0;color:#9a9a9a;padding:13px 2px 15px;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.5px;position:relative}
+.nav button.on{color:var(--gold2)}
+.nav button.on::before{content:"";position:absolute;top:0;left:22%;right:22%;height:3px;border-radius:0 0 3px 3px;background:var(--gold2)}
+.nav .badge{position:absolute;top:6px;right:16%;background:var(--red);color:#fff;font-size:10px;border-radius:999px;padding:1px 6px}
+
+footer{margin:40px 0 10px;padding:24px 0;border-top:1px solid var(--line);color:#8a8a8a;font-size:13px;text-align:center}
+footer b{color:#ddd}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);background:var(--gold);color:var(--ink);font-weight:700;padding:12px 18px;border-radius:12px;opacity:0;transition:.3s;z-index:80;max-width:90vw;text-align:center}
+.toast.on{opacity:1;transform:translateX(-50%)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+.install{display:none}
+.disclaimer{font-size:13px;color:#aaa;background:#161616;border:1px solid #2c2c2c;border-radius:12px;padding:12px;margin-top:14px}
+
+/* Print */
+#printArea{display:none}
+@media print{
+  body{background:#fff;color:#000;padding:0}
+  body>*:not(#printArea){display:none!important}
+  #printArea{display:block!important;font-family:Barlow,Arial,sans-serif;padding:10mm}
+  #printArea h1{font-size:24px;margin-bottom:4px}
+  #printArea table{font-size:11px}
+  #printArea th{color:#000}
+  #printArea td,#printArea th{border-bottom:1px solid #999}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" onclick="go('inicio');return false"><span class="mono">TM</span><span>TRAZA MINERA<small data-i18n="brandSub">Vibras Positivas HM</small></span></a>
+    <div class="toplinks">
+      <button class="chip install" id="btnInstall" data-i18n="install">Instalar</button>
+      <button class="chip" id="btnLang">EN</button>
+    </div>
+  </div>
+</header>
+<div class="ticker"><div id="tickerText"></div></div>
+
+<!-- INICIO -->
+<section class="view on" id="v-inicio">
+  <div class="hero" id="hero">
+    <div class="fallback"></div>
+    <div class="bg" id="bgA"></div><div class="bg" id="bgB"></div>
+    <video id="heroVideo" muted loop playsinline autoplay></video>
+    <div class="wrap">
+      <span class="kicker" data-i18n="kicker">Bajo Cauca · Nordeste · Sur de Córdoba</span>
+      <h1 data-i18n-html="heroTitle">Del socavón<br>a la venta,<br><em>todo en regla</em></h1>
+      <p class="lead" data-i18n="heroLead">Registra cada gramo: quién lo sacó, de qué mina, con qué certificado de origen, por dónde pasó y a quién se vendió. Tu información lista para el sistema de trazabilidad de la Agencia Nacional de Minería.</p>
+      <div class="cta">
+        <button class="btn gold" onclick="openLote()" data-i18n="ctaLote">Registrar compra de mineral</button>
+        <button class="btn ghost" onclick="go('norma')" data-i18n="ctaNorma">Qué exige la norma</button>
+      </div>
+      <div class="count" id="countdown"></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="kpis" id="kpis"></div>
+
+    <div class="sechead reveal"><div><h2 data-i18n="chainTitle">La ruta del mineral</h2><p data-i18n="chainSub">Cinco eslabones. Cada lote los recorre y queda la huella.</p></div></div>
+    <div class="chain" id="chain"></div>
+
+    <div class="sechead reveal"><div><h2 data-i18n="lastTitle">Últimos lotes</h2><p data-i18n="lastSub">Toca un lote para ver su ruta completa.</p></div><button class="btn dark sm" onclick="go('lotes')" data-i18n="seeAll">Ver todos</button></div>
+    <div class="list" id="lastLotes"></div>
+
+    <div class="disclaimer reveal" data-i18n="disclaimer">Traza Minera es una herramienta de control interno para organizar tu información de trazabilidad. El reporte oficial ante la ANM se hace a través de los Operadores Tecnológicos de Trazabilidad de Minerales habilitados por la Agencia. Esta app no reemplaza ese reporte ni el RUCOM.</div>
+  </div>
+</section>
+
+<!-- PROVEEDORES -->
+<section class="view" id="v-prov"><div class="wrap">
+  <div class="sechead"><div><h2 data-i18n="provTitle">Proveedores</h2><p data-i18n="provSub">Explotadores mineros autorizados, barequeros y chatarreros a quienes compras.</p></div><button class="btn gold sm" onclick="openProv()" data-i18n="newProv">Nuevo proveedor</button></div>
+  <div class="toolbar"><input id="qProv" data-i18n-ph="search" placeholder="Buscar por nombre, título o municipio" oninput="renderProv()"><select id="fProv" onchange="renderProv()"></select></div>
+  <div class="list" id="provList"></div>
+</div></section>
+
+<!-- LOTES -->
+<section class="view" id="v-lotes"><div class="wrap">
+  <div class="sechead"><div><h2 data-i18n="lotesTitle">Lotes</h2><p data-i18n="lotesSub">Cada compra es un lote con código único y su ruta.</p></div><button class="btn gold sm" onclick="openLote()" data-i18n="newLote">Nueva compra</button></div>
+  <div class="toolbar"><input id="qLote" data-i18n-ph="searchLote" placeholder="Buscar código, proveedor o certificado" oninput="renderLotes()"><select id="fLote" onchange="renderLotes()"></select></div>
+  <div class="list" id="loteList"></div>
+</div></section>
+
+<!-- ALERTAS -->
+<section class="view" id="v-alertas"><div class="wrap">
+  <div class="sechead"><div><h2 data-i18n="alTitle">Alertas</h2><p data-i18n="alSub">Lo que te puede costar un decomiso o una sanción, antes de que pase.</p></div></div>
+  <div class="list" id="alList"></div>
+</div></section>
+
+<!-- INFORMES -->
+<section class="view" id="v-inf"><div class="wrap">
+  <div class="sechead"><div><h2 data-i18n="infTitle">Informes</h2><p data-i18n="infSub">Balance de masa, compras por proveedor y libro de control.</p></div>
+    <input type="month" id="mes" style="max-width:190px" onchange="renderInf()"></div>
+  <div class="kpis" id="infKpis" style="margin-top:0"></div>
+  <div class="grid2" style="margin-top:14px">
+    <div class="card"><h3 class="cond" style="font-size:22px;color:#fff;margin-bottom:8px" data-i18n="byProv">Compras por proveedor</h3><div class="tscroll" id="infProv"></div></div>
+    <div class="card"><h3 class="cond" style="font-size:22px;color:#fff;margin-bottom:8px" data-i18n="byMun">Origen por municipio</h3><div class="tscroll" id="infMun"></div></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3 class="cond" style="font-size:22px;color:#fff;margin-bottom:10px" data-i18n="exportT">Exportar y respaldar</h3>
+    <div class="toolbar">
+      <button class="btn gold sm" onclick="printLibro()" data-i18n="printBook">Imprimir libro de control</button>
+      <button class="btn dark sm" onclick="exportCSV()" data-i18n="csv">Descargar CSV (Excel)</button>
+      <button class="btn dark sm" onclick="exportJSON()" data-i18n="backup">Copia de seguridad</button>
+      <label class="btn dark sm" style="margin:0;text-transform:none;letter-spacing:0;font-size:14px;color:#fff"><span data-i18n="restore">Restaurar copia</span><input type="file" accept=".json" style="display:none" onchange="importJSON(this)"></label>
+    </div>
+    <p class="privacy" data-i18n="csvNote">El CSV trae una fila por lote con todos los campos que suelen pedir los operadores de trazabilidad: fecha, proveedor, tipo de explotador, título o registro, municipio de origen, mineral, peso bruto, ley, peso fino, certificado de origen y destino.</p>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3 class="cond" style="font-size:22px;color:#fff;margin-bottom:10px" data-i18n="cfgT">Datos de tu empresa</h3>
+    <div class="f2">
+      <div><label data-i18n="cEmp">Razón social</label><input id="cEmp"></div>
+      <div><label>NIT</label><input id="cNit"></div>
+      <div><label data-i18n="cRucom">N.º RUCOM</label><input id="cRucom"></div>
+      <div><label data-i18n="cRucomV">RUCOM vigente hasta</label><input type="date" id="cRucomV"></div>
+      <div><label data-i18n="cMun">Municipio</label><input id="cMun"></div>
+      <div><label data-i18n="cCupo">Tope mensual subsistencia (g)</label><input type="number" id="cCupo" step="0.01" data-i18n-ph="cCupoPh" placeholder="Según la resolución vigente"></div>
+    </div>
+    <p class="privacy" data-i18n="cupoNote">El tope de producción para mineros de subsistencia lo fija la autoridad minera. Escribe aquí el valor vigente para que la app te avise cuando un barequero o chatarrero lo pase.</p>
+    <div class="toolbar" style="margin-top:12px">
+      <button class="btn gold sm" onclick="saveCfg()" data-i18n="save">Guardar</button>
+      <button class="btn dark sm" onclick="setPin()" data-i18n="pinBtn">PIN de administrador</button>
+      <button class="btn dark sm" onclick="loadDemo()" data-i18n="demo">Cargar datos de ejemplo</button>
+      <button class="btn red sm" onclick="wipe()" data-i18n="wipe">Borrar todo</button>
+    </div>
+  </div>
+</div></section>
+
+<!-- NORMA -->
+<section class="view" id="v-norma"><div class="wrap">
+  <div class="sechead"><div><h2 data-i18n="normTitle">Qué exige la norma</h2><p data-i18n="normSub">Resumen práctico. Para casos concretos, consulta a la ANM o a un abogado minero.</p></div></div>
+  <div class="norm" id="normBox"></div>
+</div></section>
+
+<div class="wrap"><footer><b data-i18n="footer1">Desarrollada por Vibras Positivas HM — Derechos de Autor Reservados</b><br><span data-i18n="footer2">Caucasia, Antioquia · vibraspositivashm.com · WhatsApp 311 770 0431</span></footer></div>
+
+<nav class="nav"><div class="wrap">
+  <button data-v="inicio" class="on" data-i18n="nInicio">Inicio</button>
+  <button data-v="prov" data-i18n="nProv">Proveedores</button>
+  <button data-v="lotes" data-i18n="nLotes">Lotes</button>
+  <button data-v="alertas"><span data-i18n="nAl">Alertas</span><span class="badge" id="alBadge" style="display:none"></span></button>
+  <button data-v="inf" data-i18n="nInf">Informes</button>
+</div></nav>
+
+<!-- Modals -->
+<div class="modal" id="mProv"><div class="sheet">
+  <button class="x" onclick="closeM('mProv')" data-i18n="close">Cerrar</button>
+  <h3 data-i18n="provForm">Proveedor</h3>
+  <input type="hidden" id="pId">
+  <label data-i18n="pNombre">Nombre o razón social</label><input id="pNombre">
+  <label data-i18n="pTipo">Tipo de explotador</label><select id="pTipo"></select>
+  <div class="f2">
+    <div><label data-i18n="pDoc">Cédula o NIT</label><input id="pDoc" inputmode="numeric"></div>
+    <div><label data-i18n="pTel">Celular</label><input id="pTel" inputmode="tel"></div>
+  </div>
+  <label data-i18n="pTitulo">Código de título, expediente o registro en alcaldía</label><input id="pTitulo">
+  <div class="f2">
+    <div><label data-i18n="pMun">Municipio de la mina</label><input id="pMun" list="munis"></div>
+    <div><label data-i18n="pVence">Registro vigente hasta</label><input type="date" id="pVence"></div>
+  </div>
+  <label data-i18n="pMina">Nombre de la mina o sitio</label><input id="pMina">
+  <p class="privacy" data-i18n="privacy">Aviso de privacidad (Ley 1581 de 2012): los datos personales se usan solo para la trazabilidad del mineral y se guardan en este dispositivo. Cédula y celular quedan ocultos y solo los ve el administrador con PIN. El titular puede pedir consultarlos, corregirlos o borrarlos.</p>
+  <div class="cta"><button class="btn gold" onclick="saveProv()" data-i18n="save">Guardar</button><button class="btn red sm" id="pDel" onclick="delProv()" data-i18n="del">Eliminar</button></div>
+</div></div>
+
+<div class="modal" id="mLote"><div class="sheet">
+  <button class="x" onclick="closeM('mLote')" data-i18n="close">Cerrar</button>
+  <h3 data-i18n="loteForm">Compra de mineral</h3>
+  <div class="f2">
+    <div><label data-i18n="lFecha">Fecha</label><input type="date" id="lFecha"></div>
+    <div><label data-i18n="lMineral">Mineral</label><select id="lMineral"></select></div>
+  </div>
+  <label data-i18n="lProv">Proveedor</label><select id="lProv"></select>
+  <div class="f2">
+    <div><label data-i18n="lBruto">Peso bruto (g)</label><input type="number" id="lBruto" step="0.01" oninput="calcLote()"></div>
+    <div><label data-i18n="lLey">Ley (milésimas)</label><input type="number" id="lLey" step="1" placeholder="850" oninput="calcLote()"></div>
+    <div><label data-i18n="lPrecio">Precio por gramo fino ($)</label><input type="number" id="lPrecio" step="1" oninput="calcLote()"></div>
+    <div><label data-i18n="lCert">N.º certificado de origen</label><input id="lCert"></div>
+  </div>
+  <label data-i18n="lOrigen">Municipio de origen</label><input id="lOrigen" list="munis">
+  <label data-i18n="lGps">Ubicación del punto de compra</label>
+  <div class="toolbar" style="margin:0"><input id="lGps" readonly data-i18n-ph="gpsPh" placeholder="Sin ubicación"><button class="btn dark sm" type="button" onclick="getGps()" data-i18n="gpsBtn">Tomar GPS</button></div>
+  <label data-i18n="lFoto">Foto real del mineral o del certificado</label>
+  <input type="file" id="lFoto" accept="image/*" capture="environment" onchange="readPhoto(this)">
+  <img id="lFotoPrev" class="photo-prev" alt="">
+  <label data-i18n="lObs">Observaciones</label><textarea id="lObs" rows="2"></textarea>
+  <div class="calc" id="lCalc"></div>
+  <div class="cta"><button class="btn gold" onclick="saveLote()" data-i18n="saveLote">Guardar lote</button></div>
+</div></div>
+
+<div class="modal" id="mRuta"><div class="sheet" id="rutaBox"></div></div>
+
+<div class="modal" id="mEv"><div class="sheet">
+  <button class="x" onclick="closeM('mEv')" data-i18n="close">Cerrar</button>
+  <h3 data-i18n="evForm">Nuevo paso de la ruta</h3>
+  <input type="hidden" id="eLote">
+  <div class="f2">
+    <div><label data-i18n="eTipo">Eslabón</label><select id="eTipo" onchange="evHints()"></select></div>
+    <div><label data-i18n="eFecha">Fecha</label><input type="date" id="eFecha"></div>
+  </div>
+  <label id="eContraL" data-i18n="eContra">Contraparte (planta, transportador o comprador)</label><input id="eContra">
+  <div class="f2">
+    <div><label data-i18n="eRucom">RUCOM de la contraparte</label><input id="eRucom"></div>
+    <div><label data-i18n="eDoc">Documento soporte (factura, guía)</label><input id="eDoc"></div>
+    <div><label id="ePesoL" data-i18n="ePeso">Peso fino (g)</label><input type="number" id="ePeso" step="0.01"></div>
+    <div><label data-i18n="eValor">Valor ($)</label><input type="number" id="eValor" step="1"></div>
+  </div>
+  <label data-i18n="eDet">Detalle</label><textarea id="eDet" rows="2"></textarea>
+  <div class="cta"><button class="btn gold" onclick="saveEv()" data-i18n="save">Guardar</button></div>
+</div></div>
+
+<datalist id="munis"></datalist>
+<div class="toast" id="toast"></div>
+<div id="printArea"></div>
+
+<script>
+/* ========= Traza Minera · Vibras Positivas HM ========= */
+const TZ='America/Bogota', KEY='trazaMinera.v1';
+const DEADLINE=new Date('2026-11-19T00:00:00-05:00');
+const MUNIS=['Caucasia','El Bagre','Zaragoza','Nechí','Cáceres','Tarazá','Segovia','Remedios','Amalfi','Anorí','Vegachí','Yalí','Yolombó','Buriticá','Ayapel','Montelíbano','Puerto Libertador','La Apartada','San José de Uré','Tierralta','Ituango','Briceño'];
+
+/* Fotos reales: primero tus fotos en /fotos, luego Wikimedia Commons */
+const C='https://commons.wikimedia.org/wiki/Special:FilePath/';
+const PH={
+  hero:['fotos/hero1.jpg','fotos/hero2.jpg','fotos/hero3.jpg',
+        C+'DJI_MINA_BOYACA.jpg?width=1600',
+        C+'El_Bagre-Antioquia.jpg',
+        C+'Mina_de_oro_salento.jpg',
+        C+'Puerto_Claver-El_Bagre-Antioquia.jpg'],
+  extraccion:['fotos/extraccion.jpg',C+'Mina_de_oro_salento.jpg'],
+  compra:['fotos/compra.jpg',C+'Gold_nugget_(Australia)_4_(16848647509).jpg?width=900',C+'Monumento_Minero.jpg?width=900'],
+  beneficio:['fotos/beneficio.jpg',C+'Miner%C3%ADa.jpg?width=900'],
+  transporte:['fotos/transporte.jpg',C+'El_Bagre-Antioquia.jpg'],
+  venta:['fotos/venta.jpg',C+'Agencia_Nacional_de_Miner%C3%ADa,_Medell%C3%ADn_-_02.jpg?width=900']
+};
+
+/* ---------- i18n ---------- */
+const I={es:{},en:{
+ brandSub:'Vibras Positivas HM',install:'Install',kicker:'Bajo Cauca · Northeast Antioquia · South Córdoba',
+ heroTitle:'From the mine<br>to the sale,<br><em>fully compliant</em>',
+ heroLead:'Record every gram: who mined it, from which mine, under which certificate of origin, where it went and who bought it. Your data ready for the National Mining Agency traceability system.',
+ ctaLote:'Record a mineral purchase',ctaNorma:'What the rules require',chainTitle:'The mineral route',chainSub:'Five links. Every lot goes through them and leaves a trail.',
+ lastTitle:'Latest lots',lastSub:'Tap a lot to see its full route.',seeAll:'See all',
+ disclaimer:'Traza Minera is an internal control tool to organize your traceability data. Official reporting to the ANM is done through the Mineral Traceability Technology Operators authorized by the Agency. This app does not replace that report or the RUCOM.',
+ provTitle:'Suppliers',provSub:'Authorized mining operators, subsistence panners and scrap collectors you buy from.',newProv:'New supplier',search:'Search by name, title or town',
+ lotesTitle:'Lots',lotesSub:'Each purchase is a lot with a unique code and its route.',newLote:'New purchase',searchLote:'Search code, supplier or certificate',
+ alTitle:'Alerts',alSub:'What could cost you a seizure or a fine, before it happens.',
+ infTitle:'Reports',infSub:'Mass balance, purchases by supplier and control book.',byProv:'Purchases by supplier',byMun:'Origin by town',exportT:'Export and back up',
+ printBook:'Print control book',csv:'Download CSV (Excel)',backup:'Back up',restore:'Restore backup',
+ csvNote:'The CSV has one row per lot with the fields traceability operators usually ask for: date, supplier, operator type, title or registry, town of origin, mineral, gross weight, fineness, fine weight, certificate of origin and destination.',
+ cfgT:'Your company',cEmp:'Company name',cRucom:'RUCOM no.',cRucomV:'RUCOM valid until',cMun:'Town',cCupo:'Monthly subsistence cap (g)',cCupoPh:'Per current resolution',
+ cupoNote:'The production cap for subsistence miners is set by the mining authority. Enter the current value so the app warns you when a panner or scrap collector exceeds it.',
+ save:'Save',pinBtn:'Admin PIN',demo:'Load sample data',wipe:'Delete all',
+ normTitle:'What the rules require',normSub:'Practical summary. For specific cases, ask the ANM or a mining lawyer.',
+ footer1:'Developed by Vibras Positivas HM — All Rights Reserved',footer2:'Caucasia, Antioquia · vibraspositivashm.com · WhatsApp +57 311 770 0431',
+ nInicio:'Home',nProv:'Suppliers',nLotes:'Lots',nAl:'Alerts',nInf:'Reports',close:'Close',provForm:'Supplier',pNombre:'Name or company',pTipo:'Operator type',pDoc:'ID or tax no.',pTel:'Mobile',
+ pTitulo:'Mining title, file no. or town hall registry',pMun:'Mine town',pVence:'Registry valid until',pMina:'Mine or site name',
+ privacy:'Privacy notice (Colombian Law 1581 of 2012): personal data is used only for mineral traceability and stored on this device. ID and phone stay hidden and only the admin with PIN can see them. The owner may ask to view, correct or delete them.',
+ del:'Delete',loteForm:'Mineral purchase',lFecha:'Date',lMineral:'Mineral',lProv:'Supplier',lBruto:'Gross weight (g)',lLey:'Fineness (‰)',lPrecio:'Price per fine gram (COP)',lCert:'Certificate of origin no.',
+ lOrigen:'Town of origin',lGps:'Purchase point location',gpsPh:'No location',gpsBtn:'Get GPS',lFoto:'Real photo of the mineral or certificate',lObs:'Notes',saveLote:'Save lot',
+ evForm:'New route step',eTipo:'Link',eFecha:'Date',eContra:'Counterparty (plant, carrier or buyer)',eRucom:'Counterparty RUCOM',eDoc:'Supporting doc (invoice, waybill)',ePeso:'Fine weight (g)',eValor:'Value (COP)',eDet:'Details'
+}};
+const T={es:{
+ days:'días',hours:'horas',min:'min',seg:'seg',countNote:'para que la trazabilidad sea obligatoria en todo el país (19 de noviembre de 2026).',countDone:'La trazabilidad minera ya es obligatoria en todo el país desde el 19 de noviembre de 2026.',
+ kLotes:'Lotes',kFino:'Gramos finos comprados',kVal:'Valor comprado',kProv:'Proveedores',kAl:'Alertas activas',kStock:'Fino en inventario',
+ links:[['Extracción','La mina o el sitio de barequeo. Título, registro y municipio.'],['Compra','Peso bruto, ley, peso fino y certificado de origen.'],['Beneficio','Fundición o planta. Peso resultante y soporte.'],['Transporte','Guía, transportador y destino del mineral.'],['Venta','Comprador con RUCOM, factura y peso entregado.']],
+ ev:{extraccion:'Extracción',compra:'Compra',beneficio:'Beneficio / fundición',transporte:'Transporte',venta:'Venta',exportacion:'Exportación'},
+ tipos:{titular:'Titular minero en explotación',formalizacion:'Solicitante de legalización o formalización',are:'Beneficiario de Área de Reserva Especial',subcontrato:'Subcontratista de formalización',barequero:'Subsistencia: barequero',chatarrero:'Subsistencia: chatarrero',planta:'Planta de beneficio',comercializador:'Comercializador con RUCOM'},
+ minerales:{oro:'Oro',plata:'Plata',platino:'Platino'},
+ all:'Todos',open:'En ruta',closed:'Cerrado',noProv:'Aún no tienes proveedores. Agrega el primero o carga los datos de ejemplo en Informes.',noLote:'Aún no hay lotes. Registra tu primera compra.',
+ fine:'fino',gross:'bruto',law:'ley',cert:'Cert.',noCert:'Sin certificado',hidden:'Oculto',needProv:'Primero registra un proveedor.',
+ calc:(f,v)=>`Peso fino: <b>${f} g</b> · Valor: <b>${v}</b>`,saved:'Guardado',deleted:'Eliminado',
+ route:'Ruta del lote',addStep:'Agregar paso',print:'Imprimir ficha',share:'Compartir por WhatsApp',delLote:'Eliminar lote',avail:'Fino disponible',
+ photo:'Foto',gpsOk:'Ubicación tomada',gpsNo:'No se pudo tomar la ubicación',
+ alNone:'Todo en orden. No hay alertas por ahora.',
+ al:{noCert:(c,p)=>`El lote ${c} de ${p} no tiene número de certificado de origen.`,
+     cupo:(p,g,c)=>`${p} lleva ${g} g este mes y pasa el tope de subsistencia que configuraste (${c} g).`,
+     provV:(p,d)=>`El registro de ${p} venció el ${d}. No le compres hasta que lo renueve.`,
+     provP:(p,d)=>`El registro de ${p} vence el ${d}.`,
+     rucomV:d=>`Tu RUCOM venció el ${d}. Renuévalo en la plataforma de la ANM.`,
+     rucomP:d=>`Tu RUCOM vence el ${d}. Prepara la renovación.`,
+     rucomNo:'No has registrado tu número RUCOM ni su vigencia (pestaña Informes).',
+     stale:(c,d)=>`El lote ${c} lleva ${d} días sin cerrar su ruta.`,
+     over:(c)=>`El lote ${c} tiene más gramos vendidos que los comprados. Revisa los pesos.`,
+     buyerNo:(c)=>`La venta del lote ${c} no tiene RUCOM del comprador.`,
+     cupoNo:'Tienes proveedores de subsistencia pero no has configurado el tope mensual (pestaña Informes).'},
+ inf:{comp:'Fino comprado',vend:'Fino vendido',saldo:'Saldo (inventario)',val:'Valor comprado',prov:'Proveedor',g:'g finos',n:'Lotes',mun:'Municipio'},
+ pinAsk:'Escribe un PIN de administrador (4 a 6 números):',pinIn:'PIN de administrador:',pinBad:'PIN incorrecto',pinOk:'Datos sensibles visibles',
+ wipeAsk:'Esto borra todos los proveedores y lotes de este dispositivo. ¿Seguro?',demoAsk:'¿Cargar datos de ejemplo? Se agregan a los que ya tienes.',imported:'Copia restaurada',importBad:'Archivo no válido',
+ ticker:['Trazabilidad obligatoria en todo el país desde el 19 de noviembre de 2026','Sin certificado de origen no hay compra legal','Revisa la vigencia del RUCOM de tus proveedores y la tuya','Cada lote con su código, su foto y su ruta','Hecha en Caucasia para el Bajo Cauca'],
+ norm:[
+  ['Qué es','El Sistema de Trazabilidad de Minerales sigue el mineral desde que sale del subsuelo hasta que se vende o se exporta. Lo lidera la Agencia Nacional de Minería (ANM) y se apoya en el Decreto 2234 de 2023 y la Resolución ANM 759 de 2024 (Plataforma de Trazabilidad de Minerales), modificada por la Resolución 1549 de 2025.'],
+  ['Fechas','La fase de transición arrancó el 19 de mayo de 2026. Desde el 19 de noviembre de 2026 la trazabilidad es obligatoria en todo el territorio nacional.'],
+  ['A quién aplica','Comercializadores pequeños, medianos y grandes, plantas de beneficio, titulares mineros y en general la pequeña, mediana y gran minería. Oro, carbón, esmeraldas, materiales de construcción y otros minerales.'],
+  ['Cómo se reporta','La información se reporta por medio de los Operadores Tecnológicos de Trazabilidad de Minerales (OTTM) que la ANM habilita. Traza Minera te sirve para tener tus datos completos y ordenados antes de pasarlos a tu operador.'],
+  ['Explotador minero autorizado','Puede expedir certificado de origen: el titular minero en etapa de explotación (con PTO o PTI aprobado y licencia ambiental), el solicitante de legalización o formalización con autorización, el beneficiario de un Área de Reserva Especial y el subcontratista de formalización. Los mineros de subsistencia (barequeros y chatarreros) deben estar inscritos en la alcaldía.'],
+  ['Certificado de origen','Es el documento que prueba la procedencia lícita del mineral que se transporta, beneficia, comercializa o exporta. Lo expide el explotador minero autorizado y no tiene fecha de vencimiento. Guarda su número en cada lote.'],
+  ['RUCOM','El Registro Único de Comercializadores de Minerales lo administra la ANM. Comercializadores, casas de compraventa y plantas que compran mineral deben estar inscritos y con certificado vigente.'],
+  ['Consejos para no tener problemas','Nunca compres sin certificado de origen o constancia de la alcaldía. Verifica que el proveedor aparezca en los listados del RUCOM. Pesa y registra la ley en el momento. Toma foto del mineral y del documento. Cuadra cada mes lo comprado contra lo vendido.']
+ ]},
+ en:{
+ days:'days',hours:'hours',min:'min',seg:'sec',countNote:'until traceability becomes mandatory nationwide (November 19, 2026).',countDone:'Mining traceability has been mandatory nationwide since November 19, 2026.',
+ kLotes:'Lots',kFino:'Fine grams bought',kVal:'Purchase value',kProv:'Suppliers',kAl:'Active alerts',kStock:'Fine in stock',
+ links:[['Extraction','The mine or panning site. Title, registry and town.'],['Purchase','Gross weight, fineness, fine weight and certificate of origin.'],['Processing','Smelter or plant. Resulting weight and receipt.'],['Transport','Waybill, carrier and destination.'],['Sale','Buyer with RUCOM, invoice and delivered weight.']],
+ ev:{extraccion:'Extraction',compra:'Purchase',beneficio:'Processing / smelting',transporte:'Transport',venta:'Sale',exportacion:'Export'},
+ tipos:{titular:'Mining title holder (exploitation)',formalizacion:'Legalization / formalization applicant',are:'Special Reserve Area beneficiary',subcontrato:'Formalization subcontractor',barequero:'Subsistence: panner',chatarrero:'Subsistence: scrap collector',planta:'Processing plant',comercializador:'Trader with RUCOM'},
+ minerales:{oro:'Gold',plata:'Silver',platino:'Platinum'},
+ all:'All',open:'In route',closed:'Closed',noProv:'No suppliers yet. Add the first one or load sample data in Reports.',noLote:'No lots yet. Record your first purchase.',
+ fine:'fine',gross:'gross',law:'fineness',cert:'Cert.',noCert:'No certificate',hidden:'Hidden',needProv:'Register a supplier first.',
+ calc:(f,v)=>`Fine weight: <b>${f} g</b> · Value: <b>${v}</b>`,saved:'Saved',deleted:'Deleted',
+ route:'Lot route',addStep:'Add step',print:'Print sheet',share:'Share on WhatsApp',delLote:'Delete lot',avail:'Fine available',
+ photo:'Photo',gpsOk:'Location captured',gpsNo:'Could not get location',
+ alNone:'All good. No alerts for now.',
+ al:{noCert:(c,p)=>`Lot ${c} from ${p} has no certificate of origin number.`,
+     cupo:(p,g,c)=>`${p} has ${g} g this month, above the subsistence cap you set (${c} g).`,
+     provV:(p,d)=>`${p}'s registry expired on ${d}. Do not buy until renewed.`,
+     provP:(p,d)=>`${p}'s registry expires on ${d}.`,
+     rucomV:d=>`Your RUCOM expired on ${d}. Renew it on the ANM platform.`,
+     rucomP:d=>`Your RUCOM expires on ${d}. Prepare the renewal.`,
+     rucomNo:'You have not entered your RUCOM number and validity (Reports tab).',
+     stale:(c,d)=>`Lot ${c} has been open for ${d} days.`,
+     over:(c)=>`Lot ${c} has more grams sold than bought. Check the weights.`,
+     buyerNo:(c)=>`The sale of lot ${c} has no buyer RUCOM.`,
+     cupoNo:'You have subsistence suppliers but no monthly cap configured (Reports tab).'},
+ inf:{comp:'Fine bought',vend:'Fine sold',saldo:'Balance (stock)',val:'Purchase value',prov:'Supplier',g:'fine g',n:'Lots',mun:'Town'},
+ pinAsk:'Enter an admin PIN (4 to 6 digits):',pinIn:'Admin PIN:',pinBad:'Wrong PIN',pinOk:'Sensitive data visible',
+ wipeAsk:'This deletes all suppliers and lots on this device. Are you sure?',demoAsk:'Load sample data? It is added to your current data.',imported:'Backup restored',importBad:'Invalid file',
+ ticker:['Traceability mandatory nationwide from November 19, 2026','No certificate of origin, no legal purchase','Check your suppliers’ RUCOM validity and your own','Every lot with its code, photo and route','Made in Caucasia for Bajo Cauca'],
+ norm:[
+  ['What it is','The Mineral Traceability System follows minerals from the ground to sale or export. It is led by Colombia’s National Mining Agency (ANM) and based on Decree 2234 of 2023 and ANM Resolution 759 of 2024 (Mineral Traceability Platform), amended by Resolution 1549 of 2025.'],
+  ['Dates','The transition phase started on May 19, 2026. From November 19, 2026, traceability is mandatory nationwide.'],
+  ['Who it applies to','Small, medium and large traders, processing plants, title holders and small, medium and large-scale mining in general. Gold, coal, emeralds, construction materials and other minerals.'],
+  ['How it is reported','Data is reported through the Mineral Traceability Technology Operators (OTTM) authorized by the ANM. Traza Minera keeps your data complete and organized before you pass it to your operator.'],
+  ['Authorized mining operator','Can issue a certificate of origin: the title holder in exploitation stage (with approved work plan and environmental license), authorized legalization or formalization applicants, Special Reserve Area beneficiaries and formalization subcontractors. Subsistence miners (panners and scrap collectors) must be registered with the town hall.'],
+  ['Certificate of origin','The document proving the lawful origin of mineral that is transported, processed, traded or exported. Issued by the authorized operator, it does not expire. Keep its number on every lot.'],
+  ['RUCOM','The Single Registry of Mineral Traders is managed by the ANM. Traders, buy-and-sell shops and plants that buy minerals must be registered with a valid certificate.'],
+  ['Tips to stay safe','Never buy without a certificate of origin or town hall record. Check the supplier is on the RUCOM lists. Weigh and record fineness on the spot. Photograph the mineral and the document. Reconcile bought vs sold every month.']
+ ]}
+};
+let lang=localStorage.getItem('tm.lang')||'es';
+const t=k=>T[lang][k];
+
+/* ---------- Data ---------- */
+let db=load();
+function load(){try{return Object.assign({cfg:{},prov:[],lotes:[],seq:0},JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){return{cfg:{},prov:[],lotes:[],seq:0}}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(db))}catch(e){toast(lang==='es'?'La memoria del teléfono está llena: usa fotos más pequeñas o haz copia y borra lotes viejos.':'Storage full: use smaller photos or back up and delete old lots.')}}
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const hoy=()=>new Intl.DateTimeFormat('en-CA',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+const mesHoy=()=>hoy().slice(0,7);
+const fmtD=d=>d?new Date(d+'T12:00:00-05:00').toLocaleDateString(lang==='es'?'es-CO':'en-US',{timeZone:TZ,day:'numeric',month:'short',year:'numeric'}):'';
+const money=v=>new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0}).format(v||0);
+const moneyK=v=>{v=v||0;const a=Math.abs(v);return a>=1e9?'$'+g2(v/1e9)+(lang==='es'?' mil M':' B'):a>=1e6?'$'+g2(v/1e6)+' M':money(v)};
+const g2=v=>new Intl.NumberFormat(lang==='es'?'es-CO':'en-US',{maximumFractionDigits:2}).format(v||0);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const daysBetween=(a,b)=>Math.round((new Date(b+'T12:00:00')-new Date(a+'T12:00:00'))/864e5);
+let adminOn=false;
+const mask=v=>{if(!v)return'';if(adminOn)return esc(v);const s=String(v);return '•••• '+esc(s.slice(-3))};
+const provById=id=>db.prov.find(p=>p.id===id);
+const SUBS=['barequero','chatarrero'];
+
+function loteFino(l){return +l.fino||0}
+function loteVendido(l){return (l.eventos||[]).filter(e=>e.tipo==='venta'||e.tipo==='exportacion').reduce((s,e)=>s+(+e.peso||0),0)}
+function loteBase(l){const b=(l.eventos||[]).filter(e=>e.tipo==='beneficio'&&+e.peso>0).pop();return b?+b.peso:loteFino(l)}
+function loteDisp(l){return Math.max(0,loteBase(l)-loteVendido(l))}
+function loteStage(l){const order=['extraccion','compra','beneficio','transporte','venta'];let n=0;order.forEach((k,i)=>{if((l.eventos||[]).some(e=>e.tipo===k||(k==='venta'&&e.tipo==='exportacion')))n=Math.max(n,i+1)});return n}
+function loteCerrado(l){return loteVendido(l)>0&&loteDisp(l)<=0.005}
+
+/* ---------- i18n apply ---------- */
+function applyLang(){
+  document.documentElement.lang=lang;
+  if(!I.es._done){document.querySelectorAll('[data-i18n]').forEach(e=>I.es[e.dataset.i18n]=e.textContent);document.querySelectorAll('[data-i18n-html]').forEach(e=>I.es[e.dataset.i18nHtml]=e.innerHTML);document.querySelectorAll('[data-i18n-ph]').forEach(e=>I.es[e.dataset.i18nPh]=e.placeholder);I.es._done=1}
+  const D=I[lang];
+  document.querySelectorAll('[data-i18n]').forEach(e=>{const v=D[e.dataset.i18n]??I.es[e.dataset.i18n];if(v!=null)e.textContent=v});
+  document.querySelectorAll('[data-i18n-html]').forEach(e=>{const v=D[e.dataset.i18nHtml]??I.es[e.dataset.i18nHtml];if(v!=null)e.innerHTML=v});
+  document.querySelectorAll('[data-i18n-ph]').forEach(e=>{const v=D[e.dataset.i18nPh]??I.es[e.dataset.i18nPh];if(v!=null)e.placeholder=v});
+  document.getElementById('btnLang').textContent=lang==='es'?'EN':'ES';
+  document.getElementById('tickerText').innerHTML=[...t('ticker'),...t('ticker')].map(s=>`<span>${esc(s)}</span>`).join('');
+  fillSelects();renderAll();
+}
+document.getElementById('btnLang').onclick=()=>{lang=lang==='es'?'en':'es';localStorage.setItem('tm.lang',lang);applyLang()};
+
+function fillSelects(){
+  const tipos=t('tipos'),mins=t('minerales'),ev=t('ev');
+  pTipo.innerHTML=Object.entries(tipos).filter(([k])=>!['planta','comercializador'].includes(k)).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
+  lMineral.innerHTML=Object.entries(mins).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
+  eTipo.innerHTML=Object.entries(ev).filter(([k])=>!['extraccion','compra'].includes(k)).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
+  fProv.innerHTML=`<option value="">${t('all')}</option>`+Object.entries(tipos).filter(([k])=>!['planta','comercializador'].includes(k)).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
+  fLote.innerHTML=`<option value="">${t('all')}</option><option value="open">${t('open')}</option><option value="closed">${t('closed')}</option>`;
+}
+document.getElementById('munis').innerHTML=MUNIS.map(m=>`<option value="${m}">`).join('');
+
+/* ---------- Navigation ---------- */
+function go(v){
+  document.querySelectorAll('section.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
+  window.scrollTo({top:0,behavior:'smooth'});
+  renderAll();
+}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>go(b.dataset.v));
+
+/* ---------- Images (real photos with fallbacks) ---------- */
+function firstOk(list){return new Promise(res=>{let i=0;const tryN=()=>{if(i>=list.length)return res(null);const im=new Image();const src=list[i++];im.onload=()=>res(src);im.onerror=tryN;im.src=src};tryN()})}
+async function loadHero(){
+  const v=document.getElementById('heroVideo');
+  v.src='fotos/hero.mp4';
+  v.onloadeddata=()=>{v.style.display='block';v.play().catch(()=>{})};
+  v.onerror=()=>{v.removeAttribute('src')};
+  const ok=[];for(const s of PH.hero){const r=await firstOk([s]);if(r)ok.push(r)}
+  if(!ok.length)return;
+  let k=0;const A=bgA,B=bgB;A.style.backgroundImage=`url("${ok[0]}")`;A.classList.add('on');
+  if(ok.length>1)setInterval(()=>{k=(k+1)%ok.length;const show=k%2?B:A,hide=k%2?A:B;show.style.backgroundImage=`url("${ok[k]}")`;show.classList.add('on');hide.classList.remove('on')},6500);
+}
+async function loadChainPhotos(){
+  const keys=['extraccion','compra','beneficio','transporte','venta'];
+  for(let i=0;i<keys.length;i++){const s=await firstOk(PH[keys[i]]);const el=document.querySelector(`#chain .link:nth-child(${i+1}) .ph`);if(s&&el)el.style.backgroundImage=`url("${s}")`}
+}
+
+/* ---------- Countdown ---------- */
+function tickCount(){
+  const el=document.getElementById('countdown');let ms=DEADLINE-new Date();
+  if(ms<=0){el.innerHTML=`<div class="note"><b style="color:var(--gold2)">${t('countDone')}</b></div>`;return}
+  const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60,s=Math.floor(ms/1e3)%60;
+  el.innerHTML=[[d,t('days')],[h,t('hours')],[m,t('min')],[s,t('seg')]].map(([n,l])=>`<div class="u"><b>${String(n).padStart(2,'0')}</b><small>${l}</small></div>`).join('')+`<div class="note">${t('countNote')}</div>`;
+}
+setInterval(tickCount,1000);
+
+/* ---------- Counters animation ---------- */
+function animateNum(el,to,fmt){const from=0,dur=900,t0=performance.now();const step=n=>{const p=Math.min(1,(n-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=fmt(from+(to-from)*e);if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+
+/* ---------- Render ---------- */
+function renderAll(){renderHome();renderProv();renderLotes();renderAlerts();renderInf();renderNorm();tickCount()}
+
+function renderHome(){
+  const fino=db.lotes.reduce((s,l)=>s+loteFino(l),0),val=db.lotes.reduce((s,l)=>s+(+l.valor||0),0),stock=db.lotes.reduce((s,l)=>s+loteDisp(l),0),al=computeAlerts();
+  const k=[[db.lotes.length,t('kLotes'),v=>Math.round(v)],[fino,t('kFino'),g2],[stock,t('kStock'),g2],[val,t('kVal'),moneyK],[db.prov.length,t('kProv'),v=>Math.round(v)],[al.filter(a=>a.lvl!=='ok').length,t('kAl'),v=>Math.round(v),true]];
+  kpis.innerHTML=k.map((x,i)=>`<div class="kpi ${x[3]&&x[0]>0?'alert':''}"><b id="kp${i}">0</b><span>${x[1]}</span></div>`).join('');
+  k.forEach((x,i)=>animateNum(document.getElementById('kp'+i),x[0],x[2]));
+  const L=t('links');
+  if(!chain.dataset.built||chain.dataset.lang!==lang){chain.innerHTML=L.map((x,i)=>`<div class="link reveal"><div class="ph"></div><div class="t"><div class="n">0${i+1}</div><h3>${x[0]}</h3><p>${x[1]}</p></div></div>`).join('');chain.dataset.built=1;chain.dataset.lang=lang;loadChainPhotos();observe()}
+  const last=[...db.lotes].sort((a,b)=>(b.fecha+b.creado).localeCompare(a.fecha+a.creado)).slice(0,5);
+  lastLotes.innerHTML=last.length?last.map(loteRow).join(''):`<div class="empty">${t('noLote')}</div>`;
+  const n=al.filter(a=>a.lvl==='bad').length;alBadge.style.display=n?'inline':'none';alBadge.textContent=n;
+}
+
+function provRow(p){
+  const tipo=t('tipos')[p.tipo]||p.tipo,vence=p.vence&&p.vence<hoy();
+  const ini=(p.nombre||'?').split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase();
+  const gMes=db.lotes.filter(l=>l.provId===p.id&&l.fecha.startsWith(mesHoy())).reduce((s,l)=>s+loteFino(l),0);
+  return `<div class="row" onclick="openProv('${p.id}')"><div class="thumb">${esc(ini)}</div><div class="main"><b>${esc(p.nombre)}</b><small>${esc(tipo)} · ${esc(p.mun||'')}${p.titulo?' · '+esc(p.titulo):''}</small><div style="margin-top:4px">${vence?`<span class="tag bad">${lang==='es'?'Registro vencido':'Registry expired'}</span>`:`<span class="tag ok">${lang==='es'?'Al día':'Valid'}</span>`}<span class="tag n">${mask(p.doc)||t('hidden')}</span></div></div><div class="side">${g2(gMes)} g<br><small style="font-size:12px;color:var(--muted);font-family:Barlow">${lang==='es'?'este mes':'this month'}</small></div></div>`;
+}
+function renderProv(){
+  const q=(qProv.value||'').toLowerCase(),f=fProv.value;
+  const list=db.prov.filter(p=>(!f||p.tipo===f)&&(`${p.nombre} ${p.titulo} ${p.mun} ${p.mina}`.toLowerCase().includes(q)));
+  provList.innerHTML=list.length?list.map(provRow).join(''):`<div class="empty">${t('noProv')}</div>`;
+}
+
+function loteRow(l){
+  const p=provById(l.provId)||{nombre:'—'},st=loteStage(l),cl=loteCerrado(l);
+  return `<div class="row" onclick="openRuta('${l.id}')"><div class="thumb" style="${l.foto?`background-image:url('${l.foto}')`:''}">${l.foto?'':(t('minerales')[l.mineral]||'').slice(0,2).toUpperCase()}</div>
+  <div class="main"><b>${esc(l.codigo)} · ${esc(p.nombre)}</b><small>${fmtD(l.fecha)} · ${esc(l.origen||'')} · ${g2(l.bruto)} g ${t('gross')} · ${t('law')} ${esc(l.ley||'—')}</small>
+  <div style="margin-top:4px">${l.cert?`<span class="tag ok">${t('cert')} ${esc(l.cert)}</span>`:`<span class="tag bad">${t('noCert')}</span>`}<span class="tag ${cl?'n':'warn'}">${cl?t('closed'):t('open')}</span></div>
+  <div class="steps" style="margin:8px 0 0">${[1,2,3,4,5].map(i=>`<i class="${i<=st?'done':''}"></i>`).join('')}</div></div>
+  <div class="side">${g2(loteFino(l))} g<br><small style="font-size:12px;color:var(--muted);font-family:Barlow">${t('fine')}</small></div></div>`;
+}
+function renderLotes(){
+  const q=(qLote.value||'').toLowerCase(),f=fLote.value;
+  const list=[...db.lotes].sort((a,b)=>(b.fecha+b.creado).localeCompare(a.fecha+a.creado)).filter(l=>{const p=provById(l.provId)||{};const cl=loteCerrado(l);return(!f||(f==='open'?!cl:cl))&&`${l.codigo} ${p.nombre} ${l.cert} ${l.origen}`.toLowerCase().includes(q)});
+  loteList.innerHTML=list.length?list.map(loteRow).join(''):`<div class="empty">${t('noLote')}</div>`;
+}
+
+/* ---------- Alerts ---------- */
+function computeAlerts(){
+  const A=[],H=hoy(),M=mesHoy(),al=t('al'),c=db.cfg;
+  const in30=d=>d&&d>=H&&daysBetween(H,d)<=30;
+  if(!c.rucom||!c.rucomV)A.push({lvl:'warn',msg:al.rucomNo});
+  else if(c.rucomV<H)A.push({lvl:'bad',msg:al.rucomV(fmtD(c.rucomV))});
+  else if(in30(c.rucomV))A.push({lvl:'warn',msg:al.rucomP(fmtD(c.rucomV))});
+  const cupo=+c.cupo||0;
+  if(!cupo&&db.prov.some(p=>SUBS.includes(p.tipo)))A.push({lvl:'warn',msg:al.cupoNo});
+  db.prov.forEach(p=>{
+    if(p.vence&&p.vence<H)A.push({lvl:'bad',msg:al.provV(p.nombre,fmtD(p.vence))});
+    else if(in30(p.vence))A.push({lvl:'warn',msg:al.provP(p.nombre,fmtD(p.vence))});
+    if(cupo&&SUBS.includes(p.tipo)){const g=db.lotes.filter(l=>l.provId===p.id&&l.fecha.startsWith(M)).reduce((s,l)=>s+(+l.bruto||0),0);if(g>cupo)A.push({lvl:'bad',msg:al.cupo(p.nombre,g2(g),g2(cupo))})}
+  });
+  db.lotes.forEach(l=>{
+    const p=provById(l.provId)||{nombre:'—'};
+    if(!l.cert)A.push({lvl:'bad',msg:al.noCert(l.codigo,p.nombre),lote:l.id});
+    if(loteVendido(l)>loteBase(l)+0.005)A.push({lvl:'bad',msg:al.over(l.codigo),lote:l.id});
+    (l.eventos||[]).filter(e=>e.tipo==='venta'&&!e.rucom).forEach(()=>A.push({lvl:'warn',msg:al.buyerNo(l.codigo),lote:l.id}));
+    const d=daysBetween(l.fecha,H);if(!loteCerrado(l)&&d>15)A.push({lvl:'warn',msg:al.stale(l.codigo,d),lote:l.id});
+  });
+  return A;
+}
+function renderAlerts(){
+  const A=computeAlerts().sort((a,b)=>(a.lvl==='bad'?0:1)-(b.lvl==='bad'?0:1));
+  alList.innerHTML=A.length?A.map(a=>`<div class="row al ${a.lvl}" ${a.lote?`onclick="openRuta('${a.lote}')"`:''}><div class="main"><span class="tag ${a.lvl==='bad'?'bad':'warn'}">${a.lvl==='bad'?(lang==='es'?'Urgente':'Urgent'):(lang==='es'?'Revisar':'Review')}</span><div style="margin-top:6px;color:#eee">${esc(a.msg)}</div></div></div>`).join(''):`<div class="row al ok"><div class="main">${t('alNone')}</div></div>`;
+}
+
+/* ---------- Reports ---------- */
+function renderInf(){
+  if(!mes.value)mes.value=mesHoy();
+  const M=mes.value,L=db.lotes.filter(l=>l.fecha.startsWith(M)),x=t('inf');
+  const comp=L.reduce((s,l)=>s+loteFino(l),0);
+  const vend=db.lotes.reduce((s,l)=>s+(l.eventos||[]).filter(e=>(e.tipo==='venta'||e.tipo==='exportacion')&&(e.fecha||'').startsWith(M)).reduce((a,e)=>a+(+e.peso||0),0),0);
+  const stock=db.lotes.reduce((s,l)=>s+loteDisp(l),0),val=L.reduce((s,l)=>s+(+l.valor||0),0);
+  infKpis.innerHTML=[[g2(comp)+' g',x.comp],[g2(vend)+' g',x.vend],[g2(stock)+' g',x.saldo],[moneyK(val),x.val]].map(k=>`<div class="kpi"><b>${k[0]}</b><span>${k[1]}</span></div>`).join('');
+  const byP={},byM={};L.forEach(l=>{const p=provById(l.provId)||{nombre:'—'};byP[p.nombre]=byP[p.nombre]||[0,0];byP[p.nombre][0]++;byP[p.nombre][1]+=loteFino(l);const m=l.origen||'—';byM[m]=(byM[m]||0)+loteFino(l)});
+  infProv.innerHTML=Object.keys(byP).length?`<table><tr><th>${x.prov}</th><th>${x.n}</th><th>${x.g}</th></tr>${Object.entries(byP).sort((a,b)=>b[1][1]-a[1][1]).map(([k,v])=>`<tr><td>${esc(k)}</td><td>${v[0]}</td><td>${g2(v[1])}</td></tr>`).join('')}</table>`:`<div class="empty">—</div>`;
+  const tot=Object.values(byM).reduce((a,b)=>a+b,0)||1;
+  infMun.innerHTML=Object.keys(byM).length?Object.entries(byM).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div style="margin:8px 0"><div style="display:flex;justify-content:space-between;font-size:14px"><span>${esc(k)}</span><b style="color:var(--gold2)">${g2(v)} g</b></div><div style="height:8px;background:#262626;border-radius:4px;overflow:hidden"><div style="height:100%;width:${(v/tot*100).toFixed(1)}%;background:linear-gradient(90deg,var(--gold3),var(--gold2));animation:grow .8s ease;transform-origin:left"></div></div></div>`).join(''):`<div class="empty">—</div>`;
+  const c=db.cfg;cEmp.value=c.emp||'';cNit.value=c.nit||'';cRucom.value=c.rucom||'';cRucomV.value=c.rucomV||'';cMun.value=c.mun||'Caucasia';cCupo.value=c.cupo||'';
+}
+function saveCfg(){db.cfg={...db.cfg,emp:cEmp.value.trim(),nit:cNit.value.trim(),rucom:cRucom.value.trim(),rucomV:cRucomV.value,mun:cMun.value.trim(),cupo:cCupo.value};save();toast(t('saved'));renderAll()}
+
+/* ---------- Norma ---------- */
+function renderNorm(){normBox.innerHTML=t('norm').map(([h,p])=>`<div class="card reveal"><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join('')+`<div class="disclaimer">${esc(I[lang].disclaimer||I.es.disclaimer)}</div>`;observe()}
+
+/* ---------- Modals ---------- */
+function openM(id){document.getElementById(id).classList.add('on')}
+function closeM(id){document.getElementById(id).classList.remove('on')}
+document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('on')}));
+
+function openProv(id){
+  const p=id?provById(id):{};pId.value=id||'';pNombre.value=p.nombre||'';pTipo.value=p.tipo||'titular';
+  pDoc.value=id&&!adminOn?'':(p.doc||'');pDoc.placeholder=id&&!adminOn?(lang==='es'?'Oculto: requiere PIN':'Hidden: PIN required'):'';
+  pTel.value=id&&!adminOn?'':(p.tel||'');pTel.placeholder=pDoc.placeholder;
+  pTitulo.value=p.titulo||'';pMun.value=p.mun||'';pVence.value=p.vence||'';pMina.value=p.mina||'';pDel.style.display=id?'inline-block':'none';openM('mProv');
+}
+function saveProv(){
+  if(!pNombre.value.trim())return pNombre.focus();
+  const id=pId.value,old=id?provById(id):null;
+  const p={id:id||uid(),nombre:pNombre.value.trim(),tipo:pTipo.value,doc:pDoc.value.trim()||(old?old.doc:''),tel:pTel.value.trim()||(old?old.tel:''),titulo:pTitulo.value.trim(),mun:pMun.value.trim(),vence:pVence.value,mina:pMina.value.trim(),creado:old?old.creado:new Date().toISOString()};
+  if(old)Object.assign(old,p);else db.prov.push(p);save();closeM('mProv');toast(t('saved'));renderAll();
+}
+function delProv(){const id=pId.value;if(db.lotes.some(l=>l.provId===id)){toast(lang==='es'?'Tiene lotes registrados: no se puede borrar.':'Has lots: cannot delete.');return}db.prov=db.prov.filter(p=>p.id!==id);save();closeM('mProv');toast(t('deleted'));renderAll()}
+
+let photoData='',gps='';
+function openLote(){
+  if(!db.prov.length){toast(t('needProv'));go('prov');setTimeout(()=>openProv(),300);return}
+  lFecha.value=hoy();lProv.innerHTML=db.prov.map(p=>`<option value="${p.id}">${esc(p.nombre)} — ${esc(t('tipos')[p.tipo]||'')}</option>`).join('');
+  lBruto.value='';lLey.value='';lPrecio.value=localStorage.getItem('tm.precio')||'';lCert.value='';lObs.value='';lGps.value='';gps='';photoData='';lFotoPrev.style.display='none';lFoto.value='';
+  lOrigen.value=(provById(lProv.value)||{}).mun||'';lProv.onchange=()=>{lOrigen.value=(provById(lProv.value)||{}).mun||''};
+  calcLote();openM('mLote');
+}
+function calcLote(){const f=(+lBruto.value||0)*(+lLey.value||0)/1000;lCalc.innerHTML=t('calc')(g2(f),money(f*(+lPrecio.value||0)))}
+function getGps(){if(!navigator.geolocation)return toast(t('gpsNo'));navigator.geolocation.getCurrentPosition(p=>{gps=p.coords.latitude.toFixed(6)+','+p.coords.longitude.toFixed(6);lGps.value=gps;toast(t('gpsOk'))},()=>toast(t('gpsNo')),{enableHighAccuracy:true,timeout:12000})}
+function readPhoto(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const max=900,sc=Math.min(1,max/Math.max(im.width,im.height));const c=document.createElement('canvas');c.width=im.width*sc;c.height=im.height*sc;c.getContext('2d').drawImage(im,0,0,c.width,c.height);photoData=c.toDataURL('image/jpeg',.62);lFotoPrev.src=photoData;lFotoPrev.style.display='block'};im.src=r.result};r.readAsDataURL(f)}
+function saveLote(){
+  const bruto=+lBruto.value,ley=+lLey.value;if(!bruto)return lBruto.focus();if(!ley||ley>1000)return lLey.focus();
+  const p=provById(lProv.value),fino=+(bruto*ley/1000).toFixed(3),precio=+lPrecio.value||0;if(precio)localStorage.setItem('tm.precio',precio);
+  db.seq=(db.seq||0)+1;const yr=lFecha.value.slice(0,4);
+  const l={id:uid(),codigo:`TM-${yr}-${String(db.seq).padStart(4,'0')}`,fecha:lFecha.value,provId:p.id,mineral:lMineral.value,bruto,ley,fino,precio,valor:Math.round(fino*precio),cert:lCert.value.trim(),origen:lOrigen.value.trim(),gps,foto:photoData,obs:lObs.value.trim(),creado:new Date().toISOString(),
+    eventos:[{id:uid(),tipo:'extraccion',fecha:lFecha.value,contra:p.nombre+(p.mina?' — '+p.mina:''),doc:p.titulo||'',det:(t('tipos')[p.tipo]||'')+(lOrigen.value?' · '+lOrigen.value:'')},
+             {id:uid(),tipo:'compra',fecha:lFecha.value,contra:db.cfg.emp||'',rucom:db.cfg.rucom||'',doc:lCert.value.trim(),peso:fino,valor:Math.round(fino*precio),det:`${g2(bruto)} g ${t('gross')} · ${t('law')} ${ley}`}]};
+  db.lotes.push(l);save();closeM('mLote');toast(t('saved')+' · '+l.codigo);renderAll();setTimeout(()=>openRuta(l.id),250);
+}
+
+function openRuta(id){
+  const l=db.lotes.find(x=>x.id===id);if(!l)return;const p=provById(l.provId)||{nombre:'—'},ev=t('ev'),st=loteStage(l);
+  const qrData=encodeURIComponent(`${l.codigo} | ${p.nombre} | ${l.fecha} | ${g2(l.fino)} g fino | Cert ${l.cert||'-'} | ${l.origen||''}`);
+  rutaBox.innerHTML=`<button class="x" onclick="closeM('mRuta')">${lang==='es'?'Cerrar':'Close'}</button>
+  <h3>${esc(l.codigo)}</h3><small style="color:var(--muted)">${t('route')} · ${esc(t('minerales')[l.mineral]||'')} · ${fmtD(l.fecha)}</small>
+  <div class="steps">${[1,2,3,4,5].map(i=>`<i class="${i<=st?'done':''}"></i>`).join('')}</div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start">
+   ${l.foto?`<img src="${l.foto}" style="width:150px;height:150px;object-fit:cover;border-radius:12px">`:''}
+   <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&margin=6&data=${qrData}" width="150" height="150" style="border-radius:12px;background:#fff" alt="QR" onerror="this.remove()">
+   <div style="flex:1;min-width:180px;font-size:14px;color:#ccc">
+     <div><b style="color:#fff">${esc(p.nombre)}</b></div><div>${esc(t('tipos')[p.tipo]||'')}</div><div>${esc(p.titulo||'')}</div>
+     <div class="calc" style="margin-top:8px">${t('avail')}: <b>${g2(loteDisp(l))} g</b><br><small>${g2(l.bruto)} g ${t('gross')} · ${t('law')} ${l.ley} · ${money(l.valor)}</small></div>
+     ${l.gps?`<div style="margin-top:6px"><a href="https://maps.google.com/?q=${l.gps}" target="_blank" rel="noopener">GPS ${esc(l.gps)}</a></div>`:''}
+   </div></div>
+  <div class="cta" style="margin:14px 0"><button class="btn gold sm" onclick="openEv('${l.id}')">${t('addStep')}</button><button class="btn dark sm" onclick="printLote('${l.id}')">${t('print')}</button><button class="btn dark sm" onclick="shareLote('${l.id}')">${t('share')}</button></div>
+  <div class="tl">${(l.eventos||[]).map(e=>`<div class="ev"><b>${esc(ev[e.tipo]||e.tipo)}</b> <small>${fmtD(e.fecha)}</small><div style="font-size:14px;color:#ddd;margin-top:3px">${esc(e.contra||'')}${e.rucom?' · RUCOM '+esc(e.rucom):''}</div><small>${e.doc?esc(e.doc)+' · ':''}${e.peso?g2(e.peso)+' g · ':''}${e.valor?money(e.valor)+' · ':''}${esc(e.det||'')}</small>${!['extraccion','compra'].includes(e.tipo)?` <button class="chip" style="padding:3px 9px;font-size:11px;margin-left:6px" onclick="delEv('${l.id}','${e.id}')">${lang==='es'?'Quitar':'Remove'}</button>`:''}</div>`).join('')}</div>
+  ${l.obs?`<p class="privacy">${esc(l.obs)}</p>`:''}
+  <div class="cta"><button class="btn red sm" onclick="delLote('${l.id}')">${t('delLote')}</button></div>`;
+  openM('mRuta');
+}
+function openEv(id){eLote.value=id;eFecha.value=hoy();eContra.value='';eRucom.value='';eDoc.value='';ePeso.value='';eValor.value='';eDet.value='';const l=db.lotes.find(x=>x.id===id);eTipo.value=l.eventos.some(e=>e.tipo==='beneficio')?(l.eventos.some(e=>e.tipo==='transporte')?'venta':'transporte'):'beneficio';evHints();openM('mEv')}
+function evHints(){const l=db.lotes.find(x=>x.id===eLote.value);if(['venta','exportacion'].includes(eTipo.value)&&l)ePeso.value=Math.round(loteDisp(l)*1000)/1000}
+function saveEv(){const l=db.lotes.find(x=>x.id===eLote.value);l.eventos.push({id:uid(),tipo:eTipo.value,fecha:eFecha.value,contra:eContra.value.trim(),rucom:eRucom.value.trim(),doc:eDoc.value.trim(),peso:+ePeso.value||0,valor:+eValor.value||0,det:eDet.value.trim()});save();closeM('mEv');toast(t('saved'));renderAll();openRuta(l.id)}
+function delEv(lid,eid){const l=db.lotes.find(x=>x.id===lid);l.eventos=l.eventos.filter(e=>e.id!==eid);save();renderAll();openRuta(lid)}
+function delLote(id){if(!confirm(lang==='es'?'¿Eliminar este lote?':'Delete this lot?'))return;db.lotes=db.lotes.filter(l=>l.id!==id);save();closeM('mRuta');toast(t('deleted'));renderAll()}
+function shareLote(id){const l=db.lotes.find(x=>x.id===id),p=provById(l.provId)||{};const txt=`${l.codigo}\n${p.nombre}\n${fmtD(l.fecha)} · ${l.origen||''}\n${g2(l.fino)} g ${t('fine')} · ${t('law')} ${l.ley}\n${t('cert')} ${l.cert||'—'}\n— Traza Minera · Vibras Positivas HM`;window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank')}
+
+/* ---------- Print ---------- */
+function head(title){const c=db.cfg;return `<h1>${esc(title)}</h1><div style="font-size:12px;margin-bottom:10px">${esc(c.emp||'')} ${c.nit?'· NIT '+esc(c.nit):''} ${c.rucom?'· RUCOM '+esc(c.rucom):''} · ${esc(c.mun||'')}<br>${lang==='es'?'Generado':'Generated'}: ${new Date().toLocaleString('es-CO',{timeZone:TZ})} (hora Colombia)</div>`}
+const foot=()=>`<p style="margin-top:16px;font-size:10px">Desarrollada por Vibras Positivas HM — Derechos de Autor Reservados. Herramienta de control interno; no reemplaza el reporte ante el operador de trazabilidad habilitado por la ANM.</p>`;
+function printLote(id){const l=db.lotes.find(x=>x.id===id),p=provById(l.provId)||{},ev=t('ev');printArea.innerHTML=head((lang==='es'?'Ficha de trazabilidad ':'Traceability sheet ')+l.codigo)+`<table><tr><th>${lang==='es'?'Proveedor':'Supplier'}</th><td>${esc(p.nombre)} — ${esc(t('tipos')[p.tipo]||'')}</td></tr><tr><th>${lang==='es'?'Título / registro':'Title / registry'}</th><td>${esc(p.titulo||'')}</td></tr><tr><th>${lang==='es'?'Origen':'Origin'}</th><td>${esc(l.origen||'')} ${l.gps?'· GPS '+esc(l.gps):''}</td></tr><tr><th>Mineral</th><td>${esc(t('minerales')[l.mineral])}</td></tr><tr><th>${lang==='es'?'Pesos':'Weights'}</th><td>${g2(l.bruto)} g ${t('gross')} · ${t('law')} ${l.ley} · ${g2(l.fino)} g ${t('fine')}</td></tr><tr><th>${t('cert')}</th><td>${esc(l.cert||'—')}</td></tr></table><h3 style="margin-top:12px">${t('route')}</h3><table><tr><th>${lang==='es'?'Eslabón':'Link'}</th><th>${lang==='es'?'Fecha':'Date'}</th><th>${lang==='es'?'Contraparte':'Counterparty'}</th><th>RUCOM</th><th>Doc.</th><th>g</th></tr>${l.eventos.map(e=>`<tr><td>${esc(ev[e.tipo])}</td><td>${esc(e.fecha)}</td><td>${esc(e.contra||'')}</td><td>${esc(e.rucom||'')}</td><td>${esc(e.doc||'')}</td><td>${e.peso?g2(e.peso):''}</td></tr>`).join('')}</table>${foot()}`;window.print()}
+function printLibro(){const M=mes.value,L=db.lotes.filter(l=>l.fecha.startsWith(M)).sort((a,b)=>a.fecha.localeCompare(b.fecha));printArea.innerHTML=head((lang==='es'?'Libro de control de compras — ':'Purchase control book — ')+M)+`<table><tr><th>${lang==='es'?'Código':'Code'}</th><th>${lang==='es'?'Fecha':'Date'}</th><th>${lang==='es'?'Proveedor':'Supplier'}</th><th>${lang==='es'?'Tipo':'Type'}</th><th>${lang==='es'?'Título/registro':'Title'}</th><th>${lang==='es'?'Origen':'Origin'}</th><th>g ${t('gross')}</th><th>${t('law')}</th><th>g ${t('fine')}</th><th>${t('cert')}</th></tr>${L.map(l=>{const p=provById(l.provId)||{};return`<tr><td>${esc(l.codigo)}</td><td>${l.fecha}</td><td>${esc(p.nombre)}</td><td>${esc(t('tipos')[p.tipo]||'')}</td><td>${esc(p.titulo||'')}</td><td>${esc(l.origen||'')}</td><td>${g2(l.bruto)}</td><td>${l.ley}</td><td>${g2(l.fino)}</td><td>${esc(l.cert||'—')}</td></tr>`}).join('')}<tr><th colspan="8">Total</th><th>${g2(L.reduce((s,l)=>s+loteFino(l),0))}</th><th></th></tr></table>${foot()}`;window.print()}
+
+/* ---------- Export / import ---------- */
+function dl(name,data,type){const b=new Blob([data],{type});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
+function exportCSV(){
+  const H=['codigo','fecha','proveedor','tipo_explotador','titulo_o_registro','municipio_origen','gps','mineral','peso_bruto_g','ley_milesimas','peso_fino_g','precio_g_fino','valor','certificado_origen','beneficio','transporte','comprador','rucom_comprador','fino_vendido_g','fino_disponible_g','estado'];
+  const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
+  const rows=db.lotes.map(l=>{const p=provById(l.provId)||{};const ev=k=>(l.eventos||[]).filter(e=>e.tipo===k);const v=ev('venta').concat(ev('exportacion'));return[l.codigo,l.fecha,p.nombre,T.es.tipos[p.tipo]||'',p.titulo,l.origen,l.gps,T.es.minerales[l.mineral],l.bruto,l.ley,l.fino,l.precio,l.valor,l.cert,ev('beneficio').map(e=>e.contra).join(' / '),ev('transporte').map(e=>e.contra+' '+(e.doc||'')).join(' / '),v.map(e=>e.contra).join(' / '),v.map(e=>e.rucom).join(' / '),loteVendido(l),loteDisp(l).toFixed(3),loteCerrado(l)?'cerrado':'en ruta'].map(q).join(';')});
+  dl(`traza-minera-${hoy()}.csv`,'﻿'+H.join(';')+'\n'+rows.join('\n'),'text/csv;charset=utf-8');
+}
+function exportJSON(){dl(`traza-minera-respaldo-${hoy()}.json`,JSON.stringify(db),'application/json')}
+function importJSON(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!Array.isArray(d.lotes)||!Array.isArray(d.prov))throw 0;db=Object.assign({cfg:{},prov:[],lotes:[],seq:0},d);save();toast(t('imported'));renderAll()}catch(e){toast(t('importBad'))}};r.readAsText(f);inp.value=''}
+function wipe(){if(!confirm(t('wipeAsk')))return;if(db.cfg.pin&&prompt(t('pinIn'))!==db.cfg.pin)return toast(t('pinBad'));db={cfg:{},prov:[],lotes:[],seq:0};save();toast(t('deleted'));renderAll()}
+
+/* ---------- PIN / Habeas Data ---------- */
+function setPin(){
+  if(db.cfg.pin&&!adminOn){const v=prompt(t('pinIn'));if(v===db.cfg.pin){adminOn=true;toast(t('pinOk'));renderAll()}else if(v!==null)toast(t('pinBad'));return}
+  const v=prompt(t('pinAsk'));if(v&&/^\d{4,6}$/.test(v)){db.cfg.pin=v;adminOn=true;save();toast(t('pinOk'));renderAll()}
+}
+
+/* ---------- Demo data ---------- */
+function loadDemo(){
+  if(!confirm(t('demoAsk')))return;
+  const H=hoy(),d=n=>{const x=new Date(H+'T12:00:00-05:00');x.setDate(x.getDate()-n);return x.toISOString().slice(0,10)};
+  const P=[{nombre:'Asociación Mineros del Cauca',tipo:'titular',doc:'901234567',tel:'3001112233',titulo:'Título HKT-08031',mun:'Caucasia',vence:d(-200),mina:'Mina La Esperanza'},
+           {nombre:'José Luis Martínez',tipo:'barequero',doc:'1067890123',tel:'3105556677',titulo:'Registro alcaldía El Bagre 2026-0145',mun:'El Bagre',vence:d(-90),mina:'Playa río Nechí'},
+           {nombre:'Cooperativa Minera Segovia',tipo:'formalizacion',doc:'900765432',tel:'3112223344',titulo:'Exp. OG2-15231',mun:'Segovia',vence:d(-20),mina:'Socavón El Silencio'},
+           {nombre:'María Ospina',tipo:'chatarrero',doc:'1045678901',tel:'3204445566',titulo:'Registro alcaldía Zaragoza 2026-0082',mun:'Zaragoza',vence:d(5),mina:'Desechos río Porce'}].map(p=>({...p,id:uid(),creado:new Date().toISOString()}));
+  db.prov.push(...P);
+  const mk=(p,days,bruto,ley,precio,cert,extra)=>{db.seq=(db.seq||0)+1;const f=d(days),fino=+(bruto*ley/1000).toFixed(3);const l={id:uid(),codigo:`TM-${f.slice(0,4)}-${String(db.seq).padStart(4,'0')}`,fecha:f,provId:p.id,mineral:'oro',bruto,ley,fino,precio,valor:Math.round(fino*precio),cert,origen:p.mun,gps:'',foto:'',obs:'',creado:new Date().toISOString(),eventos:[{id:uid(),tipo:'extraccion',fecha:f,contra:p.nombre+' — '+p.mina,doc:p.titulo,det:T.es.tipos[p.tipo]+' · '+p.mun},{id:uid(),tipo:'compra',fecha:f,contra:db.cfg.emp||'Compraventa de ejemplo',rucom:db.cfg.rucom||'RUCOM-DEMO',doc:cert,peso:fino,valor:Math.round(fino*precio),det:`${bruto} g bruto · ley ${ley}`}]};(extra||[]).forEach(e=>l.eventos.push({id:uid(),...e,fecha:d(e.dd)}));db.lotes.push(l)};
+  const pr=400000;
+  mk(P[0],12,152.4,870,pr,'CO-2026-11873',[{tipo:'beneficio',dd:10,contra:'Fundición de ejemplo Caucasia',rucom:'RUCOM-DEMO-02',doc:'Acta 553',peso:131.9,det:'Fundición a barra'},{tipo:'transporte',dd:9,contra:'Transportadora de valores (ejemplo)',doc:'Guía 77812',det:'Caucasia → Medellín'},{tipo:'venta',dd:8,contra:'Comercializadora internacional (ejemplo)',rucom:'RUCOM-DEMO-03',doc:'FE-10293',peso:131.9,valor:Math.round(131.9*pr)}]);
+  mk(P[1],6,18.6,820,pr,'CERT-ALC-EB-0145-07');
+  mk(P[2],3,96.2,780,pr,'CO-2026-12011',[{tipo:'beneficio',dd:2,contra:'Planta de beneficio de ejemplo Segovia',rucom:'RUCOM-DEMO-04',doc:'Acta 221',peso:74.1}]);
+  mk(P[3],1,9.4,640,pr,'');
+  mk(P[1],0,22.3,815,pr,'CERT-ALC-EB-0145-08');
+  save();toast(t('saved'));renderAll();go('inicio');
+}
+
+/* ---------- Misc ---------- */
+let tt;function toast(m){const el=document.getElementById('toast');el.textContent=m;el.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('on'),2600)}
+let io;function observe(){if(!('IntersectionObserver'in window)){document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in'));return}io=io||new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal:not(.in)').forEach(e=>io.observe(e))}
+
+/* PWA */
+let deferred;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;btnInstall.style.display='inline-block'});
+btnInstall.onclick=async()=>{if(!deferred)return;deferred.prompt();await deferred.userChoice;deferred=null;btnInstall.style.display='none'};
+if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+
+applyLang();loadHero();observe();
+</script>
+</body>
+</html>
