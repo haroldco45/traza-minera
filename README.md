@@ -17,10 +17,12 @@ App web instalable (PWA) de **Vibras Positivas HM** para llevar la trazabilidad 
 
 > Es una herramienta de **control interno**. El reporte oficial ante la ANM se hace con un Operador Tecnológico de Trazabilidad de Minerales (OTTM) habilitado por la ANM. Esta app no reemplaza ese reporte ni el RUCOM.
 
-## Foro Minero Bajo Cauca Caucasia 2026 (5 nov 2026, 8:00 a. m., Cámara de Comercio)
+## Foro Minero 2026 Bajo Cauca (5 nov 2026, 8:00 a. m. a 2:00 p. m., Auditorio Cámara de Comercio de Medellín para Antioquia, sede Caucasia)
 Pestaña **Foro** (enlace directo: `https://traza-minera.netlify.app/#foro`), con franja en la portada hasta el 5 de noviembre:
 - **Cómo está:** paro minero de marzo de 2026, reclamos de los mineros, formalización, informalidad, Génesis y producción formal, cada dato con su fuente.
 - **Hacia dónde va:** línea de tiempo (trazabilidad, nueva ministra, derogatoria de los 15 Distritos Mineros Especiales, el foro, 19 de noviembre) y la ruta del minero para vender legal.
+- **Puntos de vista:** 9 temas de actualidad (distrito minero y derogatoria, títulos inactivos, maquinaria, trazabilidad, delegación minera, precio del oro y bancos, mercurio, extorsión, otras economías), cada uno con las dos miradas, una pregunta lista para el foro y su fuente. El botón **Usar esta pregunta** la pasa al formulario.
+- **Antes de ir:** recomendaciones y botón de inscripción.
 - **La voz minera:** formulario para dejar un problema o una propuesta, con consolidado por tema y municipio, impresión para entregar a la mesa, CSV, resumen por WhatsApp y envío al WhatsApp de Vibras Positivas HM. El celular queda oculto (PIN).
 - Cuenta regresiva, botón para agregar al calendario, cómo llegar e invitación por WhatsApp.
 - `qr-foro.png`: QR que abre la sección del foro. Botón **Imprimir afiche con QR** para pegarlo o proyectarlo en el evento.

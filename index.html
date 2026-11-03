@@ -246,8 +246,25 @@ footer b{color:#ddd}
 .qrbox{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
 .qrbox img{width:170px;height:170px;border-radius:12px;background:#fff;padding:6px}
 .srcs{font-size:13px;color:#9a9a9a}
-.srcs a{color:#bdbdbd}
+.srcs a{color:#bdbdbd;word-break:break-all}
+html,body{overflow-x:hidden}
 .srcs li{margin:4px 0 4px 18px}
+
+/* Puntos de vista */
+.pvs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.pv{background:linear-gradient(160deg,#1c1c1c,#121212);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px;transition:border-color .2s,transform .2s}
+.pv:hover{border-color:var(--gold3);transform:translateY(-2px)}
+.pv h3{font-size:22px;color:#fff;text-transform:uppercase;line-height:1.05}
+.pv small{display:block;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gold2);margin-bottom:3px}
+.pv p{font-size:14.5px;color:#d4d4d4}
+.pvab{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pvab>div{background:#0f0f0f;border:1px solid #2a2a2a;border-radius:10px;padding:10px}
+.pvab>div:last-child small{color:#9fd3a6}
+@media(max-width:420px){.pvab{grid-template-columns:1fr}}
+.pvp{background:rgba(212,160,23,.1);border:1px solid rgba(212,160,23,.45);border-radius:12px;padding:12px}
+.pvp p{color:#fff;font-weight:600;margin-bottom:10px}
+.srcl{font-size:12px;color:#8a8a8a}.srcl a{color:#9a9a9a}
+.antes ol{padding-left:20px;margin-top:8px}.antes li{color:#d6d6d6;margin:6px 0;font-size:15px}
 
 /* Print */
 #printArea{display:none}
@@ -277,7 +294,7 @@ footer b{color:#ddd}
 
 <!-- INICIO -->
 <section class="view on" id="v-inicio">
-  <div class="foroband" id="foroBand" onclick="go('foro')" style="display:none"><div><b data-i18n="fbT">Foro Minero Bajo Cauca Caucasia 2026</b><small data-i18n="fbS">Jueves 5 de noviembre · 8:00 a. m. · Cámara de Comercio de Caucasia</small></div><span class="go" data-i18n="fbGo">Entrar al foro</span></div>
+  <div class="foroband" id="foroBand" onclick="go('foro')" style="display:none"><div><b data-i18n="fbT">Foro Minero 2026 Bajo Cauca</b><small data-i18n="fbS">Jueves 5 de noviembre · 8:00 a. m. a 2:00 p. m. · Auditorio Cámara de Comercio, sede Caucasia</small></div><span class="go" data-i18n="fbGo">Entrar al foro</span></div>
   <div class="hero" id="hero">
     <div class="fallback"></div>
     <div class="bg" id="bgA"></div><div class="bg" id="bgB"></div>
@@ -495,7 +512,7 @@ const I={es:{},en:{
  save:'Save',pinBtn:'Admin PIN',demo:'Load sample data',wipe:'Delete all',
  normTitle:'What the rules require',normSub:'Practical summary. For specific cases, ask the ANM or a mining lawyer.',
  footer1:'Developed by Vibras Positivas HM — All Rights Reserved',footer2:'Caucasia, Antioquia · vibraspositivashm.com · WhatsApp +57 311 770 0431',
- nInicio:'Home',nForo:'Forum',fbT:'Bajo Cauca Caucasia Mining Forum 2026',fbS:'Thursday, November 5 · 8:00 a.m. · Caucasia Chamber of Commerce',fbGo:'Enter the forum',nProv:'Suppliers',nLotes:'Lots',nAl:'Alerts',nInf:'Reports',close:'Close',provForm:'Supplier',pNombre:'Name or company',pTipo:'Operator type',pDoc:'ID or tax no.',pTel:'Mobile',
+ nInicio:'Home',nForo:'Forum',fbT:'Bajo Cauca Mining Forum 2026',fbS:'Thursday, November 5 · 8:00 a.m. to 2:00 p.m. · Chamber of Commerce auditorium, Caucasia',fbGo:'Enter the forum',nProv:'Suppliers',nLotes:'Lots',nAl:'Alerts',nInf:'Reports',close:'Close',provForm:'Supplier',pNombre:'Name or company',pTipo:'Operator type',pDoc:'ID or tax no.',pTel:'Mobile',
  pTitulo:'Mining title, file no. or town hall registry',pMun:'Mine town',pVence:'Registry valid until',pMina:'Mine or site name',
  privacy:'Privacy notice (Colombian Law 1581 of 2012): personal data is used only for mineral traceability and stored on this device. ID and phone stay hidden and only the admin with PIN can see them. The owner may ask to view, correct or delete them.',
  del:'Delete',loteForm:'Mineral purchase',lFecha:'Date',lMineral:'Mineral',lProv:'Supplier',lBruto:'Gross weight (g)',lLey:'Fineness (‰)',lPrecio:'Price per fine gram (COP)',lCert:'Certificate of origin no.',
@@ -529,7 +546,7 @@ const T={es:{
  inf:{comp:'Fino comprado',vend:'Fino vendido',saldo:'Saldo (inventario)',val:'Valor comprado',prov:'Proveedor',g:'g finos',n:'Lotes',mun:'Municipio'},
  pinAsk:'Escribe un PIN de administrador (4 a 6 números):',pinIn:'PIN de administrador:',pinBad:'PIN incorrecto',pinOk:'Datos sensibles visibles',
  wipeAsk:'Esto borra todos los proveedores y lotes de este dispositivo. ¿Seguro?',demoAsk:'¿Cargar datos de ejemplo? Se agregan a los que ya tienes.',imported:'Copia restaurada',importBad:'Archivo no válido',
- ticker:['Foro Minero Bajo Cauca Caucasia 2026: jueves 5 de noviembre, 8:00 a. m., Cámara de Comercio','Trazabilidad obligatoria en todo el país desde el 19 de noviembre de 2026','Sin certificado de origen no hay compra legal','Revisa la vigencia del RUCOM de tus proveedores y la tuya','Cada lote con su código, su foto y su ruta','Hecha en Caucasia para el Bajo Cauca'],
+ ticker:['Foro Minero 2026 Bajo Cauca: jueves 5 de noviembre, 8:00 a. m. a 2:00 p. m., Auditorio Cámara de Comercio sede Caucasia','Inscríbase en el formulario de la Alcaldía de Caucasia y lleve su pregunta lista','Trazabilidad obligatoria en todo el país desde el 19 de noviembre de 2026','Sin certificado de origen no hay compra legal','Revisa la vigencia del RUCOM de tus proveedores y la tuya','Cada lote con su código, su foto y su ruta','Hecha en Caucasia para el Bajo Cauca'],
  norm:[
   ['Qué es','El Sistema de Trazabilidad de Minerales sigue el mineral desde que sale del subsuelo hasta que se vende o se exporta. Lo lidera la Agencia Nacional de Minería (ANM) y se apoya en el Decreto 2234 de 2023 y la Resolución ANM 759 de 2024 (Plataforma de Trazabilidad de Minerales), modificada por la Resolución 1549 de 2025.'],
   ['Fechas','La fase de transición arrancó el 19 de mayo de 2026. Desde el 19 de noviembre de 2026 la trazabilidad es obligatoria en todo el territorio nacional.'],
@@ -567,7 +584,7 @@ const T={es:{
  inf:{comp:'Fine bought',vend:'Fine sold',saldo:'Balance (stock)',val:'Purchase value',prov:'Supplier',g:'fine g',n:'Lots',mun:'Town'},
  pinAsk:'Enter an admin PIN (4 to 6 digits):',pinIn:'Admin PIN:',pinBad:'Wrong PIN',pinOk:'Sensitive data visible',
  wipeAsk:'This deletes all suppliers and lots on this device. Are you sure?',demoAsk:'Load sample data? It is added to your current data.',imported:'Backup restored',importBad:'Invalid file',
- ticker:['Bajo Cauca Caucasia Mining Forum 2026: Thursday, November 5, 8:00 a.m., Chamber of Commerce','Traceability mandatory nationwide from November 19, 2026','No certificate of origin, no legal purchase','Check your suppliers’ RUCOM validity and your own','Every lot with its code, photo and route','Made in Caucasia for Bajo Cauca'],
+ ticker:['Bajo Cauca Mining Forum 2026: Thursday, November 5, 8:00 a.m. to 2:00 p.m., Chamber of Commerce auditorium, Caucasia','Register with the Caucasia Town Hall form and bring your question ready','Traceability mandatory nationwide from November 19, 2026','No certificate of origin, no legal purchase','Check your suppliers’ RUCOM validity and your own','Every lot with its code, photo and route','Made in Caucasia for Bajo Cauca'],
  norm:[
   ['What it is','The Mineral Traceability System follows minerals from the ground to sale or export. It is led by Colombia’s National Mining Agency (ANM) and based on Decree 2234 of 2023 and ANM Resolution 759 of 2024 (Mineral Traceability Platform), amended by Resolution 1549 of 2025.'],
   ['Dates','The transition phase started on May 19, 2026. From November 19, 2026, traceability is mandatory nationwide.'],
@@ -871,14 +888,13 @@ function loadDemo(){
    FORO MINERO BAJO CAUCA CAUCASIA 2026
    5 de noviembre de 2026 · 8:00 a. m. (hora Colombia) · Cámara de Comercio de Caucasia
    ========================================================= */
-const FORO_INI=new Date('2026-11-05T08:00:00-05:00'),FORO_FIN=new Date('2026-11-05T13:00:00-05:00');
+const FORO_INI=new Date('2026-11-05T08:00:00-05:00'),FORO_FIN=new Date('2026-11-05T14:00:00-05:00');
 const FORO_URL='https://traza-minera.netlify.app/#foro',WA_HM='573117700431';
 const SRC={
  paroLR:'https://www.larepublica.co/economia/gobierno-y-gremio-minero-acuerdan-levantar-paro-en-bajo-cauca-y-consolidar-distrito-minero-4359730',
  paroIB:'https://www.infobae.com/colombia/2026/03/28/levantan-el-paro-minero-en-el-bajo-cauca-antioqueno-y-sur-de-cordoba-tras-dialogo-con-el-gobierno-esto-fue-lo-que-se-acordo/',
  reclamos:'https://es-us.noticias.yahoo.com/paro-minero-cauca-agrava-bloqueos-142000268.html',
  formal:'https://radionacional.co/noticias-colombia/gobierno-impulsa-formalizacion-minera-en-el-bajo-cauca',
- informal:'https://www.larepublica.co/analisis/giovanni-franco-sepulveda-3732303/mineria-en-antioquia-en-el-gobierno-petro-4403845',
  genesis:'https://www.elcolombiano.com/antioquia/mineria-ilegal-corrupcion-bajo-cauca-MA27057694',
  mineros:'https://www.elcolombiano.com/negocios/produccion-de-oro-de-mineros-en-2025-FH32355440',
  distritos:'https://www.eltiempo.com/politica/gobierno/minminas-deroga-15-distritos-mineros-especiales-mas-de-5-3-millones-de-hectareas-en-colombia-las-razones-y-regiones-implicadas-3596104',
@@ -886,39 +902,84 @@ const SRC={
  ministra:'https://www.larepublica.co/economia/gobierno-electo-pone-frente-del-sector-energetico-a-gerente-de-xm-maria-nohemi-arboleda-4435262',
  stm:'https://www.lafm.com.co/economia/anm-pone-en-marcha-etapa-de-trazabilidad-minera-400106',
  stm2:'https://www.elnuevosiglo.com.co/economia/el-19-de-noviembre-se-iniciara-la-trazabilidad-minera-en-el-pais',
- alcaldia:'https://www.instagram.com/alcaldiadecaucasia/'
+ foroIG:'https://www.instagram.com/p/DehrWVmIM-3/',
+ foroFB:'https://www.facebook.com/alcaldiadecaucasia/posts/te-invitamos-a-participar-en-el-foro-minero-2026-bajo-cauca-un-espacio-fundament/1520396493456942/',
+ foroNC:'https://noticaribe.co/foro-minero-bajo-cauca-2026-este-jueves-5-de-noviembre-en-el-municipio-de-caucasia/',
+ paroET:'https://www.eltiempo.com/colombia/medellin/paro-minero-en-el-bajo-cauca-en-alerta-fuerza-publica-en-antioquia-advierte-que-abrira-las-vias-por-la-fuerza-si-fracasa-la-mediacion-3540983',
+ paroNS:'https://www.elnuevosiglo.com.co/nacion/levantan-paro-minero-en-bajo-cauca-tras-acuerdo-con-gobierno',
+ acuerdos:'https://www.elcolombiano.com/antioquia/levantaron-paro-minero-en-bajo-cauca-antioquia-y-sur-de-cordoba-LE35022845',
+ blu:'https://www.bluradio.com/regiones/antioquia/levantan-el-paro-minero-en-el-bajo-cauca-manifestantes-anunciaron-haber-alcanzado-un-sano-acuerdo-rg10',
+ callejon:'https://www.elcolombiano.com/antioquia/colombia-antioquia-paro-minero-bajo-cauca-mineria-ilegal-AF35037979',
+ dragas:'https://www.elcolombiano.com/antioquia/mineria-ilegal-bajo-cauca-mas-200-dragas-rio-nechi-IB41403586',
+ fiscalia:'https://noticaribe.co/cuatro-dragas-y-uso-de-mercurio-asi-delinquia-un-clan-familiar-dedicado-a-la-mineria-ilegal-en-el-bajo-cauca/',
+ genesis62:'https://www.eltiempo.com/economia/sectores/mas-de-62-000-mineros-registrados-y-formalizados-por-la-agencia-nacional-de-mineria-serian-la-base-para-la-comercializacion-de-oro-en-colombia-3516487',
+ nyt:'https://www.publimetro.co/noticias/2026/04/27/el-oro-del-clan-del-golfo-que-llego-a-la-casa-de-la-moneda-de-eeuu-estaba-siendo-extraido-en-una-base-militar/',
+ extorsion:'https://www.noticiascaracol.com/colombia/clan-del-golfo-estaria-cobrando-extorsiones-para-financiar-hechos-violentos-en-paro-minero-rg10',
+ mercurio:'https://revistas.eia.edu.co/index.php/reveia/article/view/1481',
+ peces:'https://www.pulzo.com/nacion/peces-rio-cauca-estarian-enfermos-contaminacion-con-mercurio-plomo-PP1770533A',
+ ptm:'https://mineria-pa.com/2026/05/22/anm-lanza-la-primera-plataforma-de-trazabilidad-de-minerales-en-colombia/',
+ res3824:'https://saportalanm.blob.core.windows.net/public-files/file_resoluciones/2025-12-30-Resolucion-3824-29-12-2025.pdf',
+ fenal:'https://diariolalibertad.com/2026/10/24/gobierno-derogo-15-distritos-mineros-especiales-y-ordeno-actualizar-el-catastro-minero-colombiano/',
+ precio:'https://www.reporteminero.cl/noticia/noticias/2026/02/jpmorgan-proyeccion-precio-oro-6300-onza-2026'
 };
 const FT={es:{
  kicker:'Alcaldía de Caucasia · Ministerio de Minas y Energía',
- title:'Foro Minero<br><em>Bajo Cauca Caucasia 2026</em>',
- lead:'La Alcaldía invita a toda la comunidad minera de Caucasia y del Bajo Cauca. Según la invitación, lo preside la Ministra de Minas y Energía. Tres ejes: cómo está la minería en el Bajo Cauca, hacia dónde va en el territorio y la voz de la comunidad minera.',
- fecha:'Fecha',fechaV:'Jue 5 de noviembre',hora:'Hora',horaV:'8:00 a. m.',lugar:'Lugar',lugarV:'Cámara de Comercio',quien:'Convoca',quienV:'Alcaldía de Caucasia',
+ title:'Foro Minero 2026<br><em>Bajo Cauca</em>',
+ lead:'Un espacio para dialogar sobre el desarrollo minero responsable en la región. Lo lidera la Secretaría de Medio Ambiente, Desarrollo Rural, Minería y Turismo de Caucasia, con apoyo de la Cámara de Comercio de Medellín para Antioquia, la Fundación Oleoductos de Colombia y la Gobernación de Antioquia. La invitación anuncia a la Ministra de Minas. Tres ejes: cómo está la minería en el Bajo Cauca, hacia dónde va y la voz de la comunidad minera.',
+ fecha:'Fecha',fechaV:'Jue 5 de noviembre',hora:'Hora',horaV:'8:00 a. m. a 2:00 p. m.',lugar:'Lugar',lugarV:'Auditorio Cámara de Comercio, sede Caucasia',quien:'Lidera',quienV:'Alcaldía de Caucasia',insc:'Inscribirme al foro',
  cal:'Agregar a mi calendario',map:'Cómo llegar',share:'Invitar por WhatsApp',
  cdNote:'para que empiece el foro (hora Colombia).',cdNow:'El foro está en curso. Deja tu voz abajo.',cdDone:'El foro ya se realizó. Las voces siguen abiertas para la mesa de seguimiento.',
  ax:[['1','Cómo está'],['2','Hacia dónde va'],['3','La voz minera']],
  e1T:'Cómo está la minería en el Bajo Cauca',e1S:'Lo que pasó este año, con la fuente de cada dato.',
  facts:[
-  ['Marzo 2026','Paro minero de dos semanas','Hubo protestas en el Bajo Cauca, Valdivia y el sur de Córdoba. El 28 de marzo, en Caucasia, el comité minero y el Gobierno acordaron levantar el paro: se habilitarán bloques para explotar en zonas con potencial minero y los mineros se comprometieron a desmontar dragas y dragones de forma voluntaria.','paroLR'],
+  ['16–27 mar 2026','Cuarto paro minero desde 2023','Unos 8.000 mineros del Bajo Cauca, el sur de Córdoba y Valdivia bloquearon vías durante 11 días. Reclamaban por la destrucción de maquinaria y pedían más alternativas para formalizarse. Se levantó el 27 de marzo con un acuerdo firmado en Caucasia.','paroET'],
+  ['10.000 ha','Lo que se acordó en marzo','Áreas con potencial minero para las Unidades de Producción Minera, 10.000 hectáreas para formalización, revisión de títulos inactivos, un informe de la ANM sobre títulos en un mes, una mesa con la Superfinanciera y el Banco Agrario, y desmonte voluntario de dragas.','acuerdos'],
   ['Reclamo','Registros que no funcionan','Los mineros denunciaron fallas en los mecanismos de registro, un subregistro de unidades mineras que deja a miles en un limbo jurídico y la destrucción de maquinaria incluso en proceso de formalización. También dijeron que no se cumplieron los acuerdos de octubre de 2024 ni los de febrero de 2026.','reclamos'],
+  ['200 dragas','La minería ilegal creció','El senador Juan Espinal denunció en septiembre que en el Bajo Cauca pasaron de unas 20 a unas 200 dragas y dragones. Cada dragón costaría unos US$2 millones, una suma impagable para un pequeño minero.','dragas'],
+  ['76 %','Bajo Cauca concentra la explotación ilícita','Zaragoza, Nechí, Cáceres, El Bagre, Caucasia y Tarazá concentran el 76 % de las hectáreas de explotación ilícita de oro de aluvión de Antioquia, según el informe citado por El Colombiano.','dragas'],
+  ['Sin delegación','Todo trámite depende de Bogotá','Antioquia perdió la delegación minera, así que cualquier trámite de la región depende del Gobierno Nacional. Expertos señalan que el acuerdo de marzo repitió puntos de negociaciones anteriores.','callejon'],
   ['3.182','Mineros que quieren formalizarse','Entre 2023 y 2024 se identificaron 3.182 personas en el Bajo Cauca que manifestaron interés en formalizar su actividad. El Ministerio creó una ruta especial con la Resolución 40141 de 2025.','formal'],
+  ['62.700','Barequeros formalizados en el país','La ANM reportó 62.700 mineros de subsistencia de oro inscritos en Génesis y publicados en el RUCOM. Son la base del oro legal que se puede comprar.','genesis62'],
   ['96,5 %','El peso de la minería en la economía','Es la estimación de la mesa minera sobre cuánto de la economía de la región depende de la minería. Por eso cualquier medida se siente en cada casa del Bajo Cauca.','reclamos'],
-  ['85 %','Informalidad en el oro','Es el nivel de informalidad de la minería aurífera que citan los indicadores del sector, con la onza de oro en máximos históricos cercanos a US$5.400. Con ese precio, la tentación de saltarse la ley es enorme.','informal'],
-  ['Génesis','Suplantación de pequeños mineros','En 2025 se investigó a funcionarios del Bajo Cauca porque ilegales estarían usando a pequeños mineros en la plataforma Génesis para hacer pasar oro ilegal como legal. Por eso la trazabilidad protege al minero honrado.','genesis'],
+  ['Hasta 20 %','La extorsión al minero','Inteligencia estatal ha señalado que el Clan del Golfo le cobra hasta el 20 % de lo producido a los frentes mineros que no son suyos, y que casi la mitad del oro de Antioquia sale de minería ilícita.','extorsion'],
+  ['Génesis','Suplantación de pequeños mineros','En 2025 se investigó a funcionarios del Bajo Cauca porque ilegales estarían usando a pequeños mineros en Génesis para hacer pasar oro ilegal como legal. En abril de 2026, The New York Times reveló oro registrado a nombre de mineros artesanales que terminó en la Casa de la Moneda de EE. UU.','genesis|nyt'],
+  ['Mercurio','El río paga la cuenta','Estudios en el tramo Caucasia–Achí hallaron mercurio por encima del límite de la OMS para agua de consumo, y en peces del Cauca y el Nechí niveles hasta cinco veces lo permitido. La Ley 1658 de 2013 prohíbe el mercurio en minería.','mercurio|peces'],
   ['89.777 oz','La minería formal sí produce','Es la producción de oro de la operación aluvial de Mineros en el Bajo Cauca durante 2025. La minería con título, licencia y trazabilidad existe y genera empleo formal en la región.','mineros']
  ],
  e2T:'Hacia dónde va la minería en el territorio',e2S:'Las fechas que cambian las reglas para el minero del Bajo Cauca.',
  tl:[
-  ['2026-05-19','19 may 2026','Arranca la transición de la trazabilidad','La ANM inicia la fase de transición del Sistema de Trazabilidad de Minerales.','stm'],
+  ['2026-03-16','16 mar 2026','Arranca el paro minero','La Mesa Minera del Bajo Cauca, Valdivia y sur de Córdoba convoca bloqueos.','paroNS'],
+  ['2026-03-27','27 mar 2026','Acuerdo en Caucasia','Se levanta el paro: áreas para las UPM, revisión de títulos inactivos, 10.000 ha para formalización y comité de seguimiento.','acuerdos'],
+  ['2026-04-13','13 abr 2026','Mesa de inclusión financiera','Fecha acordada para la mesa con la Superfinanciera y el Banco Agrario sobre las necesidades financieras de los mineros.','blu'],
+  ['2026-05-19','19 may 2026','Arranca la Plataforma de Trazabilidad','La ANM pone en marcha la plataforma que cruza Génesis, Anna Minería y RUCOM. Las compras a mineros de subsistencia entran desde esta fecha.','ptm'],
   ['2026-08-07','Ago 2026','Nueva ministra de Minas y Energía','María Nohemí Arboleda Arango, ingeniera electricista y exgerente de XM, asume el Ministerio en el gobierno de Abelardo de la Espriella.','ministra'],
+  ['2026-08-18','18 ago 2026','Trazabilidad para la mediana minería','Según la resolución de la ANM, desde esta fecha entran a la plataforma las compras a títulos de mediana minería.','res3824'],
   ['2026-09-03','3 sep 2026','Anuncio en el Congreso Nacional de Minería','En Cartagena, la ministra anuncia que se retirarán los Distritos Mineros Especiales.','congreso'],
+  ['2026-09-23','23 sep 2026','Denuncia de 200 dragas','El senador Juan Espinal propone un debate en el Congreso por el aumento de dragas en el río Nechí.','dragas'],
   ['2026-10-22','22 oct 2026','Se derogan los 15 Distritos Mineros Especiales','La Resolución 40579 levanta la delimitación de 5,3 millones de hectáreas. La ANM tiene 30 días para quitarla del catastro. Los títulos vigentes y las solicitudes en trámite no cambian, y siguen los compromisos de consulta previa del Bajo Cauca.','distritos'],
-  ['2026-11-05','5 nov 2026','Foro Minero Bajo Cauca Caucasia','Cámara de Comercio de Caucasia, 8:00 a. m. Diagnóstico, futuro y la voz de la comunidad minera.','alcaldia'],
+  ['2026-10-30','30 oct 2026','Judicializan a un clan de minería ilegal','La Fiscalía judicializa a ocho personas por explotar oro con cuatro dragas y mercurio en la ronda del río Nechí.','fiscalia'],
+  ['2026-11-05','5 nov 2026','Foro Minero 2026 Bajo Cauca','Auditorio de la Cámara de Comercio, sede Caucasia, 8:00 a. m. a 2:00 p. m. Diagnóstico, futuro y la voz de la comunidad minera.','foroIG'],
   ['2026-11-19','19 nov 2026','Trazabilidad obligatoria en todo el país','Quien compre, beneficie o venda mineral debe reportar cada operación a la ANM por medio de un operador tecnológico habilitado.','stm2'],
+  ['2026-11-21','Nov 2026','Vence el plazo para limpiar el catastro','Los 30 días que tiene la ANM para retirar las delimitaciones de los distritos derogados vencen a finales de noviembre.','distritos'],
   ['2026-12-31','2026–2030','Plan Nacional de Desarrollo','El Ministerio dice que trabajará con las regiones mineras para integrar la minería legal con las demás vocaciones de cada territorio.','stm2']
  ],
  rutaT:'La ruta del minero para vender legal',
  ruta:[['Registrarse','El barequero o chatarrero se inscribe en la alcaldía. El pequeño minero entra a la ruta de formalización o trabaja bajo un título.'],['Certificado de origen','Cada venta lleva el certificado de origen o la constancia de la alcaldía. Sin ese papel no hay compra legal.'],['Vender con RUCOM','Se le vende solo a un comercializador o compraventa inscrito en el RUCOM, con factura y peso anotado.'],['Queda la huella','Desde el 19 de noviembre, el comprador reporta la operación a la ANM. Traza Minera le deja todo listo, lote por lote.']],
  rutaBtn:'Ver cómo lo registra Traza Minera',
+ pvT:'Puntos de vista para llevar al foro',pvS:'Cada tema trae lo que pasa, las dos miradas y una pregunta lista. Toque "Usar esta pregunta" y ajústela con sus palabras.',
+ pvQ:'Qué pasa',pvA:'Unos dicen',pvB:'Otros dicen',pvP:'Pregunta para el foro',pvUse:'Usar esta pregunta',pvUsed:'Pregunta lista en el formulario. Ajústela y guárdela.',
+ pv:[
+  ['formal','El distrito minero que se acordó en marzo','En marzo el Gobierno y la mesa minera acordaron consolidar un distrito minero y habilitar áreas para formalizar. En octubre, el nuevo Gobierno derogó los 15 Distritos Mineros Especiales del país.','El Ministerio dice que esos distritos no dieron resultados, buscaban sustituir la minería sin alternativas y generaban incertidumbre jurídica. Gremios como Fenalcarbón respaldaron la derogatoria.','Los mineros del Bajo Cauca esperaban que el distrito les asegurara áreas para trabajar legal. El Ministerio aclaró que siguen los compromisos de consulta previa del Bajo Cauca, pero no dijo cómo se cumplen las áreas acordadas.','Señora Ministra: con la derogatoria de los distritos, ¿cómo y cuándo se van a entregar las áreas y las 10.000 hectáreas para formalización que se acordaron en marzo en Caucasia?','distritos|fenal|acuerdos'],
+  ['formal','Títulos que no se trabajan','Uno de los acuerdos de marzo fue revisar los títulos inactivos, subutilizados o que no cumplen función social y ecológica. La ANM se comprometió a entregar en un mes un informe con la lista, el estado y la fiscalización de cada título.','Los mineros sostienen que hay grandes títulos quietos mientras miles trabajan sin papeles al lado.','Los titulares defienden sus derechos adquiridos, y la derogatoria dejó claro que los títulos vigentes no cambian.','¿La ANM ya entregó el informe de títulos del Bajo Cauca que prometió en marzo? ¿Cuántos títulos inactivos se revisaron y cuántas hectáreas quedaron para los pequeños mineros?','acuerdos'],
+  ['maquinaria','Operativos y destrucción de maquinaria','El paro arrancó por los operativos que destruyen maquinaria. Hoy se habla de unas 200 dragas y dragones en el Bajo Cauca, cada uno de unos US$2 millones.','El Estado y algunos congresistas dicen que esa maquinaria tan cara solo la pueden pagar grupos armados y que hay que destruirla.','Los mineros denuncian que también destruyen equipos de quienes están en proceso de formalización, y piden un censo de maquinaria y un protocolo claro.','¿Habrá un censo de maquinaria y un protocolo que diferencie al minero en formalización de la draga de los grupos armados, antes de destruir equipos?','dragas'],
+  ['trazab','Trazabilidad desde el 19 de noviembre','Desde el 19 de noviembre, quien compre oro tiene que reportar cada operación a la ANM. La plataforma cruza Génesis, Anna Minería y RUCOM.','La ANM dice que la trazabilidad no viene a castigar a los que lo hacen bien sino a protegerlos, porque cierra la puerta al oro ilegal.','El riesgo para el barequero es quedar por fuera si Génesis falla, si la alcaldía no lo inscribe a tiempo o si alguien usa su nombre para lavar oro.','¿Qué va a hacer la ANM para que el barequero con registro vigente no quede bloqueado si Génesis falla, y cómo se va a frenar la suplantación de mineros?','stm'],
+  ['registro','Trámites que dependen de Bogotá','Antioquia perdió la delegación minera, así que todo trámite de la región depende del Gobierno Nacional.','La Gobernación y la región piden recuperar la delegación para resolver más rápido y más cerca.','Desde Bogotá se argumenta que el control central evita presiones locales y unifica criterios.','¿Se va a devolver la delegación minera a Antioquia o va a abrir la ANM una oficina con poder de decisión en Caucasia?','callejon'],
+  ['comercio','Precio del oro y bancos','El oro tocó un récord cercano a US$5.600 la onza en enero de 2026 y luego corrigió. En marzo se acordó una mesa con la Superfinanciera y el Banco Agrario para la inclusión financiera de los mineros.','Con el oro caro, la tentación de lo ilegal crece y los bancos no se arriesgan con plata de origen dudoso.','El minero formal necesita cuenta, crédito y un precio justo para no caer en manos de compradores abusivos o de grupos armados.','¿Qué resultados dejó la mesa con la Superfinanciera y el Banco Agrario? ¿Cuándo tendrán los mineros formales cuentas y crédito?','precio'],
+  ['ambiente','Mercurio, ríos y salud','Estudios encontraron mercurio por encima del límite de la OMS en el río Cauca entre Caucasia y Achí, y peces con hasta cinco veces lo permitido. El mercurio está prohibido en minería desde la Ley 1658 de 2013.','Ambientalistas y científicos dicen que la salud de los pescadores y de los niños ya está en riesgo.','Muchos mineros dicen que quieren trabajar sin mercurio, pero necesitan plantas de beneficio y tecnología que no pueden pagar solos.','¿Habrá plantas de beneficio comunitarias sin mercurio y apoyo técnico para que el pequeño minero deje de usarlo?','mercurio'],
+  ['seguridad','Extorsión y grupos armados','Se ha reportado que el Clan del Golfo cobra hasta el 20 % de la producción y controla buena parte del oro ilegal de la región.','El Gobierno ha dicho que grupos armados empujaron la violencia en los paros.','Los mineros dicen que ellos son las primeras víctimas de la extorsión y que formalizarse sin protección los expone más.','¿Cómo va a proteger el Estado al minero que se formaliza y denuncia la extorsión?','extorsion'],
+  ['alternativas','¿Y después del oro?','La mesa minera estima que el 96,5 % de la economía de la región depende de la minería.','Unos dicen que hay que diversificar: agro, pesca, turismo en el río y la Laguna El Silencio.','Otros responden que, como dijo la ministra, diversificar es sumar y no restar: primero hay que ordenar la minería y no sustituirla.','¿Qué proyectos concretos de otras economías van a llegar al Bajo Cauca para las familias mineras, sin obligarlas a dejar la minería legal?','distritos']
+ ],
+ antesT:'Antes de ir al foro',antes:['Inscríbase en el formulario de la Alcaldía de Caucasia.','Llegue antes de las 8:00 a. m.: el foro va hasta las 2:00 p. m.','Lleve su pregunta escrita, de un minuto, con datos concretos: municipio, cuántas familias, qué trámite está frenado.','Lleve su registro de Génesis, título o constancia de la alcaldía si va a hablar de su caso.','Pida que su propuesta quede en el acta del foro.'],
  e3T:'La voz de la comunidad minera',e3S:'Escribe tu problema o tu propuesta. Se suma al consolidado que se le entrega a la mesa del foro.',
  vNom:'Nombre (opcional)',vMun:'Municipio',vTipo:'Usted es',vTema:'Tema',vTxt:'Su problema o propuesta',vTxtPh:'Escríbalo como lo diría en el micrófono del foro',vTel:'Celular (opcional, para que lo contacten)',
  vOk:'Autorizo el uso de mi voz para el consolidado del foro. Mi celular no se publica y solo lo ve el administrador con PIN (Ley 1581 de 2012).',
@@ -932,38 +993,65 @@ const FT={es:{
  memoIntro:n=>`Les entregamos ${n} ${n===1?'aporte':'aportes'} de mineros y habitantes del Bajo Cauca, recogidos con la app Traza Minera de Vibras Positivas HM, para que se tengan en cuenta en las conclusiones del foro y en el plan de trabajo con el territorio.`,
  qrT:'Comparta la app en el foro',qrS:'Proyecte o imprima este código. Quien lo escanee entra directo a esta sección y puede dejar su voz desde el celular.',qrPrint:'Imprimir afiche con QR',
  srcT:'Fuentes',disc:'Traza Minera es una app independiente de Vibras Positivas HM. No es un canal oficial de la Alcaldía, del Ministerio ni de la ANM. Los datos vienen de los medios citados.',
- waInv:`Foro Minero Bajo Cauca Caucasia 2026\nJueves 5 de noviembre, 8:00 a. m.\nCámara de Comercio de Caucasia\nCómo está la minería, hacia dónde va y la voz de la comunidad minera.\nDeje su voz aquí: ${FORO_URL}`
+ waInv:`Foro Minero Bajo Cauca Caucasia 2026\nJueves 5 de noviembre, 8:00 a. m. a 2:00 p. m.\nAuditorio Cámara de Comercio de Medellín para Antioquia, sede Caucasia\nInscripción: formulario de la Alcaldía de Caucasia\nCómo está la minería, hacia dónde va y la voz de la comunidad minera.\nDeje su voz aquí: ${FORO_URL}`
 },en:{
  kicker:'Caucasia Town Hall · Ministry of Mines and Energy',
- title:'Mining Forum<br><em>Bajo Cauca Caucasia 2026</em>',
- lead:'The Town Hall invites the whole mining community of Caucasia and Bajo Cauca. According to the invitation, the Minister of Mines and Energy leads it. Three themes: the state of mining in Bajo Cauca, where it is heading, and the voice of the mining community.',
- fecha:'Date',fechaV:'Thu, November 5',hora:'Time',horaV:'8:00 a.m.',lugar:'Venue',lugarV:'Chamber of Commerce',quien:'Hosted by',quienV:'Caucasia Town Hall',
+ title:'Mining Forum 2026<br><em>Bajo Cauca</em>',
+ lead:'A space to discuss responsible mining development in the region. Led by Caucasia’s Department of Environment, Rural Development, Mining and Tourism, with support from the Medellín Chamber of Commerce for Antioquia, Fundación Oleoductos de Colombia and the Antioquia Governor’s Office. The invitation announces the Minister of Mines. Three themes: the state of mining in Bajo Cauca, where it is heading, and the voice of the mining community.',
+ fecha:'Date',fechaV:'Thu, November 5',hora:'Time',horaV:'8:00 a.m. to 2:00 p.m.',lugar:'Venue',lugarV:'Chamber of Commerce auditorium, Caucasia',quien:'Led by',quienV:'Caucasia Town Hall',insc:'Register for the forum',
  cal:'Add to my calendar',map:'Directions',share:'Invite on WhatsApp',
  cdNote:'until the forum starts (Colombia time).',cdNow:'The forum is under way. Leave your voice below.',cdDone:'The forum has taken place. Voices remain open for the follow-up table.',
  ax:[['1','Today'],['2','What’s next'],['3','Miners’ voice']],
  e1T:'The state of mining in Bajo Cauca',e1S:'What happened this year, with the source for each figure.',
  facts:[
-  ['March 2026','Two-week mining strike','Protests hit Bajo Cauca, Valdivia and southern Córdoba. On March 28, in Caucasia, the miners’ committee and the Government agreed to end the strike: blocks will be opened for mining in areas with mining potential, and miners committed to voluntarily dismantle dredges.','paroLR'],
+  ['Mar 16–27, 2026','Fourth mining strike since 2023','About 8,000 miners from Bajo Cauca, southern Córdoba and Valdivia blocked roads for 11 days, protesting machinery destruction and demanding more ways to formalize. It ended on March 27 with an agreement signed in Caucasia.','paroET'],
+  ['10,000 ha','What was agreed in March','Areas with mining potential for Mining Production Units, 10,000 hectares for formalization, review of inactive titles, an ANM report on titles within a month, a table with the Financial Superintendency and Banco Agrario, and voluntary dismantling of dredges.','acuerdos'],
   ['Complaint','Registries that don’t work','Miners reported failures in registration systems, under-registration of mining units that leaves thousands in legal limbo, and destruction of machinery even during formalization. They also said the October 2024 and February 2026 agreements were not honored.','reclamos'],
+  ['200 dredges','Illegal mining has grown','Senator Juan Espinal reported in September that Bajo Cauca went from about 20 to about 200 dredges. Each large dredge would cost about US$2 million, unaffordable for a small miner.','dragas'],
+  ['76%','Bajo Cauca concentrates illicit mining','Zaragoza, Nechí, Cáceres, El Bagre, Caucasia and Tarazá hold 76% of Antioquia’s hectares of illicit alluvial gold mining, according to the report cited by El Colombiano.','dragas'],
+  ['No delegation','Every procedure depends on Bogotá','Antioquia lost its mining delegation, so any procedure in the region depends on the national government. Experts note the March agreement repeated points from earlier negotiations.','callejon'],
   ['3,182','Miners who want to formalize','Between 2023 and 2024, 3,182 people in Bajo Cauca said they wanted to formalize their mining. The Ministry set up a special route through Resolution 40141 of 2025.','formal'],
+  ['62,700','Panners formalized nationwide','The ANM reported 62,700 subsistence gold miners registered in Génesis and listed in RUCOM. They are the base of legal gold that can be bought.','genesis62'],
   ['96.5%','Mining’s weight in the economy','The miners’ table estimates this share of the regional economy depends on mining. Any measure is felt in every home in Bajo Cauca.','reclamos'],
-  ['85%','Informality in gold','The level of informality in gold mining cited by sector indicators, with gold near record highs of about US$5,400 an ounce. At that price, the temptation to skip the law is huge.','informal'],
-  ['Génesis','Small miners impersonated','In 2025, Bajo Cauca officials were investigated because illegal operators were allegedly using small miners’ identities on the Génesis platform to pass illegal gold as legal. Traceability protects honest miners.','genesis'],
+  ['Up to 20%','Extortion of miners','State intelligence has said the Clan del Golfo charges up to 20% of output to mining fronts it does not own, and that nearly half of Antioquia’s gold comes from illicit mining.','extorsion'],
+  ['Génesis','Small miners impersonated','In 2025, Bajo Cauca officials were investigated because illegal operators were allegedly using small miners’ identities in Génesis to pass illegal gold as legal. In April 2026, The New York Times revealed gold registered under artisanal miners’ names that ended up at the U.S. Mint.','genesis|nyt'],
+  ['Mercury','The river pays the bill','Studies on the Caucasia–Achí stretch found mercury above the WHO limit for drinking water, and fish in the Cauca and Nechí with up to five times the allowed level. Law 1658 of 2013 bans mercury in mining.','mercurio|peces'],
   ['89,777 oz','Formal mining does produce','Gold output of Mineros’ alluvial operation in Bajo Cauca in 2025. Mining with a title, license and traceability exists and creates formal jobs in the region.','mineros']
  ],
  e2T:'Where mining is heading',e2S:'The dates that change the rules for Bajo Cauca miners.',
  tl:[
-  ['2026-05-19','May 19, 2026','Traceability transition begins','The ANM starts the transition phase of the Mineral Traceability System.','stm'],
+  ['2026-03-16','Mar 16, 2026','Mining strike begins','The Bajo Cauca, Valdivia and southern Córdoba Mining Table calls road blockades.','paroNS'],
+  ['2026-03-27','Mar 27, 2026','Agreement in Caucasia','The strike ends: areas for mining units, review of inactive titles, 10,000 ha for formalization and a follow-up committee.','acuerdos'],
+  ['2026-04-13','Apr 13, 2026','Financial inclusion table','Date agreed for the table with the Financial Superintendency and Banco Agrario on miners’ financial needs.','blu'],
+  ['2026-05-19','May 19, 2026','Traceability Platform starts','The ANM launches the platform that cross-checks Génesis, Anna Minería and RUCOM. Purchases from subsistence miners are covered from this date.','ptm'],
   ['2026-08-07','Aug 2026','New Minister of Mines and Energy','María Nohemí Arboleda Arango, electrical engineer and former head of XM, takes office in Abelardo de la Espriella’s government.','ministra'],
+  ['2026-08-18','Aug 18, 2026','Traceability for medium-scale mining','Under the ANM resolution, purchases from medium-scale titles join the platform from this date.','res3824'],
   ['2026-09-03','Sep 3, 2026','Announcement at the National Mining Congress','In Cartagena, the Minister announces the Special Mining Districts will be withdrawn.','congreso'],
+  ['2026-09-23','Sep 23, 2026','200 dredges reported','Senator Juan Espinal proposes a congressional debate over the rise of dredges on the Nechí River.','dragas'],
   ['2026-10-22','Oct 22, 2026','The 15 Special Mining Districts are repealed','Resolution 40579 lifts the delimitation of 5.3 million hectares. The ANM has 30 days to remove it from the registry. Existing titles and pending applications do not change, and Bajo Cauca prior-consultation commitments remain.','distritos'],
-  ['2026-11-05','Nov 5, 2026','Bajo Cauca Caucasia Mining Forum','Caucasia Chamber of Commerce, 8:00 a.m. Diagnosis, future and the voice of the mining community.','alcaldia'],
+  ['2026-10-30','Oct 30, 2026','Illegal mining clan prosecuted','Prosecutors charge eight people for mining gold with four dredges and mercury on the Nechí riverbank.','fiscalia'],
+  ['2026-11-05','Nov 5, 2026','Bajo Cauca Mining Forum 2026','Chamber of Commerce auditorium, Caucasia, 8:00 a.m. to 2:00 p.m. Diagnosis, future and the voice of the mining community.','foroIG'],
   ['2026-11-19','Nov 19, 2026','Traceability mandatory nationwide','Anyone who buys, processes or sells minerals must report each operation to the ANM through an authorized technology operator.','stm2'],
+  ['2026-11-21','Nov 2026','Registry clean-up deadline','The ANM’s 30 days to remove the repealed districts’ delimitations run out in late November.','distritos'],
   ['2026-12-31','2026–2030','National Development Plan','The Ministry says it will work with mining regions to integrate legal mining with each territory’s other economic activities.','stm2']
  ],
  rutaT:'The miner’s route to a legal sale',
  ruta:[['Register','Panners and scrap collectors register with the town hall. Small miners join the formalization route or work under a title.'],['Certificate of origin','Every sale carries the certificate of origin or the town hall record. No paper, no legal purchase.'],['Sell with RUCOM','Sell only to a trader or buy-and-sell shop registered in RUCOM, with invoice and recorded weight.'],['The trail stays','From November 19, the buyer reports the operation to the ANM. Traza Minera keeps it ready, lot by lot.']],
  rutaBtn:'See how Traza Minera records it',
+ pvT:'Viewpoints to bring to the forum',pvS:'Each topic shows what is happening, both views and a ready question. Tap "Use this question" and adjust it in your own words.',
+ pvQ:'What’s happening',pvA:'Some say',pvB:'Others say',pvP:'Question for the forum',pvUse:'Use this question',pvUsed:'Question ready in the form. Adjust it and save it.',
+ pv:[
+  ['formal','The mining district agreed in March','In March, the Government and the miners’ table agreed to consolidate a mining district and open areas for formalization. In October, the new Government repealed the country’s 15 Special Mining Districts.','The Ministry says those districts produced no results, sought to replace mining without alternatives and created legal uncertainty. Industry groups such as Fenalcarbón supported the repeal.','Bajo Cauca miners hoped the district would secure areas to work legally. The Ministry said Bajo Cauca prior-consultation commitments remain, but not how the agreed areas will be delivered.','Minister: with the districts repealed, how and when will the areas and the 10,000 hectares for formalization agreed in March in Caucasia be delivered?','distritos|fenal|acuerdos'],
+  ['formal','Titles that are not worked','One March agreement was to review inactive or underused titles. The ANM promised a report within a month listing each title, its status and inspections.','Miners argue that large titles sit idle while thousands work without papers next to them.','Title holders defend their acquired rights, and the repeal made clear that existing titles do not change.','Has the ANM delivered the Bajo Cauca title report promised in March? How many inactive titles were reviewed and how many hectares went to small miners?','acuerdos'],
+  ['maquinaria','Operations and machinery destruction','The strike began over operations that destroy machinery. There are now about 200 dredges in Bajo Cauca, each worth about US$2 million.','The State and some lawmakers say only armed groups can afford such expensive machinery and it must be destroyed.','Miners say equipment of people in formalization is also destroyed, and ask for a machinery census and a clear protocol.','Will there be a machinery census and a protocol that tells a miner in formalization apart from an armed group’s dredge before equipment is destroyed?','dragas'],
+  ['trazab','Traceability from November 19','From November 19, anyone buying gold must report each operation to the ANM. The platform cross-checks Génesis, Anna Minería and RUCOM.','The ANM says traceability is not meant to punish those who do things right but to protect them, by shutting out illegal gold.','The risk for panners is being left out if Génesis fails, if the town hall does not register them in time, or if someone uses their name to launder gold.','What will the ANM do so a panner with a valid registration is not blocked if Génesis fails, and how will identity theft of miners be stopped?','stm'],
+  ['registro','Procedures that depend on Bogotá','Antioquia lost its mining delegation, so every procedure in the region depends on the national government.','The Governor’s Office and the region want the delegation back to resolve cases faster and closer.','Bogotá argues central control avoids local pressure and unifies criteria.','Will the mining delegation return to Antioquia, or will the ANM open an office with decision power in Caucasia?','callejon'],
+  ['comercio','Gold price and banks','Gold hit a record near US$5,600 an ounce in January 2026 and then corrected. In March, a table with the Financial Superintendency and Banco Agrario was agreed for miners’ financial inclusion.','With expensive gold, the pull of illegality grows and banks avoid money of doubtful origin.','Formal miners need accounts, credit and a fair price so they don’t fall into the hands of abusive buyers or armed groups.','What came out of the table with the Financial Superintendency and Banco Agrario? When will formal miners get accounts and credit?','precio'],
+  ['ambiente','Mercury, rivers and health','Studies found mercury above the WHO limit in the Cauca River between Caucasia and Achí, and fish with up to five times the allowed level. Mercury has been banned in mining since Law 1658 of 2013.','Environmentalists and scientists say fishermen’s and children’s health is already at risk.','Many miners say they want to work without mercury but need processing plants and technology they cannot afford alone.','Will there be mercury-free community processing plants and technical support so small miners can stop using it?','mercurio|peces'],
+  ['seguridad','Extortion and armed groups','The Clan del Golfo has been reported to charge up to 20% of output and to control much of the region’s illegal gold.','The Government has said armed groups pushed violence during the strikes.','Miners say they are the first victims of extortion and that formalizing without protection exposes them further.','How will the State protect miners who formalize and report extortion?','extorsion'],
+  ['alternativas','And after gold?','The miners’ table estimates 96.5% of the regional economy depends on mining.','Some say the region must diversify: farming, fishing, river tourism and Laguna El Silencio.','Others answer, as the Minister said, that diversifying means adding, not subtracting: first organize mining, don’t replace it.','What concrete projects for other livelihoods will reach Bajo Cauca’s mining families without forcing them out of legal mining?','distritos']
+ ],
+ antesT:'Before you go',antes:['Register with the Caucasia Town Hall form.','Arrive before 8:00 a.m.: the forum runs until 2:00 p.m.','Bring your question in writing, one minute long, with concrete data: town, how many families, which procedure is stuck.','Bring your Génesis registration, title or town hall record if you will speak about your case.','Ask for your proposal to be recorded in the forum minutes.'],
  e3T:'The voice of the mining community',e3S:'Write your problem or proposal. It is added to the summary delivered to the forum table.',
  vNom:'Name (optional)',vMun:'Town',vTipo:'You are',vTema:'Topic',vTxt:'Your problem or proposal',vTxtPh:'Write it as you would say it at the forum microphone',vTel:'Mobile (optional, to be contacted)',
  vOk:'I authorize the use of my voice for the forum summary. My mobile is not published and only the admin with PIN can see it (Colombian Law 1581 of 2012).',
@@ -977,13 +1065,13 @@ const FT={es:{
  memoIntro:n=>`We deliver ${n} ${n===1?'contribution':'contributions'} from miners and residents of Bajo Cauca, collected with the Traza Minera app by Vibras Positivas HM, to be considered in the forum’s conclusions and the work plan with the territory.`,
  qrT:'Share the app at the forum',qrS:'Project or print this code. Whoever scans it lands right here and can leave their voice from their phone.',qrPrint:'Print QR poster',
  srcT:'Sources',disc:'Traza Minera is an independent app by Vibras Positivas HM. It is not an official channel of the Town Hall, the Ministry or the ANM. Data comes from the cited media.',
- waInv:`Bajo Cauca Caucasia Mining Forum 2026\nThursday, November 5, 8:00 a.m.\nCaucasia Chamber of Commerce\nThe state of mining, where it is heading, and the voice of the mining community.\nLeave your voice here: ${FORO_URL}`
+ waInv:`Bajo Cauca Caucasia Mining Forum 2026\nThursday, November 5, 8:00 a.m. to 2:00 p.m.\nMedellín Chamber of Commerce for Antioquia auditorium, Caucasia\nRegistration: Caucasia Town Hall form\nThe state of mining, where it is heading, and the voice of the mining community.\nLeave your voice here: ${FORO_URL}`
 }};
 const ft=k=>FT[lang][k];
 const PH_FORO=['fotos/foro.jpg','fotos/hero1.jpg','fotos/hero2.jpg',C+'El_Bagre-Antioquia.jpg',C+'Puerto_Claver-El_Bagre-Antioquia.jpg',C+'DJI_MINA_BOYACA.jpg?width=1600'];
 let foroAx='1';
 
-function srcLink(k){return `<a href="${SRC[k]}" target="_blank" rel="noopener">${lang==='es'?'Fuente':'Source'}: ${esc(new URL(SRC[k]).hostname.replace('www.','').replace('es-us.noticias.',''))}</a>`}
+function srcLink(k){const ks=k.split('|').filter(x=>SRC[x]);return `<span class="srcl">${lang==='es'?(ks.length>1?'Fuentes':'Fuente'):(ks.length>1?'Sources':'Source')}: ${ks.map(x=>`<a href="${SRC[x]}" target="_blank" rel="noopener">${esc(new URL(SRC[x]).hostname.replace('www.','').replace('es-us.noticias.','').replace('saportalanm.blob.core.windows.net','anm.gov.co'))}</a>`).join(' · ')}</span>`}
 function renderForo(){
   const box=document.getElementById('foroBox');if(!box)return;
   foroBand.style.display=new Date()<new Date('2026-11-06T00:00:00-05:00')?'flex':'none';
@@ -998,7 +1086,7 @@ function renderForo(){
     <p class="lead" style="color:#e7e7e7;max-width:680px">${esc(ft('lead'))}</p>
     <div class="fmeta"><div><small>${ft('fecha')}</small><b>${ft('fechaV')}</b></div><div><small>${ft('hora')}</small><b>${ft('horaV')}</b></div><div><small>${ft('lugar')}</small><b>${ft('lugarV')}</b></div><div><small>${ft('quien')}</small><b>${ft('quienV')}</b></div></div>
     <div class="count" id="foroCd"></div>
-    <div class="cta"><button class="btn gold sm" onclick="foroICS()">${ft('cal')}</button><a class="btn ghost sm" style="text-decoration:none" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Cámara de Comercio Caucasia Antioquia')}" target="_blank" rel="noopener">${ft('map')}</a><button class="btn ghost sm" onclick="window.open('https://wa.me/?text='+encodeURIComponent(ft('waInv')),'_blank')">${ft('share')}</button></div>
+    <div class="cta"><a class="btn gold sm" style="text-decoration:none" href="${SRC.foroFB}" target="_blank" rel="noopener">${ft('insc')}</a><button class="btn ghost sm" onclick="foroICS()">${ft('cal')}</button><a class="btn ghost sm" style="text-decoration:none" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Cámara de Comercio de Medellín para Antioquia sede Caucasia')}" target="_blank" rel="noopener">${ft('map')}</a><button class="btn ghost sm" onclick="window.open('https://wa.me/?text='+encodeURIComponent(ft('waInv')),'_blank')">${ft('share')}</button></div>
   </div></div>
   <div class="axes" id="foroAxes">${ft('ax').map(([n,l])=>`<button data-ax="${n}" onclick="foroGo('${n}')"><span>0${n}</span>${esc(l)}</button>`).join('')}</div>
 
@@ -1010,7 +1098,13 @@ function renderForo(){
    <div class="sechead"><div><h2>${esc(ft('rutaT'))}</h2></div><button class="btn dark sm" onclick="go('lotes')">${esc(ft('rutaBtn'))}</button></div>
    <div class="rsteps">${ft('ruta').map(([h,p])=>`<div class="reveal"><b>${esc(h)}</b><p>${esc(p)}</p></div>`).join('')}</div></div>
 
-  <div id="ax3"><div class="sechead"><div><h2>${esc(ft('e3T'))}</h2><p>${esc(ft('e3S'))}</p></div></div>
+  <div id="ax3"><div class="sechead"><div><h2>${esc(ft('pvT'))}</h2><p>${esc(ft('pvS'))}</p></div></div>
+   <div class="pvs">${ft('pv').map(([tema,h,q,a,b,preg,s],i)=>`<div class="pv reveal"><span class="tag n">${esc(ft('temas')[tema]||'')}</span><h3>${esc(h)}</h3>
+     <div class="pvq"><small>${ft('pvQ')}</small><p>${esc(q)}</p></div>
+     <div class="pvab"><div><small>${ft('pvA')}</small><p>${esc(a)}</p></div><div><small>${ft('pvB')}</small><p>${esc(b)}</p></div></div>
+     <div class="pvp"><small>${ft('pvP')}</small><p>${esc(preg)}</p><button class="btn gold sm" onclick="usePreg(${i})">${ft('pvUse')}</button></div>${srcLink(s)}</div>`).join('')}</div>
+   <div class="card antes reveal" style="margin-top:14px"><h3 class="cond" style="font-size:24px;color:#fff;text-transform:uppercase">${esc(ft('antesT'))}</h3><ol>${ft('antes').map(x=>`<li>${esc(x)}</li>`).join('')}</ol><div class="cta"><a class="btn gold sm" style="text-decoration:none" href="${SRC.foroFB}" target="_blank" rel="noopener">${ft('insc')}</a></div></div>
+   <div class="sechead" id="vozForm"><div><h2>${esc(ft('e3T'))}</h2><p>${esc(ft('e3S'))}</p></div></div>
    <div class="grid2">
     <div class="card">
      <label>${ft('vMun')}</label><select id="vMun">${MUNIS.map(m=>`<option>${m}</option>`).join('')}<option value="Otro">${lang==='es'?'Otro':'Other'}</option></select>
@@ -1033,6 +1127,7 @@ function renderForo(){
   firstOk(PH_FORO).then(s=>{const b=document.getElementById('foroBg');if(s&&b)b.style.backgroundImage=`url("${s}")`});
   foroMarkAx();renderVoces();foroCount();observe();
 }
+function usePreg(i){const it=ft('pv')[i];vTema.value=it[0];vTxt.value=it[5];const el=document.getElementById('vozForm');window.scrollTo({top:el.getBoundingClientRect().top+scrollY-120,behavior:'smooth'});setTimeout(()=>vTxt.focus({preventScroll:true}),600);toast(ft('pvUsed'))}
 function foroGo(n){foroAx=n;const el=document.getElementById('ax'+n);if(el)window.scrollTo({top:el.getBoundingClientRect().top+scrollY-125,behavior:'smooth'});foroMarkAx()}
 function foroMarkAx(){document.querySelectorAll('#foroAxes button').forEach(b=>b.classList.toggle('on',b.dataset.ax===foroAx))}
 window.addEventListener('scroll',()=>{if(!document.getElementById('v-foro').classList.contains('on'))return;let cur='1';['1','2','3'].forEach(n=>{const el=document.getElementById('ax'+n);if(el&&el.getBoundingClientRect().top<180)cur=n});if(cur!==foroAx){foroAx=cur;foroMarkAx()}},{passive:true});
@@ -1045,8 +1140,8 @@ function foroCount(){
 }
 setInterval(foroCount,1000);
 function foroICS(){
-  const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Vibras Positivas HM//Traza Minera//ES','BEGIN:VEVENT','UID:foro-minero-caucasia-2026@traza-minera','DTSTAMP:'+new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z','DTSTART:20261105T130000Z','DTEND:20261105T180000Z',
-   'SUMMARY:Foro Minero Bajo Cauca Caucasia 2026','LOCATION:Cámara de Comercio\\, Caucasia\\, Antioquia','DESCRIPTION:Convoca la Alcaldía de Caucasia. Cómo está la minería en el Bajo Cauca\\, hacia dónde va y la voz de la comunidad minera. '+FORO_URL,
+  const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Vibras Positivas HM//Traza Minera//ES','BEGIN:VEVENT','UID:foro-minero-caucasia-2026@traza-minera','DTSTAMP:'+new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z','DTSTART:20261105T130000Z','DTEND:20261105T190000Z',
+   'SUMMARY:Foro Minero Bajo Cauca Caucasia 2026','LOCATION:Auditorio Cámara de Comercio de Medellín para Antioquia - Sede Caucasia','DESCRIPTION:8:00 a. m. a 2:00 p. m. Lidera la Secretaría de Medio Ambiente\\, Desarrollo Rural\\, Minería y Turismo de Caucasia. Cómo está la minería en el Bajo Cauca\\, hacia dónde va y la voz de la comunidad minera. '+FORO_URL,
    'BEGIN:VALARM','TRIGGER:-PT12H','ACTION:DISPLAY','DESCRIPTION:Foro Minero mañana 8:00 a. m.','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
   dl('foro-minero-caucasia-2026.ics',ics,'text/calendar;charset=utf-8');
 }
@@ -1100,7 +1195,7 @@ function waVoces(){
 function clearVoces(){if(!confirm(ft('clearAsk')))return;if(db.cfg.pin&&prompt(t('pinIn'))!==db.cfg.pin)return toast(t('pinBad'));db.voces=[];save();toast(t('deleted'));renderVoces()}
 function printQR(){
   printArea.innerHTML=`<div style="text-align:center;padding-top:20mm"><div style="font-size:16px;letter-spacing:2px;text-transform:uppercase">${lang==='es'?'Alcaldía de Caucasia · Ministerio de Minas y Energía':'Caucasia Town Hall · Ministry of Mines and Energy'}</div>
-  <h1 style="font-size:46px;margin:10px 0 4px">FORO MINERO BAJO CAUCA<br>CAUCASIA 2026</h1><div style="font-size:20px">${lang==='es'?'Jueves 5 de noviembre · 8:00 a. m. · Cámara de Comercio':'Thursday, November 5 · 8:00 a.m. · Chamber of Commerce'}</div>
+  <h1 style="font-size:46px;margin:10px 0 4px">FORO MINERO BAJO CAUCA<br>CAUCASIA 2026</h1><div style="font-size:20px">${lang==='es'?'Jueves 5 de noviembre · 8:00 a. m. a 2:00 p. m. · Auditorio Cámara de Comercio, sede Caucasia':'Thursday, November 5 · 8:00 a.m. to 2:00 p.m. · Chamber of Commerce auditorium, Caucasia'}</div>
   <img src="qr-foro.png" style="width:95mm;height:95mm;margin:14mm 0 6mm">
   <div style="font-size:28px;font-weight:700">${lang==='es'?'Escanee y deje su voz minera':'Scan and leave your miner’s voice'}</div><div style="font-size:20px;margin-top:4px">traza-minera.netlify.app</div>
   <div style="font-size:12px;margin-top:14mm">Traza Minera — Vibras Positivas HM · Caucasia, Antioquia · vibraspositivashm.com · WhatsApp 311 770 0431</div></div>`;
