@@ -206,8 +206,8 @@ footer b{color:#ddd}
 .fmeta div{background:rgba(0,0,0,.55);border:1px solid rgba(242,201,76,.4);border-radius:12px;padding:10px 12px}
 .fmeta small{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#bbb;font-weight:700}
 .fmeta b{font-family:"Barlow Condensed";font-size:24px;color:#fff}
-.axes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:22px 0 4px;position:sticky;top:58px;z-index:30;background:rgba(13,13,13,.94);padding:8px 0;backdrop-filter:blur(8px)}
-.axes button{min-width:0;border:1px solid #3a3a3a;background:#161616;color:#ddd;border-radius:10px;padding:7px 4px;font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.2px;line-height:1.15}
+.axes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:22px 0 4px;position:sticky;top:58px;z-index:30;background:rgba(13,13,13,.94);padding:8px 0;backdrop-filter:blur(8px)}
+.axes button{min-width:0;border:1px solid #3a3a3a;background:#161616;color:#ddd;border-radius:10px;padding:7px 4px;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0;line-height:1.15;overflow-wrap:anywhere}
 .axes button span{display:block;font-family:"Barlow Condensed";font-size:20px;color:var(--gold2);line-height:1}
 .axes button.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
 .axes button.on span{color:var(--ink)}
@@ -249,6 +249,22 @@ footer b{color:#ddd}
 .srcs a{color:#bdbdbd;word-break:break-all}
 html,body{overflow-x:hidden}
 .srcs li{margin:4px 0 4px 18px}
+
+/* Innovación */
+.innos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.inno{background:#141414;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,border-color .25s}
+.inno:hover{transform:translateY(-3px);border-color:var(--gold3)}
+.inno .ph{height:150px;background:#1d1d1d center/cover;position:relative}
+.inno .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,#141414)}
+.inno .ib{padding:4px 16px 16px;display:flex;flex-direction:column;gap:10px;margin-top:-34px;position:relative;z-index:2}
+.inno .lug{align-self:flex-start;background:var(--gold);color:var(--ink);font-weight:800;font-size:11.5px;letter-spacing:.6px;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.inno h3{font-size:23px;color:#fff;text-transform:uppercase;line-height:1.05}
+.inno small{display:block;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gold2);margin-bottom:3px}
+.inno p{font-size:14.5px;color:#d4d4d4}
+.inno .ires{border-left:3px solid var(--gold);padding-left:10px}
+.inno .ires p{color:#fff;font-weight:600}
+.inno .iaqui{background:#0f0f0f;border:1px solid #2a2a2a;border-radius:10px;padding:10px}
+.inno .iaqui small{color:#9fd3a6}
 
 /* Puntos de vista */
 .pvs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
@@ -920,6 +936,27 @@ const SRC={
  ptm:'https://mineria-pa.com/2026/05/22/anm-lanza-la-primera-plataforma-de-trazabilidad-de-minerales-en-colombia/',
  res3824:'https://saportalanm.blob.core.windows.net/public-files/file_resoluciones/2025-12-30-Resolucion-3824-29-12-2025.pdf',
  fenal:'https://diariolalibertad.com/2026/10/24/gobierno-derogo-15-distritos-mineros-especiales-y-ordeno-actualizar-el-catastro-minero-colombiano/',
+
+ mercAnt:'https://www.researchgate.net/publication/272027522_Artisanal_gold_mining_in_Antioquia_Colombia_A_successful_case_of_mercury_reduction',
+ pgBC:'https://www.planetgold.org/comunidades-mineras-del-bajo-cauca-se-capacitaron-y-dijeron-colombia-libre-de-mercurio',
+ fairmined:'https://incp.org.co/?p=20261',
+ nobel:'https://colombiareports.com/amp/nobel-peace-price-made-out-of-colombian-gold',
+ sbgi:'https://www.luxurytribune.com/en/swiss-better-gold-switzerland-takes-on-artisanal-gold-challenges',
+ sbgi2:'https://swissinfo.ch/eng/multinational-companies/swiss-better-golds-diana-culillas-we-are-proud-of-our-results-so-far/77715912',
+ london:'https://www.gold.org/the-london-principles',
+ mongolia:'https://www.planetgold.org/mongolia-impacts-covid-19-are-currently-low-uncertainty-artisanal-gold-mining-communities-remains',
+ bsp:'https://www.rappler.com/nation/luzon/small-scale-gold-miners-prefer-baguio-black-market-over-bangko-sentral-ng-pilipinas/',
+ ghana:'https://www.myjoyonline.com/new-study-identifies-key-reforms-needed-for-sustainable-community-mining/',
+ ghana2:'https://moi.gov.gh/newsroom/?p=711',
+ malasia:'https://www.ldd.go.th/livingland/files/assets/basic-html/page-168.html',
+ malasia2:'https://news.utar.edu.my/news/2024/Feb/22/01/01.html',
+ miel:'https://www.portafolio.co/economia/oro-legal-asi-se-recuperan-suelos-afectados-por-mineria-oro-hoy-537310',
+ cincia:'https://caretas.pe/medio-ambiente/reviviendo-bosques-iniciativa-recupera-areas-degradadas-por-mineria-ilegal',
+ cincia2:'https://proactivo.com.pe/?p=88520',
+ cativo:'https://www.larepublica.co/responsabilidad-social/mineros-construyo-vivero-con-capacidad-para-250-000-plantulas-de-cativo-2830466',
+ amw:'https://www.pamacc.org/index.php/k2-listing/item/1331-new-ai-platform-monitors-mining-in-the-amazon-rainforest',
+ amw2:'https://pulitzercenter.org/node/32476',
+ credito:'https://www.planetgold.org/comunidades-mineras-de-antioquia-y-sur-de-bolivar-reciben-creditos-por-830-millones-de-pesos',
  precio:'https://www.reporteminero.cl/noticia/noticias/2026/02/jpmorgan-proyeccion-precio-oro-6300-onza-2026'
 };
 const FT={es:{
@@ -929,7 +966,7 @@ const FT={es:{
  fecha:'Fecha',fechaV:'Jue 5 de noviembre',hora:'Hora',horaV:'8:00 a. m. a 2:00 p. m.',lugar:'Lugar',lugarV:'Auditorio Cámara de Comercio, sede Caucasia',quien:'Lidera',quienV:'Alcaldía de Caucasia',insc:'Inscribirme al foro',
  cal:'Agregar a mi calendario',map:'Cómo llegar',share:'Invitar por WhatsApp',
  cdNote:'para que empiece el foro (hora Colombia).',cdNow:'El foro está en curso. Deja tu voz abajo.',cdDone:'El foro ya se realizó. Las voces siguen abiertas para la mesa de seguimiento.',
- ax:[['1','Cómo está'],['2','Hacia dónde va'],['3','La voz minera']],
+ ax:[['1','Cómo está'],['2','Hacia dónde va'],['3','Innovación'],['4','La voz minera']],
  e1T:'Cómo está la minería en el Bajo Cauca',e1S:'Lo que pasó este año, con la fuente de cada dato.',
  facts:[
   ['16–27 mar 2026','Cuarto paro minero desde 2023','Unos 8.000 mineros del Bajo Cauca, el sur de Córdoba y Valdivia bloquearon vías durante 11 días. Reclamaban por la destrucción de maquinaria y pedían más alternativas para formalizarse. Se levantó el 27 de marzo con un acuerdo firmado en Caucasia.','paroET'],
@@ -966,6 +1003,20 @@ const FT={es:{
  rutaT:'La ruta del minero para vender legal',
  ruta:[['Registrarse','El barequero o chatarrero se inscribe en la alcaldía. El pequeño minero entra a la ruta de formalización o trabaja bajo un título.'],['Certificado de origen','Cada venta lleva el certificado de origen o la constancia de la alcaldía. Sin ese papel no hay compra legal.'],['Vender con RUCOM','Se le vende solo a un comercializador o compraventa inscrito en el RUCOM, con factura y peso anotado.'],['Queda la huella','Desde el 19 de noviembre, el comprador reporta la operación a la ANM. Traza Minera le deja todo listo, lote por lote.']],
  rutaBtn:'Ver cómo lo registra Traza Minera',
+ inT:'Innovación minera: lo que funcionó en el mundo',inS:'Experiencias reales de otros lugares que se pueden traer al Bajo Cauca. Cada una trae una propuesta lista para llevar al foro.',
+ inHizo:'Qué hicieron',inRes:'Resultado',inAqui:'Cómo aplicarlo en el Bajo Cauca',inProp:'Propuesta para el foro',inUse:'Usar como propuesta',
+ inno:[
+  ['Segovia y Remedios, Antioquia','Plantas de beneficio sin mercurio','Se les mostraron métodos limpios a mineros y dueños de entables, y una empresa empezó a comprarles el mineral a precio justo.','Nacieron 39 plantas nuevas sin mercurio y las pérdidas de mercurio bajaron 63 % entre 2010 y 2013. En el Bajo Cauca, planetGOLD ya entrenó a 123 personas de Caucasia, Cáceres y El Bagre en técnicas libres de mercurio.','Plantas de beneficio comunitarias con concentración por gravedad (mesas y centrífugas) en cada municipio, administradas por las asociaciones mineras.','Pido una planta de beneficio comunitaria sin mercurio en cada municipio del Bajo Cauca, administrada por las asociaciones mineras y con apoyo técnico del Ministerio y del SENA.','ambiente','mercAnt|pgBC'],
+  ['La Llanada (Nariño) e Íquira (Huila)','Oro certificado de minería justa','Cooperativas de mineros artesanales se certificaron con el estándar Fairmined: sin mercurio, con seguridad y trabajo digno.','Reciben una prima de US$4.000 por cada kilo vendido. El oro de La Llanada llega a la joyería suiza Chopard, y la medalla del Nobel de Paz 2016 se hizo con oro de Íquira.','Que las asociaciones de barequeros y pequeños mineros del Bajo Cauca se certifiquen, con acompañamiento para cumplir el estándar.','Pido un programa para certificar a las asociaciones mineras del Bajo Cauca en oro de minería justa, para que reciban la prima por kilo y vendan directo a compradores internacionales.','comercio','fairmined|nobel'],
+  ['Suiza con Colombia, Perú y Bolivia','Swiss Better Gold: comprador directo y fondo social','Refinadoras suizas compran directo a minas pequeñas que cumplen 14 criterios sociales y ambientales, sin intermediarios.','Por cada gramo se paga US$1 que va a un fondo para proyectos sociales y ambientales en las mismas minas. Hoy exportan unas 3,5 toneladas al año de Colombia y Perú.','Conectar a las UPM formalizadas del Bajo Cauca con compradores responsables que paguen prima y reinviertan en la comunidad.','Pido que el Gobierno conecte a las UPM formalizadas del Bajo Cauca con programas de compra responsable como Swiss Better Gold, con prima por gramo para proyectos comunitarios.','comercio','sbgi|sbgi2'],
+  ['Filipinas, Mongolia y Ecuador','El banco central le compra al pequeño minero','En Filipinas la ley manda vender el oro del pequeño minero al banco central, y en 2019 se le quitaron los impuestos a esa venta porque cuando se cobraban, los mineros se fueron al mercado negro. Mongolia abrió centros de una sola ventanilla con laboratorio de ensayo en las provincias.','En 2019 el Banco de Mongolia compró 15,2 toneladas de oro, y casi la mitad vino de personas, incluidos mineros artesanales. El Banco de la República de Colombia firmó los Principios de Londres para comprar oro responsable al pequeño minero.','Un punto de compra del Banco de la República con laboratorio de ensayo en Caucasia, que pague precio internacional al minero formalizado.','Pido un punto de compra del Banco de la República con laboratorio de ensayo en Caucasia, para que el minero formalizado venda a precio internacional sin intermediarios.','comercio','london|mongolia|bsp'],
+  ['Ghana','Áreas comunitarias para minar legal','El Gobierno entrega áreas y licencias a las comunidades mineras, con comités comunitarios de vigilancia, un código de prácticas y un fondo de crédito en un banco agrícola.','En un estudio con 500 mineros del programa, la mayoría dijo que su comunidad alcanzó entre 50 % y 70 % de formalización, con más empleo para jóvenes.','Que las áreas acordadas en marzo se entreguen a asociaciones comunitarias del Bajo Cauca, con comité de seguimiento y crédito del Banco Agrario.','Pido que las áreas con potencial minero acordadas en marzo se entreguen como áreas comunitarias a las asociaciones del Bajo Cauca, con comité de vigilancia y crédito, como en Ghana.','formal','ghana|ghana2'],
+  ['Malasia','Las lagunas mineras se volvieron negocio','Los pozos que dejó la minería de estaño se convirtieron en piscicultura, agricultura, zonas de recreo y control de inundaciones.','Cerca del 60 % de 127.550 hectáreas de tierra minera ya se rehabilitó o tiene otro uso. Universidades montaron granjas piscícolas modelo en lagunas abandonadas.','Usar charcos y lagunas mineras del Bajo Cauca para piscicultura y ecoturismo, siempre con análisis de mercurio del agua y de los peces antes de consumir.','Pido un programa para convertir lagunas mineras del Bajo Cauca en proyectos de piscicultura y ecoturismo, con análisis de mercurio obligatorio antes de vender el pescado.','alternativas','malasia|malasia2'],
+  ['Caucasia, El Bagre, Nechí y Tarazá','Miel en tierras que dejó la minería','Un programa de cooperación sembró y rehabilitó tierras degradadas por minería y montó apiarios para las familias.','Se instalaron 12.000 colmenas y se cosecharon 91 toneladas de miel. En el Bajo Cauca hay unas 32.000 hectáreas degradadas por la explotación ilegal de oro.','Escalar la apicultura y los cultivos en tierras rehabilitadas como ingreso para familias mineras, con compra asegurada.','Pido retomar y ampliar la apicultura y los proyectos productivos en tierras degradadas del Bajo Cauca, con compra asegurada para las familias mineras.','alternativas','miel'],
+  ['Madre de Dios, Perú','Restaurar con ciencia lo que dañó el oro','Un centro científico probó especies nativas y biocarbón para recuperar suelos destruidos por la minería, junto con el Ejército y la universidad local.','De 70 especies probadas, 30 funcionaron. Montaron un vivero tecnificado de 300.000 plántulas al año. En el Bajo Cauca, Mineros ya tiene un vivero para 250.000 plántulas de cativo.','Un vivero regional con especies nativas y un centro de restauración con las universidades, que contrate a mineros como restauradores.','Pido un vivero regional y un programa de restauración de suelos mineros con especies nativas en el que se contrate a mineros del Bajo Cauca como restauradores.','ambiente','cincia|cincia2|cativo'],
+  ['Amazonía','Satélites e inteligencia artificial vigilan los ríos','Una plataforma abierta analiza imágenes del satélite Sentinel-2 cada pocos meses con inteligencia artificial y detecta minas a cielo abierto.','Mide la huella minera en los nueve países amazónicos. Su código y sus datos son abiertos y cualquiera los puede descargar.','Un tablero público de monitoreo del Cauca y el Nechí que muestre dónde hay minería formalizada y dónde no, para que el operativo caiga sobre la draga ilegal y no sobre el minero en regla.','Pido un monitoreo satelital público del río Cauca y el río Nechí que diferencie áreas formalizadas, para que los operativos vayan contra la minería criminal y no contra el minero en regla.','seguridad','amw|amw2'],
+  ['Antioquia y sur de Bolívar','Crédito para el minero que se formaliza','Un proyecto de Naciones Unidas se alió con una cooperativa financiera para prestarle plata a mineros en proceso de formalización.','Se dieron 27 créditos por $830 millones, 17 de ellos a mineros de subsistencia. El crédito ayudó a mantenerlos en la legalidad y a dejar el mercurio.','Una línea de crédito para mineros formalizados con cooperativas y el Banco Agrario, ligada a dejar el mercurio y vender con trazabilidad.','Pido una línea de crédito para mineros formalizados del Bajo Cauca con cooperativas y el Banco Agrario, que premie a quien deje el mercurio y venda con trazabilidad.','comercio','credito']
+ ],
  pvT:'Puntos de vista para llevar al foro',pvS:'Cada tema trae lo que pasa, las dos miradas y una pregunta lista. Toque "Usar esta pregunta" y ajústela con sus palabras.',
  pvQ:'Qué pasa',pvA:'Unos dicen',pvB:'Otros dicen',pvP:'Pregunta para el foro',pvUse:'Usar esta pregunta',pvUsed:'Pregunta lista en el formulario. Ajústela y guárdela.',
  pv:[
@@ -1001,7 +1052,7 @@ const FT={es:{
  fecha:'Date',fechaV:'Thu, November 5',hora:'Time',horaV:'8:00 a.m. to 2:00 p.m.',lugar:'Venue',lugarV:'Chamber of Commerce auditorium, Caucasia',quien:'Led by',quienV:'Caucasia Town Hall',insc:'Register for the forum',
  cal:'Add to my calendar',map:'Directions',share:'Invite on WhatsApp',
  cdNote:'until the forum starts (Colombia time).',cdNow:'The forum is under way. Leave your voice below.',cdDone:'The forum has taken place. Voices remain open for the follow-up table.',
- ax:[['1','Today'],['2','What’s next'],['3','Miners’ voice']],
+ ax:[['1','Today'],['2','What’s next'],['3','Innovation'],['4','Miners’ voice']],
  e1T:'The state of mining in Bajo Cauca',e1S:'What happened this year, with the source for each figure.',
  facts:[
   ['Mar 16–27, 2026','Fourth mining strike since 2023','About 8,000 miners from Bajo Cauca, southern Córdoba and Valdivia blocked roads for 11 days, protesting machinery destruction and demanding more ways to formalize. It ended on March 27 with an agreement signed in Caucasia.','paroET'],
@@ -1038,6 +1089,20 @@ const FT={es:{
  rutaT:'The miner’s route to a legal sale',
  ruta:[['Register','Panners and scrap collectors register with the town hall. Small miners join the formalization route or work under a title.'],['Certificate of origin','Every sale carries the certificate of origin or the town hall record. No paper, no legal purchase.'],['Sell with RUCOM','Sell only to a trader or buy-and-sell shop registered in RUCOM, with invoice and recorded weight.'],['The trail stays','From November 19, the buyer reports the operation to the ANM. Traza Minera keeps it ready, lot by lot.']],
  rutaBtn:'See how Traza Minera records it',
+ inT:'Mining innovation: what worked around the world',inS:'Real experiences from other places that could come to Bajo Cauca. Each one has a ready proposal to bring to the forum.',
+ inHizo:'What they did',inRes:'Result',inAqui:'How to apply it in Bajo Cauca',inProp:'Proposal for the forum',inUse:'Use as proposal',
+ inno:[
+  ['Segovia and Remedios, Antioquia','Mercury-free processing plants','Miners and plant owners were shown clean methods, and a company began buying their ore at a fair price.','39 new mercury-free plants appeared and mercury losses fell 63% between 2010 and 2013. In Bajo Cauca, planetGOLD has already trained 123 people from Caucasia, Cáceres and El Bagre in mercury-free techniques.','Community processing plants using gravity concentration (shaking tables and centrifuges) in every town, run by miners’ associations.','I ask for a mercury-free community processing plant in every Bajo Cauca town, run by miners’ associations with technical support from the Ministry and SENA.','ambiente','mercAnt|pgBC'],
+  ['La Llanada (Nariño) and Íquira (Huila)','Fair-mined certified gold','Artisanal miners’ cooperatives were certified under the Fairmined standard: no mercury, with safety and decent work.','They get a US$4,000 premium per kilo sold. La Llanada gold reaches Swiss jeweler Chopard, and the 2016 Nobel Peace Prize medal was made with gold from Íquira.','Certify Bajo Cauca panners’ and small miners’ associations, with support to meet the standard.','I ask for a program to certify Bajo Cauca mining associations in fair-mined gold, so they receive the premium per kilo and sell directly to international buyers.','comercio','fairmined|nobel'],
+  ['Switzerland with Colombia, Peru and Bolivia','Swiss Better Gold: direct buyer and social fund','Swiss refiners buy directly from small mines meeting 14 social and environmental criteria, with no middlemen.','US$1 per gram goes to a fund for social and environmental projects at the same mines. They now export about 3.5 tonnes a year from Colombia and Peru.','Connect formalized Bajo Cauca mining units with responsible buyers who pay a premium and reinvest in the community.','I ask the Government to connect formalized Bajo Cauca mining units with responsible buying programs such as Swiss Better Gold, with a per-gram premium for community projects.','comercio','sbgi|sbgi2'],
+  ['Philippines, Mongolia and Ecuador','The central bank buys from small miners','In the Philippines the law requires small miners’ gold to be sold to the central bank, and in 2019 that sale was made tax-free because taxes had pushed miners to the black market. Mongolia opened one-stop centers with assay labs in the provinces.','In 2019 the Bank of Mongolia bought 15.2 tonnes of gold, almost half from individuals including artisanal miners. Colombia’s Banco de la República signed the London Principles to buy responsible gold from small miners.','A Banco de la República buying point with an assay lab in Caucasia, paying international prices to formalized miners.','I ask for a Banco de la República buying point with an assay lab in Caucasia, so formalized miners can sell at international prices without middlemen.','comercio','london|mongolia|bsp'],
+  ['Ghana','Community areas to mine legally','The Government grants areas and licenses to mining communities, with community oversight committees, a code of practice and a credit fund at an agricultural bank.','In a study of 500 miners in the program, most said their community reached 50% to 70% formalization, with more jobs for young people.','Hand the areas agreed in March to Bajo Cauca community associations, with a follow-up committee and Banco Agrario credit.','I ask that the areas with mining potential agreed in March be handed over as community areas to Bajo Cauca associations, with an oversight committee and credit, as in Ghana.','formal','ghana|ghana2'],
+  ['Malaysia','Mining ponds turned into business','Ponds left by tin mining became fish farms, farmland, recreation areas and flood control.','About 60% of 127,550 hectares of former mining land has been rehabilitated or reused. Universities set up model fish farms in abandoned ponds.','Use Bajo Cauca mining ponds for fish farming and ecotourism, always testing water and fish for mercury before consumption.','I ask for a program to turn Bajo Cauca mining ponds into fish farming and ecotourism projects, with mandatory mercury testing before selling fish.','alternativas','malasia|malasia2'],
+  ['Caucasia, El Bagre, Nechí and Tarazá','Honey on land left by mining','A cooperation program replanted land degraded by mining and set up apiaries for families.','12,000 hives were installed and 91 tonnes of honey harvested. Bajo Cauca has about 32,000 hectares degraded by illegal gold mining.','Scale up beekeeping and crops on rehabilitated land as income for mining families, with guaranteed buyers.','I ask to resume and expand beekeeping and productive projects on degraded Bajo Cauca land, with guaranteed buyers for mining families.','alternativas','miel'],
+  ['Madre de Dios, Peru','Restoring with science what gold destroyed','A science center tested native species and biochar to recover soils destroyed by mining, with the Army and the local university.','Of 70 species tested, 30 worked. They built a nursery producing 300,000 seedlings a year. In Bajo Cauca, Mineros already has a nursery for 250,000 cativo seedlings.','A regional nursery with native species and a restoration center with universities that hires miners as restorers.','I ask for a regional nursery and a mining-soil restoration program with native species that hires Bajo Cauca miners as restorers.','ambiente','cincia|cincia2|cativo'],
+  ['Amazon','Satellites and AI watch the rivers','An open platform analyzes Sentinel-2 satellite images every few months with artificial intelligence and detects open-pit mines.','It measures the mining footprint across nine Amazon countries. Its code and data are open for anyone to download.','A public dashboard monitoring the Cauca and Nechí rivers showing where formalized mining is and where it isn’t, so operations target illegal dredges and not compliant miners.','I ask for public satellite monitoring of the Cauca and Nechí rivers that tells formalized areas apart, so operations target criminal mining and not compliant miners.','seguridad','amw|amw2'],
+  ['Antioquia and southern Bolívar','Credit for miners who formalize','A United Nations project partnered with a financial cooperative to lend to miners in formalization.','27 loans worth COP 830 million were granted, 17 to subsistence miners. Credit helped keep them legal and drop mercury.','A credit line for formalized miners with cooperatives and Banco Agrario, tied to dropping mercury and selling with traceability.','I ask for a credit line for formalized Bajo Cauca miners with cooperatives and Banco Agrario that rewards those who drop mercury and sell with traceability.','comercio','credito']
+ ],
  pvT:'Viewpoints to bring to the forum',pvS:'Each topic shows what is happening, both views and a ready question. Tap "Use this question" and adjust it in your own words.',
  pvQ:'What’s happening',pvA:'Some say',pvB:'Others say',pvP:'Question for the forum',pvUse:'Use this question',pvUsed:'Question ready in the form. Adjust it and save it.',
  pv:[
@@ -1070,6 +1135,18 @@ const FT={es:{
 const ft=k=>FT[lang][k];
 const PH_FORO=['fotos/foro.jpg','fotos/hero1.jpg','fotos/hero2.jpg',C+'El_Bagre-Antioquia.jpg',C+'Puerto_Claver-El_Bagre-Antioquia.jpg',C+'DJI_MINA_BOYACA.jpg?width=1600'];
 let foroAx='1';
+const PH_INNO=[
+ ['fotos/inno-planta.jpg',C+'Miner%C3%ADa.jpg?width=900',C+'Mina_de_oro_salento.jpg'],
+ ['fotos/inno-fairmined.jpg',C+'Gold_nugget_(Australia)_4_(16848647509).jpg?width=900'],
+ ['fotos/inno-sbg.jpg',C+'Gold_nugget_(Australia)_4_(16848647509).jpg?width=900'],
+ ['fotos/inno-banco.jpg',C+'Agencia_Nacional_de_Miner%C3%ADa,_Medell%C3%ADn_-_02.jpg?width=900'],
+ ['fotos/inno-ghana.jpg',C+'Monumento_Minero.jpg?width=900'],
+ ['fotos/inno-lagunas.jpg',C+'El_Bagre-Antioquia.jpg'],
+ ['fotos/inno-miel.jpg',C+'Puerto_Claver-El_Bagre-Antioquia.jpg'],
+ ['fotos/inno-vivero.jpg',C+'Puerto_Claver-El_Bagre-Antioquia.jpg'],
+ ['fotos/inno-satelite.jpg',C+'DJI_MINA_BOYACA.jpg?width=1600'],
+ ['fotos/inno-credito.jpg',C+'Mina_de_oro_salento.jpg']];
+async function loadInnoPhotos(){for(let i=0;i<PH_INNO.length;i++){const s=await firstOk(PH_INNO[i]);const el=document.querySelector(`.inno .ph[data-i="${i}"]`);if(s&&el)el.style.backgroundImage=`url("${s}")`}}
 
 function srcLink(k){const ks=k.split('|').filter(x=>SRC[x]);return `<span class="srcl">${lang==='es'?(ks.length>1?'Fuentes':'Fuente'):(ks.length>1?'Sources':'Source')}: ${ks.map(x=>`<a href="${SRC[x]}" target="_blank" rel="noopener">${esc(new URL(SRC[x]).hostname.replace('www.','').replace('es-us.noticias.','').replace('saportalanm.blob.core.windows.net','anm.gov.co'))}</a>`).join(' · ')}</span>`}
 function renderForo(){
@@ -1098,7 +1175,14 @@ function renderForo(){
    <div class="sechead"><div><h2>${esc(ft('rutaT'))}</h2></div><button class="btn dark sm" onclick="go('lotes')">${esc(ft('rutaBtn'))}</button></div>
    <div class="rsteps">${ft('ruta').map(([h,p])=>`<div class="reveal"><b>${esc(h)}</b><p>${esc(p)}</p></div>`).join('')}</div></div>
 
-  <div id="ax3"><div class="sechead"><div><h2>${esc(ft('pvT'))}</h2><p>${esc(ft('pvS'))}</p></div></div>
+  <div id="ax3"><div class="sechead"><div><h2>${esc(ft('inT'))}</h2><p>${esc(ft('inS'))}</p></div></div>
+   <div class="innos">${ft('inno').map(([lug,h,hizo,res,aqui,prop,tema,s],i)=>`<div class="inno reveal"><div class="ph" data-i="${i}"></div><div class="ib"><span class="lug">${esc(lug)}</span><h3>${esc(h)}</h3>
+     <div><small>${ft('inHizo')}</small><p>${esc(hizo)}</p></div>
+     <div class="ires"><small>${ft('inRes')}</small><p>${esc(res)}</p></div>
+     <div class="iaqui"><small>${ft('inAqui')}</small><p>${esc(aqui)}</p></div>
+     <div class="pvp"><small>${ft('inProp')}</small><p>${esc(prop)}</p><button class="btn gold sm" onclick="useInno(${i})">${ft('inUse')}</button></div>${srcLink(s)}</div></div>`).join('')}</div></div>
+
+  <div id="ax4"><div class="sechead"><div><h2>${esc(ft('pvT'))}</h2><p>${esc(ft('pvS'))}</p></div></div>
    <div class="pvs">${ft('pv').map(([tema,h,q,a,b,preg,s],i)=>`<div class="pv reveal"><span class="tag n">${esc(ft('temas')[tema]||'')}</span><h3>${esc(h)}</h3>
      <div class="pvq"><small>${ft('pvQ')}</small><p>${esc(q)}</p></div>
      <div class="pvab"><div><small>${ft('pvA')}</small><p>${esc(a)}</p></div><div><small>${ft('pvB')}</small><p>${esc(b)}</p></div></div>
@@ -1125,12 +1209,13 @@ function renderForo(){
    <ul class="srcs">${[...new Set(Object.keys(SRC))].map(k=>`<li><a href="${SRC[k]}" target="_blank" rel="noopener">${esc(SRC[k].replace('https://',''))}</a></li>`).join('')}</ul>
    <p class="disclaimer">${esc(ft('disc'))}</p></div>`;
   firstOk(PH_FORO).then(s=>{const b=document.getElementById('foroBg');if(s&&b)b.style.backgroundImage=`url("${s}")`});
-  foroMarkAx();renderVoces();foroCount();observe();
+  foroMarkAx();renderVoces();foroCount();observe();loadInnoPhotos();
 }
+function useInno(i){const it=ft('inno')[i];vTema.value=it[6];vTxt.value=it[5];const el=document.getElementById('vozForm');window.scrollTo({top:el.getBoundingClientRect().top+scrollY-120,behavior:'smooth'});setTimeout(()=>vTxt.focus({preventScroll:true}),600);toast(ft('pvUsed'))}
 function usePreg(i){const it=ft('pv')[i];vTema.value=it[0];vTxt.value=it[5];const el=document.getElementById('vozForm');window.scrollTo({top:el.getBoundingClientRect().top+scrollY-120,behavior:'smooth'});setTimeout(()=>vTxt.focus({preventScroll:true}),600);toast(ft('pvUsed'))}
 function foroGo(n){foroAx=n;const el=document.getElementById('ax'+n);if(el)window.scrollTo({top:el.getBoundingClientRect().top+scrollY-125,behavior:'smooth'});foroMarkAx()}
 function foroMarkAx(){document.querySelectorAll('#foroAxes button').forEach(b=>b.classList.toggle('on',b.dataset.ax===foroAx))}
-window.addEventListener('scroll',()=>{if(!document.getElementById('v-foro').classList.contains('on'))return;let cur='1';['1','2','3'].forEach(n=>{const el=document.getElementById('ax'+n);if(el&&el.getBoundingClientRect().top<180)cur=n});if(cur!==foroAx){foroAx=cur;foroMarkAx()}},{passive:true});
+window.addEventListener('scroll',()=>{if(!document.getElementById('v-foro').classList.contains('on'))return;let cur='1';['1','2','3','4'].forEach(n=>{const el=document.getElementById('ax'+n);if(el&&el.getBoundingClientRect().top<180)cur=n});if(cur!==foroAx){foroAx=cur;foroMarkAx()}},{passive:true});
 function foroCount(){
   const el=document.getElementById('foroCd');if(!el)return;const now=new Date();
   if(now>=FORO_FIN){el.innerHTML=`<div class="note"><b style="color:var(--gold2)">${ft('cdDone')}</b></div>`;return}
