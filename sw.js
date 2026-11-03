@@ -1,6 +1,6 @@
 // Traza Minera · Vibras Positivas HM
-const CACHE = 'traza-minera-v1';
-const SHELL = ['./', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png'];
+const CACHE = 'traza-minera-v2';
+const SHELL = ['./', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png', 'qr-foro.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));

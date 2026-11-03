@@ -17,6 +17,14 @@ App web instalable (PWA) de **Vibras Positivas HM** para llevar la trazabilidad 
 
 > Es una herramienta de **control interno**. El reporte oficial ante la ANM se hace con un Operador Tecnológico de Trazabilidad de Minerales (OTTM) habilitado por la ANM. Esta app no reemplaza ese reporte ni el RUCOM.
 
+## Foro Minero Bajo Cauca Caucasia 2026 (5 nov 2026, 8:00 a. m., Cámara de Comercio)
+Pestaña **Foro** (enlace directo: `https://traza-minera.netlify.app/#foro`), con franja en la portada hasta el 5 de noviembre:
+- **Cómo está:** paro minero de marzo de 2026, reclamos de los mineros, formalización, informalidad, Génesis y producción formal, cada dato con su fuente.
+- **Hacia dónde va:** línea de tiempo (trazabilidad, nueva ministra, derogatoria de los 15 Distritos Mineros Especiales, el foro, 19 de noviembre) y la ruta del minero para vender legal.
+- **La voz minera:** formulario para dejar un problema o una propuesta, con consolidado por tema y municipio, impresión para entregar a la mesa, CSV, resumen por WhatsApp y envío al WhatsApp de Vibras Positivas HM. El celular queda oculto (PIN).
+- Cuenta regresiva, botón para agregar al calendario, cómo llegar e invitación por WhatsApp.
+- `qr-foro.png`: QR que abre la sección del foro. Botón **Imprimir afiche con QR** para pegarlo o proyectarlo en el evento.
+
 ## Fotos y video reales
 Pon tus fotos en la carpeta `fotos/` con estos nombres (si falta alguna, la app usa fotos de Wikimedia Commons):
 
@@ -29,6 +37,7 @@ Pon tus fotos en la carpeta `fotos/` con estos nombres (si falta alguna, la app 
 | `fotos/beneficio.jpg` | Eslabón 3 |
 | `fotos/transporte.jpg` | Eslabón 4 |
 | `fotos/venta.jpg` | Eslabón 5 |
+| `fotos/foro.jpg` | Fondo de la sección del Foro Minero (ideal: foto real del evento o de mineros de Caucasia) |
 
 ## Publicar
 1. Crea el repo `haroldco45/traza-minera` y sube: `index.html`, `manifest.json`, `sw.js`, `icon-192.png`, `icon-512.png`, `og.png`, `README.md` y la carpeta `fotos/`.

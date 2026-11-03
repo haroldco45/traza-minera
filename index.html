@@ -178,6 +178,7 @@ th{color:var(--gold2);font-weight:700;text-transform:uppercase;font-size:12px;le
 .nav button{flex:1;background:none;border:0;color:#9a9a9a;padding:13px 2px 15px;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.5px;position:relative}
 .nav button.on{color:var(--gold2)}
 .nav button.on::before{content:"";position:absolute;top:0;left:22%;right:22%;height:3px;border-radius:0 0 3px 3px;background:var(--gold2)}
+@media(max-width:520px){.nav button{font-size:10.5px;letter-spacing:.1px;padding:13px 1px 15px}}
 .nav .badge{position:absolute;top:6px;right:16%;background:var(--red);color:#fff;font-size:10px;border-radius:999px;padding:1px 6px}
 
 footer{margin:40px 0 10px;padding:24px 0;border-top:1px solid var(--line);color:#8a8a8a;font-size:13px;text-align:center}
@@ -188,6 +189,65 @@ footer b{color:#ddd}
 .reveal.in{opacity:1;transform:none}
 .install{display:none}
 .disclaimer{font-size:13px;color:#aaa;background:#161616;border:1px solid #2c2c2c;border-radius:12px;padding:12px;margin-top:14px}
+
+/* Foro Minero 2026 */
+.foroband{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:linear-gradient(90deg,#1d1606,#3a2c07 55%,#1d1606);border-bottom:1px solid var(--gold3);padding:12px 16px;cursor:pointer}
+.foroband b{font-family:"Barlow Condensed";font-size:20px;color:var(--gold2);text-transform:uppercase;letter-spacing:.4px;display:block;line-height:1.05}
+.foroband small{color:#ddd;font-size:13px}
+.foroband .go{background:var(--gold);color:var(--ink);font-weight:800;border-radius:999px;padding:8px 14px;font-size:13px;text-transform:uppercase;letter-spacing:.5px;animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(242,201,76,.55)}50%{box-shadow:0 0 0 10px rgba(242,201,76,0)}}
+.fhero{position:relative;border-radius:18px;overflow:hidden;min-height:420px;display:flex;align-items:flex-end;margin-top:18px;border:1px solid var(--gold3)}
+.fhero .bg{position:absolute;inset:0;background:#111 center/cover;animation:kb 22s ease-in-out infinite alternate}
+.fhero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.6) 45%,rgba(10,10,10,.97))}
+.fhero .in{position:relative;z-index:2;padding:22px 18px}
+.fhero h2{font-size:clamp(38px,8vw,72px);line-height:.92;text-transform:uppercase;color:#fff;margin:12px 0 10px}
+.fhero h2 em{font-style:normal;color:var(--gold2)}
+.fmeta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0 4px}
+.fmeta div{background:rgba(0,0,0,.55);border:1px solid rgba(242,201,76,.4);border-radius:12px;padding:10px 12px}
+.fmeta small{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#bbb;font-weight:700}
+.fmeta b{font-family:"Barlow Condensed";font-size:24px;color:#fff}
+.axes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:22px 0 4px;position:sticky;top:58px;z-index:30;background:rgba(13,13,13,.94);padding:8px 0;backdrop-filter:blur(8px)}
+.axes button{min-width:0;border:1px solid #3a3a3a;background:#161616;color:#ddd;border-radius:10px;padding:7px 4px;font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.2px;line-height:1.15}
+.axes button span{display:block;font-family:"Barlow Condensed";font-size:20px;color:var(--gold2);line-height:1}
+.axes button.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.axes button.on span{color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.fact{background:linear-gradient(160deg,#1c1c1c,#121212);border:1px solid var(--line);border-radius:var(--r);padding:16px;position:relative;overflow:hidden}
+.fact::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--gold2),var(--gold3))}
+.fact .big{font-family:"Barlow Condensed";font-size:44px;color:var(--gold2);line-height:1}
+.fact h3{font-size:21px;color:#fff;text-transform:uppercase;margin:4px 0 6px}
+.fact p{font-size:15px;color:#d4d4d4}
+.fact a{font-size:12px;color:#9a9a9a;display:inline-block;margin-top:8px}
+.tlx{position:relative;padding-left:30px;margin-top:6px}
+.tlx::before{content:"";position:absolute;left:10px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),#333)}
+.tlx .it{position:relative;margin-bottom:12px;background:#151515;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.tlx .it::before{content:"";position:absolute;left:-26px;top:16px;width:14px;height:14px;border-radius:50%;background:#333;border:2px solid var(--gold3)}
+.tlx .it.done::before{background:var(--gold2);border-color:var(--gold2)}
+.tlx .it.now{border-color:var(--gold)}
+.tlx .it.now::before{background:var(--gold2);box-shadow:0 0 0 6px rgba(242,201,76,.25);animation:pulse 2s infinite}
+.tlx .d{font-family:"Barlow Condensed";font-size:18px;color:var(--gold2);text-transform:uppercase}
+.tlx b{display:block;color:#fff;font-size:17px}
+.tlx p{font-size:14px;color:#cfcfcf}
+.rsteps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;counter-reset:rs}
+.rsteps div{background:#151515;border:1px solid var(--line);border-radius:12px;padding:14px;counter-increment:rs}
+.rsteps div::before{content:counter(rs,decimal-leading-zero);font-family:"Barlow Condensed";font-size:38px;color:var(--gold2);display:block;line-height:1}
+.rsteps b{color:#fff;display:block;font-size:17px;margin:4px 0}
+.rsteps p{font-size:14px;color:#cfcfcf}
+.vbars div.r{margin:8px 0}
+.vbars .l{display:flex;justify-content:space-between;font-size:14px;gap:8px}
+.vbars .l b{color:var(--gold2)}
+.vbars .b{height:9px;background:#262626;border-radius:5px;overflow:hidden;margin-top:3px}
+.vbars .b i{display:block;height:100%;background:linear-gradient(90deg,var(--gold3),var(--gold2));animation:grow .8s ease;transform-origin:left}
+.voz{background:#151515;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:12px 14px}
+.voz p{color:#eee;font-size:15px;margin-top:4px}
+.voz small{color:var(--muted)}
+.chk{display:flex;gap:10px;align-items:flex-start;margin-top:12px;font-size:13px;color:#cfcfcf;text-transform:none;letter-spacing:0;font-weight:500}
+.chk input{width:20px;height:20px;flex:0 0 20px;margin-top:1px}
+.qrbox{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.qrbox img{width:170px;height:170px;border-radius:12px;background:#fff;padding:6px}
+.srcs{font-size:13px;color:#9a9a9a}
+.srcs a{color:#bdbdbd}
+.srcs li{margin:4px 0 4px 18px}
 
 /* Print */
 #printArea{display:none}
@@ -217,6 +277,7 @@ footer b{color:#ddd}
 
 <!-- INICIO -->
 <section class="view on" id="v-inicio">
+  <div class="foroband" id="foroBand" onclick="go('foro')" style="display:none"><div><b data-i18n="fbT">Foro Minero Bajo Cauca Caucasia 2026</b><small data-i18n="fbS">Jueves 5 de noviembre · 8:00 a. m. · Cámara de Comercio de Caucasia</small></div><span class="go" data-i18n="fbGo">Entrar al foro</span></div>
   <div class="hero" id="hero">
     <div class="fallback"></div>
     <div class="bg" id="bgA"></div><div class="bg" id="bgB"></div>
@@ -305,6 +366,8 @@ footer b{color:#ddd}
 </div></section>
 
 <!-- NORMA -->
+<section class="view" id="v-foro"><div class="wrap" id="foroBox"></div></section>
+
 <section class="view" id="v-norma"><div class="wrap">
   <div class="sechead"><div><h2 data-i18n="normTitle">Qué exige la norma</h2><p data-i18n="normSub">Resumen práctico. Para casos concretos, consulta a la ANM o a un abogado minero.</p></div></div>
   <div class="norm" id="normBox"></div>
@@ -314,6 +377,7 @@ footer b{color:#ddd}
 
 <nav class="nav"><div class="wrap">
   <button data-v="inicio" class="on" data-i18n="nInicio">Inicio</button>
+  <button data-v="foro" data-i18n="nForo">Foro</button>
   <button data-v="prov" data-i18n="nProv">Proveedores</button>
   <button data-v="lotes" data-i18n="nLotes">Lotes</button>
   <button data-v="alertas"><span data-i18n="nAl">Alertas</span><span class="badge" id="alBadge" style="display:none"></span></button>
@@ -431,7 +495,7 @@ const I={es:{},en:{
  save:'Save',pinBtn:'Admin PIN',demo:'Load sample data',wipe:'Delete all',
  normTitle:'What the rules require',normSub:'Practical summary. For specific cases, ask the ANM or a mining lawyer.',
  footer1:'Developed by Vibras Positivas HM — All Rights Reserved',footer2:'Caucasia, Antioquia · vibraspositivashm.com · WhatsApp +57 311 770 0431',
- nInicio:'Home',nProv:'Suppliers',nLotes:'Lots',nAl:'Alerts',nInf:'Reports',close:'Close',provForm:'Supplier',pNombre:'Name or company',pTipo:'Operator type',pDoc:'ID or tax no.',pTel:'Mobile',
+ nInicio:'Home',nForo:'Forum',fbT:'Bajo Cauca Caucasia Mining Forum 2026',fbS:'Thursday, November 5 · 8:00 a.m. · Caucasia Chamber of Commerce',fbGo:'Enter the forum',nProv:'Suppliers',nLotes:'Lots',nAl:'Alerts',nInf:'Reports',close:'Close',provForm:'Supplier',pNombre:'Name or company',pTipo:'Operator type',pDoc:'ID or tax no.',pTel:'Mobile',
  pTitulo:'Mining title, file no. or town hall registry',pMun:'Mine town',pVence:'Registry valid until',pMina:'Mine or site name',
  privacy:'Privacy notice (Colombian Law 1581 of 2012): personal data is used only for mineral traceability and stored on this device. ID and phone stay hidden and only the admin with PIN can see them. The owner may ask to view, correct or delete them.',
  del:'Delete',loteForm:'Mineral purchase',lFecha:'Date',lMineral:'Mineral',lProv:'Supplier',lBruto:'Gross weight (g)',lLey:'Fineness (‰)',lPrecio:'Price per fine gram (COP)',lCert:'Certificate of origin no.',
@@ -465,7 +529,7 @@ const T={es:{
  inf:{comp:'Fino comprado',vend:'Fino vendido',saldo:'Saldo (inventario)',val:'Valor comprado',prov:'Proveedor',g:'g finos',n:'Lotes',mun:'Municipio'},
  pinAsk:'Escribe un PIN de administrador (4 a 6 números):',pinIn:'PIN de administrador:',pinBad:'PIN incorrecto',pinOk:'Datos sensibles visibles',
  wipeAsk:'Esto borra todos los proveedores y lotes de este dispositivo. ¿Seguro?',demoAsk:'¿Cargar datos de ejemplo? Se agregan a los que ya tienes.',imported:'Copia restaurada',importBad:'Archivo no válido',
- ticker:['Trazabilidad obligatoria en todo el país desde el 19 de noviembre de 2026','Sin certificado de origen no hay compra legal','Revisa la vigencia del RUCOM de tus proveedores y la tuya','Cada lote con su código, su foto y su ruta','Hecha en Caucasia para el Bajo Cauca'],
+ ticker:['Foro Minero Bajo Cauca Caucasia 2026: jueves 5 de noviembre, 8:00 a. m., Cámara de Comercio','Trazabilidad obligatoria en todo el país desde el 19 de noviembre de 2026','Sin certificado de origen no hay compra legal','Revisa la vigencia del RUCOM de tus proveedores y la tuya','Cada lote con su código, su foto y su ruta','Hecha en Caucasia para el Bajo Cauca'],
  norm:[
   ['Qué es','El Sistema de Trazabilidad de Minerales sigue el mineral desde que sale del subsuelo hasta que se vende o se exporta. Lo lidera la Agencia Nacional de Minería (ANM) y se apoya en el Decreto 2234 de 2023 y la Resolución ANM 759 de 2024 (Plataforma de Trazabilidad de Minerales), modificada por la Resolución 1549 de 2025.'],
   ['Fechas','La fase de transición arrancó el 19 de mayo de 2026. Desde el 19 de noviembre de 2026 la trazabilidad es obligatoria en todo el territorio nacional.'],
@@ -503,7 +567,7 @@ const T={es:{
  inf:{comp:'Fine bought',vend:'Fine sold',saldo:'Balance (stock)',val:'Purchase value',prov:'Supplier',g:'fine g',n:'Lots',mun:'Town'},
  pinAsk:'Enter an admin PIN (4 to 6 digits):',pinIn:'Admin PIN:',pinBad:'Wrong PIN',pinOk:'Sensitive data visible',
  wipeAsk:'This deletes all suppliers and lots on this device. Are you sure?',demoAsk:'Load sample data? It is added to your current data.',imported:'Backup restored',importBad:'Invalid file',
- ticker:['Traceability mandatory nationwide from November 19, 2026','No certificate of origin, no legal purchase','Check your suppliers’ RUCOM validity and your own','Every lot with its code, photo and route','Made in Caucasia for Bajo Cauca'],
+ ticker:['Bajo Cauca Caucasia Mining Forum 2026: Thursday, November 5, 8:00 a.m., Chamber of Commerce','Traceability mandatory nationwide from November 19, 2026','No certificate of origin, no legal purchase','Check your suppliers’ RUCOM validity and your own','Every lot with its code, photo and route','Made in Caucasia for Bajo Cauca'],
  norm:[
   ['What it is','The Mineral Traceability System follows minerals from the ground to sale or export. It is led by Colombia’s National Mining Agency (ANM) and based on Decree 2234 of 2023 and ANM Resolution 759 of 2024 (Mineral Traceability Platform), amended by Resolution 1549 of 2025.'],
   ['Dates','The transition phase started on May 19, 2026. From November 19, 2026, traceability is mandatory nationwide.'],
@@ -520,7 +584,7 @@ const t=k=>T[lang][k];
 
 /* ---------- Data ---------- */
 let db=load();
-function load(){try{return Object.assign({cfg:{},prov:[],lotes:[],seq:0},JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){return{cfg:{},prov:[],lotes:[],seq:0}}}
+function load(){try{return Object.assign({cfg:{},prov:[],lotes:[],seq:0,voces:[]},JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){return{cfg:{},prov:[],lotes:[],seq:0,voces:[]}}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(db))}catch(e){toast(lang==='es'?'La memoria del teléfono está llena: usa fotos más pequeñas o haz copia y borra lotes viejos.':'Storage full: use smaller photos or back up and delete old lots.')}}
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 const hoy=()=>new Intl.DateTimeFormat('en-CA',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
@@ -606,7 +670,7 @@ setInterval(tickCount,1000);
 function animateNum(el,to,fmt){const from=0,dur=900,t0=performance.now();const step=n=>{const p=Math.min(1,(n-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=fmt(from+(to-from)*e);if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
 
 /* ---------- Render ---------- */
-function renderAll(){renderHome();renderProv();renderLotes();renderAlerts();renderInf();renderNorm();tickCount()}
+function renderAll(){renderHome();renderProv();renderLotes();renderAlerts();renderInf();renderNorm();renderForo();tickCount()}
 
 function renderHome(){
   const fino=db.lotes.reduce((s,l)=>s+loteFino(l),0),val=db.lotes.reduce((s,l)=>s+(+l.valor||0),0),stock=db.lotes.reduce((s,l)=>s+loteDisp(l),0),al=computeAlerts();
@@ -775,8 +839,8 @@ function exportCSV(){
   dl(`traza-minera-${hoy()}.csv`,'﻿'+H.join(';')+'\n'+rows.join('\n'),'text/csv;charset=utf-8');
 }
 function exportJSON(){dl(`traza-minera-respaldo-${hoy()}.json`,JSON.stringify(db),'application/json')}
-function importJSON(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!Array.isArray(d.lotes)||!Array.isArray(d.prov))throw 0;db=Object.assign({cfg:{},prov:[],lotes:[],seq:0},d);save();toast(t('imported'));renderAll()}catch(e){toast(t('importBad'))}};r.readAsText(f);inp.value=''}
-function wipe(){if(!confirm(t('wipeAsk')))return;if(db.cfg.pin&&prompt(t('pinIn'))!==db.cfg.pin)return toast(t('pinBad'));db={cfg:{},prov:[],lotes:[],seq:0};save();toast(t('deleted'));renderAll()}
+function importJSON(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!Array.isArray(d.lotes)||!Array.isArray(d.prov))throw 0;db=Object.assign({cfg:{},prov:[],lotes:[],seq:0,voces:[]},d);if(!Array.isArray(db.voces))db.voces=[];save();toast(t('imported'));renderAll()}catch(e){toast(t('importBad'))}};r.readAsText(f);inp.value=''}
+function wipe(){if(!confirm(t('wipeAsk')))return;if(db.cfg.pin&&prompt(t('pinIn'))!==db.cfg.pin)return toast(t('pinBad'));db={cfg:{},prov:[],lotes:[],seq:0,voces:[]};save();toast(t('deleted'));renderAll()}
 
 /* ---------- PIN / Habeas Data ---------- */
 function setPin(){
@@ -803,6 +867,248 @@ function loadDemo(){
   save();toast(t('saved'));renderAll();go('inicio');
 }
 
+/* =========================================================
+   FORO MINERO BAJO CAUCA CAUCASIA 2026
+   5 de noviembre de 2026 · 8:00 a. m. (hora Colombia) · Cámara de Comercio de Caucasia
+   ========================================================= */
+const FORO_INI=new Date('2026-11-05T08:00:00-05:00'),FORO_FIN=new Date('2026-11-05T13:00:00-05:00');
+const FORO_URL='https://traza-minera.netlify.app/#foro',WA_HM='573117700431';
+const SRC={
+ paroLR:'https://www.larepublica.co/economia/gobierno-y-gremio-minero-acuerdan-levantar-paro-en-bajo-cauca-y-consolidar-distrito-minero-4359730',
+ paroIB:'https://www.infobae.com/colombia/2026/03/28/levantan-el-paro-minero-en-el-bajo-cauca-antioqueno-y-sur-de-cordoba-tras-dialogo-con-el-gobierno-esto-fue-lo-que-se-acordo/',
+ reclamos:'https://es-us.noticias.yahoo.com/paro-minero-cauca-agrava-bloqueos-142000268.html',
+ formal:'https://radionacional.co/noticias-colombia/gobierno-impulsa-formalizacion-minera-en-el-bajo-cauca',
+ informal:'https://www.larepublica.co/analisis/giovanni-franco-sepulveda-3732303/mineria-en-antioquia-en-el-gobierno-petro-4403845',
+ genesis:'https://www.elcolombiano.com/antioquia/mineria-ilegal-corrupcion-bajo-cauca-MA27057694',
+ mineros:'https://www.elcolombiano.com/negocios/produccion-de-oro-de-mineros-en-2025-FH32355440',
+ distritos:'https://www.eltiempo.com/politica/gobierno/minminas-deroga-15-distritos-mineros-especiales-mas-de-5-3-millones-de-hectareas-en-colombia-las-razones-y-regiones-implicadas-3596104',
+ congreso:'https://ifmnoticias.com/gobierno/minminas-formaliza-la-derogatoria-de-los-distritos-mineros-especiales-y-da-30-di/',
+ ministra:'https://www.larepublica.co/economia/gobierno-electo-pone-frente-del-sector-energetico-a-gerente-de-xm-maria-nohemi-arboleda-4435262',
+ stm:'https://www.lafm.com.co/economia/anm-pone-en-marcha-etapa-de-trazabilidad-minera-400106',
+ stm2:'https://www.elnuevosiglo.com.co/economia/el-19-de-noviembre-se-iniciara-la-trazabilidad-minera-en-el-pais',
+ alcaldia:'https://www.instagram.com/alcaldiadecaucasia/'
+};
+const FT={es:{
+ kicker:'Alcaldía de Caucasia · Ministerio de Minas y Energía',
+ title:'Foro Minero<br><em>Bajo Cauca Caucasia 2026</em>',
+ lead:'La Alcaldía invita a toda la comunidad minera de Caucasia y del Bajo Cauca. Según la invitación, lo preside la Ministra de Minas y Energía. Tres ejes: cómo está la minería en el Bajo Cauca, hacia dónde va en el territorio y la voz de la comunidad minera.',
+ fecha:'Fecha',fechaV:'Jue 5 de noviembre',hora:'Hora',horaV:'8:00 a. m.',lugar:'Lugar',lugarV:'Cámara de Comercio',quien:'Convoca',quienV:'Alcaldía de Caucasia',
+ cal:'Agregar a mi calendario',map:'Cómo llegar',share:'Invitar por WhatsApp',
+ cdNote:'para que empiece el foro (hora Colombia).',cdNow:'El foro está en curso. Deja tu voz abajo.',cdDone:'El foro ya se realizó. Las voces siguen abiertas para la mesa de seguimiento.',
+ ax:[['1','Cómo está'],['2','Hacia dónde va'],['3','La voz minera']],
+ e1T:'Cómo está la minería en el Bajo Cauca',e1S:'Lo que pasó este año, con la fuente de cada dato.',
+ facts:[
+  ['Marzo 2026','Paro minero de dos semanas','Hubo protestas en el Bajo Cauca, Valdivia y el sur de Córdoba. El 28 de marzo, en Caucasia, el comité minero y el Gobierno acordaron levantar el paro: se habilitarán bloques para explotar en zonas con potencial minero y los mineros se comprometieron a desmontar dragas y dragones de forma voluntaria.','paroLR'],
+  ['Reclamo','Registros que no funcionan','Los mineros denunciaron fallas en los mecanismos de registro, un subregistro de unidades mineras que deja a miles en un limbo jurídico y la destrucción de maquinaria incluso en proceso de formalización. También dijeron que no se cumplieron los acuerdos de octubre de 2024 ni los de febrero de 2026.','reclamos'],
+  ['3.182','Mineros que quieren formalizarse','Entre 2023 y 2024 se identificaron 3.182 personas en el Bajo Cauca que manifestaron interés en formalizar su actividad. El Ministerio creó una ruta especial con la Resolución 40141 de 2025.','formal'],
+  ['96,5 %','El peso de la minería en la economía','Es la estimación de la mesa minera sobre cuánto de la economía de la región depende de la minería. Por eso cualquier medida se siente en cada casa del Bajo Cauca.','reclamos'],
+  ['85 %','Informalidad en el oro','Es el nivel de informalidad de la minería aurífera que citan los indicadores del sector, con la onza de oro en máximos históricos cercanos a US$5.400. Con ese precio, la tentación de saltarse la ley es enorme.','informal'],
+  ['Génesis','Suplantación de pequeños mineros','En 2025 se investigó a funcionarios del Bajo Cauca porque ilegales estarían usando a pequeños mineros en la plataforma Génesis para hacer pasar oro ilegal como legal. Por eso la trazabilidad protege al minero honrado.','genesis'],
+  ['89.777 oz','La minería formal sí produce','Es la producción de oro de la operación aluvial de Mineros en el Bajo Cauca durante 2025. La minería con título, licencia y trazabilidad existe y genera empleo formal en la región.','mineros']
+ ],
+ e2T:'Hacia dónde va la minería en el territorio',e2S:'Las fechas que cambian las reglas para el minero del Bajo Cauca.',
+ tl:[
+  ['2026-05-19','19 may 2026','Arranca la transición de la trazabilidad','La ANM inicia la fase de transición del Sistema de Trazabilidad de Minerales.','stm'],
+  ['2026-08-07','Ago 2026','Nueva ministra de Minas y Energía','María Nohemí Arboleda Arango, ingeniera electricista y exgerente de XM, asume el Ministerio en el gobierno de Abelardo de la Espriella.','ministra'],
+  ['2026-09-03','3 sep 2026','Anuncio en el Congreso Nacional de Minería','En Cartagena, la ministra anuncia que se retirarán los Distritos Mineros Especiales.','congreso'],
+  ['2026-10-22','22 oct 2026','Se derogan los 15 Distritos Mineros Especiales','La Resolución 40579 levanta la delimitación de 5,3 millones de hectáreas. La ANM tiene 30 días para quitarla del catastro. Los títulos vigentes y las solicitudes en trámite no cambian, y siguen los compromisos de consulta previa del Bajo Cauca.','distritos'],
+  ['2026-11-05','5 nov 2026','Foro Minero Bajo Cauca Caucasia','Cámara de Comercio de Caucasia, 8:00 a. m. Diagnóstico, futuro y la voz de la comunidad minera.','alcaldia'],
+  ['2026-11-19','19 nov 2026','Trazabilidad obligatoria en todo el país','Quien compre, beneficie o venda mineral debe reportar cada operación a la ANM por medio de un operador tecnológico habilitado.','stm2'],
+  ['2026-12-31','2026–2030','Plan Nacional de Desarrollo','El Ministerio dice que trabajará con las regiones mineras para integrar la minería legal con las demás vocaciones de cada territorio.','stm2']
+ ],
+ rutaT:'La ruta del minero para vender legal',
+ ruta:[['Registrarse','El barequero o chatarrero se inscribe en la alcaldía. El pequeño minero entra a la ruta de formalización o trabaja bajo un título.'],['Certificado de origen','Cada venta lleva el certificado de origen o la constancia de la alcaldía. Sin ese papel no hay compra legal.'],['Vender con RUCOM','Se le vende solo a un comercializador o compraventa inscrito en el RUCOM, con factura y peso anotado.'],['Queda la huella','Desde el 19 de noviembre, el comprador reporta la operación a la ANM. Traza Minera le deja todo listo, lote por lote.']],
+ rutaBtn:'Ver cómo lo registra Traza Minera',
+ e3T:'La voz de la comunidad minera',e3S:'Escribe tu problema o tu propuesta. Se suma al consolidado que se le entrega a la mesa del foro.',
+ vNom:'Nombre (opcional)',vMun:'Municipio',vTipo:'Usted es',vTema:'Tema',vTxt:'Su problema o propuesta',vTxtPh:'Escríbalo como lo diría en el micrófono del foro',vTel:'Celular (opcional, para que lo contacten)',
+ vOk:'Autorizo el uso de mi voz para el consolidado del foro. Mi celular no se publica y solo lo ve el administrador con PIN (Ley 1581 de 2012).',
+ vSave:'Guardar mi voz',vWa:'Enviar mi voz por WhatsApp',vNeed:'Escriba su problema o propuesta.',vNeedOk:'Marque la autorización para guardar su voz.',vSaved:'Su voz quedó guardada',
+ tipos:{barequero:'Barequero',chatarrero:'Chatarrero',pequeno:'Pequeño minero en formalización',titular:'Titular minero',trabajador:'Trabajador de mina o entable',comercio:'Compraventa o comercializador',planta:'Planta de beneficio',lider:'Líder o asociación minera',comunidad:'Comunidad o comerciante de la zona'},
+ temas:{formal:'Formalización y títulos',registro:'Génesis y registros',maquinaria:'Operativos y maquinaria',comercio:'Venta del oro y precios',trazab:'Trazabilidad y RUCOM',ambiente:'Río, ambiente y mercurio',seguridad:'Seguridad y grupos armados',salud:'Salud y seguridad en la mina',alternativas:'Otras economías y empleo',otro:'Otro'},
+ conT:'Consolidado de la voz minera',conS:n=>`${n} ${n===1?'voz registrada':'voces registradas'} en este dispositivo.`,porTema:'Por tema',porMun:'Por municipio',ult:'Últimas voces',none:'Todavía no hay voces. Sea el primero.',
+ print:'Imprimir para entregar a la mesa',csv:'Descargar CSV',waRes:'Compartir resumen',clear:'Borrar voces',clearAsk:'¿Borrar todas las voces de este dispositivo?',
+ memoT:'Consolidado de la voz de la comunidad minera',
+ memoTo:'Señora Ministra de Minas y Energía, señor Alcalde de Caucasia, Agencia Nacional de Minería y mesa del Foro Minero Bajo Cauca Caucasia 2026:',
+ memoIntro:n=>`Les entregamos ${n} ${n===1?'aporte':'aportes'} de mineros y habitantes del Bajo Cauca, recogidos con la app Traza Minera de Vibras Positivas HM, para que se tengan en cuenta en las conclusiones del foro y en el plan de trabajo con el territorio.`,
+ qrT:'Comparta la app en el foro',qrS:'Proyecte o imprima este código. Quien lo escanee entra directo a esta sección y puede dejar su voz desde el celular.',qrPrint:'Imprimir afiche con QR',
+ srcT:'Fuentes',disc:'Traza Minera es una app independiente de Vibras Positivas HM. No es un canal oficial de la Alcaldía, del Ministerio ni de la ANM. Los datos vienen de los medios citados.',
+ waInv:`Foro Minero Bajo Cauca Caucasia 2026\nJueves 5 de noviembre, 8:00 a. m.\nCámara de Comercio de Caucasia\nCómo está la minería, hacia dónde va y la voz de la comunidad minera.\nDeje su voz aquí: ${FORO_URL}`
+},en:{
+ kicker:'Caucasia Town Hall · Ministry of Mines and Energy',
+ title:'Mining Forum<br><em>Bajo Cauca Caucasia 2026</em>',
+ lead:'The Town Hall invites the whole mining community of Caucasia and Bajo Cauca. According to the invitation, the Minister of Mines and Energy leads it. Three themes: the state of mining in Bajo Cauca, where it is heading, and the voice of the mining community.',
+ fecha:'Date',fechaV:'Thu, November 5',hora:'Time',horaV:'8:00 a.m.',lugar:'Venue',lugarV:'Chamber of Commerce',quien:'Hosted by',quienV:'Caucasia Town Hall',
+ cal:'Add to my calendar',map:'Directions',share:'Invite on WhatsApp',
+ cdNote:'until the forum starts (Colombia time).',cdNow:'The forum is under way. Leave your voice below.',cdDone:'The forum has taken place. Voices remain open for the follow-up table.',
+ ax:[['1','Today'],['2','What’s next'],['3','Miners’ voice']],
+ e1T:'The state of mining in Bajo Cauca',e1S:'What happened this year, with the source for each figure.',
+ facts:[
+  ['March 2026','Two-week mining strike','Protests hit Bajo Cauca, Valdivia and southern Córdoba. On March 28, in Caucasia, the miners’ committee and the Government agreed to end the strike: blocks will be opened for mining in areas with mining potential, and miners committed to voluntarily dismantle dredges.','paroLR'],
+  ['Complaint','Registries that don’t work','Miners reported failures in registration systems, under-registration of mining units that leaves thousands in legal limbo, and destruction of machinery even during formalization. They also said the October 2024 and February 2026 agreements were not honored.','reclamos'],
+  ['3,182','Miners who want to formalize','Between 2023 and 2024, 3,182 people in Bajo Cauca said they wanted to formalize their mining. The Ministry set up a special route through Resolution 40141 of 2025.','formal'],
+  ['96.5%','Mining’s weight in the economy','The miners’ table estimates this share of the regional economy depends on mining. Any measure is felt in every home in Bajo Cauca.','reclamos'],
+  ['85%','Informality in gold','The level of informality in gold mining cited by sector indicators, with gold near record highs of about US$5,400 an ounce. At that price, the temptation to skip the law is huge.','informal'],
+  ['Génesis','Small miners impersonated','In 2025, Bajo Cauca officials were investigated because illegal operators were allegedly using small miners’ identities on the Génesis platform to pass illegal gold as legal. Traceability protects honest miners.','genesis'],
+  ['89,777 oz','Formal mining does produce','Gold output of Mineros’ alluvial operation in Bajo Cauca in 2025. Mining with a title, license and traceability exists and creates formal jobs in the region.','mineros']
+ ],
+ e2T:'Where mining is heading',e2S:'The dates that change the rules for Bajo Cauca miners.',
+ tl:[
+  ['2026-05-19','May 19, 2026','Traceability transition begins','The ANM starts the transition phase of the Mineral Traceability System.','stm'],
+  ['2026-08-07','Aug 2026','New Minister of Mines and Energy','María Nohemí Arboleda Arango, electrical engineer and former head of XM, takes office in Abelardo de la Espriella’s government.','ministra'],
+  ['2026-09-03','Sep 3, 2026','Announcement at the National Mining Congress','In Cartagena, the Minister announces the Special Mining Districts will be withdrawn.','congreso'],
+  ['2026-10-22','Oct 22, 2026','The 15 Special Mining Districts are repealed','Resolution 40579 lifts the delimitation of 5.3 million hectares. The ANM has 30 days to remove it from the registry. Existing titles and pending applications do not change, and Bajo Cauca prior-consultation commitments remain.','distritos'],
+  ['2026-11-05','Nov 5, 2026','Bajo Cauca Caucasia Mining Forum','Caucasia Chamber of Commerce, 8:00 a.m. Diagnosis, future and the voice of the mining community.','alcaldia'],
+  ['2026-11-19','Nov 19, 2026','Traceability mandatory nationwide','Anyone who buys, processes or sells minerals must report each operation to the ANM through an authorized technology operator.','stm2'],
+  ['2026-12-31','2026–2030','National Development Plan','The Ministry says it will work with mining regions to integrate legal mining with each territory’s other economic activities.','stm2']
+ ],
+ rutaT:'The miner’s route to a legal sale',
+ ruta:[['Register','Panners and scrap collectors register with the town hall. Small miners join the formalization route or work under a title.'],['Certificate of origin','Every sale carries the certificate of origin or the town hall record. No paper, no legal purchase.'],['Sell with RUCOM','Sell only to a trader or buy-and-sell shop registered in RUCOM, with invoice and recorded weight.'],['The trail stays','From November 19, the buyer reports the operation to the ANM. Traza Minera keeps it ready, lot by lot.']],
+ rutaBtn:'See how Traza Minera records it',
+ e3T:'The voice of the mining community',e3S:'Write your problem or proposal. It is added to the summary delivered to the forum table.',
+ vNom:'Name (optional)',vMun:'Town',vTipo:'You are',vTema:'Topic',vTxt:'Your problem or proposal',vTxtPh:'Write it as you would say it at the forum microphone',vTel:'Mobile (optional, to be contacted)',
+ vOk:'I authorize the use of my voice for the forum summary. My mobile is not published and only the admin with PIN can see it (Colombian Law 1581 of 2012).',
+ vSave:'Save my voice',vWa:'Send my voice on WhatsApp',vNeed:'Write your problem or proposal.',vNeedOk:'Tick the authorization to save your voice.',vSaved:'Your voice was saved',
+ tipos:{barequero:'Panner',chatarrero:'Scrap collector',pequeno:'Small miner in formalization',titular:'Mining title holder',trabajador:'Mine or plant worker',comercio:'Buy-and-sell shop or trader',planta:'Processing plant',lider:'Mining leader or association',comunidad:'Local community or merchant'},
+ temas:{formal:'Formalization and titles',registro:'Génesis and registries',maquinaria:'Operations and machinery',comercio:'Gold sales and prices',trazab:'Traceability and RUCOM',ambiente:'River, environment and mercury',seguridad:'Security and armed groups',salud:'Health and safety at the mine',alternativas:'Other livelihoods and jobs',otro:'Other'},
+ conT:'Miners’ voice summary',conS:n=>`${n} ${n===1?'voice':'voices'} recorded on this device.`,porTema:'By topic',porMun:'By town',ult:'Latest voices',none:'No voices yet. Be the first.',
+ print:'Print for the forum table',csv:'Download CSV',waRes:'Share summary',clear:'Delete voices',clearAsk:'Delete all voices on this device?',
+ memoT:'Summary of the voice of the mining community',
+ memoTo:'To the Minister of Mines and Energy, the Mayor of Caucasia, the National Mining Agency and the Bajo Cauca Caucasia Mining Forum 2026 table:',
+ memoIntro:n=>`We deliver ${n} ${n===1?'contribution':'contributions'} from miners and residents of Bajo Cauca, collected with the Traza Minera app by Vibras Positivas HM, to be considered in the forum’s conclusions and the work plan with the territory.`,
+ qrT:'Share the app at the forum',qrS:'Project or print this code. Whoever scans it lands right here and can leave their voice from their phone.',qrPrint:'Print QR poster',
+ srcT:'Sources',disc:'Traza Minera is an independent app by Vibras Positivas HM. It is not an official channel of the Town Hall, the Ministry or the ANM. Data comes from the cited media.',
+ waInv:`Bajo Cauca Caucasia Mining Forum 2026\nThursday, November 5, 8:00 a.m.\nCaucasia Chamber of Commerce\nThe state of mining, where it is heading, and the voice of the mining community.\nLeave your voice here: ${FORO_URL}`
+}};
+const ft=k=>FT[lang][k];
+const PH_FORO=['fotos/foro.jpg','fotos/hero1.jpg','fotos/hero2.jpg',C+'El_Bagre-Antioquia.jpg',C+'Puerto_Claver-El_Bagre-Antioquia.jpg',C+'DJI_MINA_BOYACA.jpg?width=1600'];
+let foroAx='1';
+
+function srcLink(k){return `<a href="${SRC[k]}" target="_blank" rel="noopener">${lang==='es'?'Fuente':'Source'}: ${esc(new URL(SRC[k]).hostname.replace('www.','').replace('es-us.noticias.',''))}</a>`}
+function renderForo(){
+  const box=document.getElementById('foroBox');if(!box)return;
+  foroBand.style.display=new Date()<new Date('2026-11-06T00:00:00-05:00')?'flex':'none';
+  if(box.dataset.lang===lang){renderVoces();foroCount();return}
+  box.dataset.lang=lang;
+  const H=hoy(),tl=ft('tl');
+  const opt=o=>Object.entries(o).map(([k,v])=>`<option value="${k}">${esc(v)}</option>`).join('');
+  box.innerHTML=`
+  <div class="fhero"><div class="bg" id="foroBg"></div><div class="in">
+    <span class="kicker">${esc(ft('kicker'))}</span>
+    <h2>${ft('title')}</h2>
+    <p class="lead" style="color:#e7e7e7;max-width:680px">${esc(ft('lead'))}</p>
+    <div class="fmeta"><div><small>${ft('fecha')}</small><b>${ft('fechaV')}</b></div><div><small>${ft('hora')}</small><b>${ft('horaV')}</b></div><div><small>${ft('lugar')}</small><b>${ft('lugarV')}</b></div><div><small>${ft('quien')}</small><b>${ft('quienV')}</b></div></div>
+    <div class="count" id="foroCd"></div>
+    <div class="cta"><button class="btn gold sm" onclick="foroICS()">${ft('cal')}</button><a class="btn ghost sm" style="text-decoration:none" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Cámara de Comercio Caucasia Antioquia')}" target="_blank" rel="noopener">${ft('map')}</a><button class="btn ghost sm" onclick="window.open('https://wa.me/?text='+encodeURIComponent(ft('waInv')),'_blank')">${ft('share')}</button></div>
+  </div></div>
+  <div class="axes" id="foroAxes">${ft('ax').map(([n,l])=>`<button data-ax="${n}" onclick="foroGo('${n}')"><span>0${n}</span>${esc(l)}</button>`).join('')}</div>
+
+  <div id="ax1"><div class="sechead"><div><h2>${esc(ft('e1T'))}</h2><p>${esc(ft('e1S'))}</p></div></div>
+   <div class="facts">${ft('facts').map(([b,h,p,s])=>`<div class="fact reveal"><div class="big">${esc(b)}</div><h3>${esc(h)}</h3><p>${esc(p)}</p>${srcLink(s)}</div>`).join('')}</div></div>
+
+  <div id="ax2"><div class="sechead"><div><h2>${esc(ft('e2T'))}</h2><p>${esc(ft('e2S'))}</p></div></div>
+   <div class="tlx">${tl.map(([d,dl,h,p,s])=>`<div class="it reveal ${d===H?'now':d<H?'done':''}"><div class="d">${esc(dl)}</div><b>${esc(h)}</b><p>${esc(p)}</p>${srcLink(s)}</div>`).join('')}</div>
+   <div class="sechead"><div><h2>${esc(ft('rutaT'))}</h2></div><button class="btn dark sm" onclick="go('lotes')">${esc(ft('rutaBtn'))}</button></div>
+   <div class="rsteps">${ft('ruta').map(([h,p])=>`<div class="reveal"><b>${esc(h)}</b><p>${esc(p)}</p></div>`).join('')}</div></div>
+
+  <div id="ax3"><div class="sechead"><div><h2>${esc(ft('e3T'))}</h2><p>${esc(ft('e3S'))}</p></div></div>
+   <div class="grid2">
+    <div class="card">
+     <label>${ft('vMun')}</label><select id="vMun">${MUNIS.map(m=>`<option>${m}</option>`).join('')}<option value="Otro">${lang==='es'?'Otro':'Other'}</option></select>
+     <div class="f2"><div><label>${ft('vTipo')}</label><select id="vTipo">${opt(ft('tipos'))}</select></div><div><label>${ft('vTema')}</label><select id="vTema">${opt(ft('temas'))}</select></div></div>
+     <label>${ft('vTxt')}</label><textarea id="vTxt" rows="4" maxlength="800" placeholder="${esc(ft('vTxtPh'))}"></textarea>
+     <div class="f2"><div><label>${ft('vNom')}</label><input id="vNom" maxlength="80"></div><div><label>${ft('vTel')}</label><input id="vTel" inputmode="tel" maxlength="15"></div></div>
+     <label class="chk"><input type="checkbox" id="vOk"><span>${esc(ft('vOk'))}</span></label>
+     <div class="cta"><button class="btn gold" onclick="saveVoz()">${ft('vSave')}</button><button class="btn dark sm" onclick="waVoz()">${ft('vWa')}</button></div>
+    </div>
+    <div class="card" id="vozCon"></div>
+   </div>
+   <div class="card" style="margin-top:14px"><h3 class="cond" style="font-size:24px;color:#fff;text-transform:uppercase">${esc(ft('qrT'))}</h3>
+    <div class="qrbox" style="margin-top:10px"><img src="qr-foro.png" alt="QR ${FORO_URL}"><div style="flex:1;min-width:200px"><p style="color:#d6d6d6">${esc(ft('qrS'))}</p><p style="margin-top:6px;font-family:'Barlow Condensed';font-size:22px;color:var(--gold2);word-break:break-all">traza-minera.netlify.app</p><div class="cta"><button class="btn dark sm" onclick="printQR()">${ft('qrPrint')}</button></div></div></div>
+   </div>
+  </div>
+
+  <div class="card" style="margin-top:18px"><h3 class="cond" style="font-size:20px;color:#fff;text-transform:uppercase">${ft('srcT')}</h3>
+   <ul class="srcs">${[...new Set(Object.keys(SRC))].map(k=>`<li><a href="${SRC[k]}" target="_blank" rel="noopener">${esc(SRC[k].replace('https://',''))}</a></li>`).join('')}</ul>
+   <p class="disclaimer">${esc(ft('disc'))}</p></div>`;
+  firstOk(PH_FORO).then(s=>{const b=document.getElementById('foroBg');if(s&&b)b.style.backgroundImage=`url("${s}")`});
+  foroMarkAx();renderVoces();foroCount();observe();
+}
+function foroGo(n){foroAx=n;const el=document.getElementById('ax'+n);if(el)window.scrollTo({top:el.getBoundingClientRect().top+scrollY-125,behavior:'smooth'});foroMarkAx()}
+function foroMarkAx(){document.querySelectorAll('#foroAxes button').forEach(b=>b.classList.toggle('on',b.dataset.ax===foroAx))}
+window.addEventListener('scroll',()=>{if(!document.getElementById('v-foro').classList.contains('on'))return;let cur='1';['1','2','3'].forEach(n=>{const el=document.getElementById('ax'+n);if(el&&el.getBoundingClientRect().top<180)cur=n});if(cur!==foroAx){foroAx=cur;foroMarkAx()}},{passive:true});
+function foroCount(){
+  const el=document.getElementById('foroCd');if(!el)return;const now=new Date();
+  if(now>=FORO_FIN){el.innerHTML=`<div class="note"><b style="color:var(--gold2)">${ft('cdDone')}</b></div>`;return}
+  if(now>=FORO_INI){el.innerHTML=`<div class="note"><b style="color:var(--gold2)">${ft('cdNow')}</b></div>`;return}
+  const ms=FORO_INI-now,d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60,s=Math.floor(ms/1e3)%60;
+  el.innerHTML=[[d,t('days')],[h,t('hours')],[m,t('min')],[s,t('seg')]].map(([n,l])=>`<div class="u"><b>${String(n).padStart(2,'0')}</b><small>${l}</small></div>`).join('')+`<div class="note">${ft('cdNote')}</div>`;
+}
+setInterval(foroCount,1000);
+function foroICS(){
+  const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Vibras Positivas HM//Traza Minera//ES','BEGIN:VEVENT','UID:foro-minero-caucasia-2026@traza-minera','DTSTAMP:'+new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z','DTSTART:20261105T130000Z','DTEND:20261105T180000Z',
+   'SUMMARY:Foro Minero Bajo Cauca Caucasia 2026','LOCATION:Cámara de Comercio\\, Caucasia\\, Antioquia','DESCRIPTION:Convoca la Alcaldía de Caucasia. Cómo está la minería en el Bajo Cauca\\, hacia dónde va y la voz de la comunidad minera. '+FORO_URL,
+   'BEGIN:VALARM','TRIGGER:-PT12H','ACTION:DISPLAY','DESCRIPTION:Foro Minero mañana 8:00 a. m.','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
+  dl('foro-minero-caucasia-2026.ics',ics,'text/calendar;charset=utf-8');
+}
+function vozTxt(v){const x=FT[lang];return `${x.temas[v.tema]||v.tema} · ${v.mun} · ${x.tipos[v.tipo]||v.tipo}${v.nombre?' · '+v.nombre:''}\n${v.texto}`}
+function readVoz(){
+  const texto=vTxt.value.trim();if(!texto){toast(ft('vNeed'));vTxt.focus();return null}
+  return {id:uid(),fecha:new Date().toISOString(),mun:vMun.value,tipo:vTipo.value,tema:vTema.value,texto,nombre:vNom.value.trim(),tel:vTel.value.trim()};
+}
+function saveVoz(){
+  const v=readVoz();if(!v)return;if(!vOk.checked){toast(ft('vNeedOk'));return}
+  db.voces=db.voces||[];db.voces.push(v);save();vTxt.value='';vNom.value='';vTel.value='';vOk.checked=false;toast(ft('vSaved'));renderVoces();
+}
+function waVoz(){
+  const v=readVoz();if(!v)return;if(!vOk.checked){toast(ft('vNeedOk'));return}
+  db.voces=db.voces||[];db.voces.push(v);save();renderVoces();
+  window.open(`https://wa.me/${WA_HM}?text=`+encodeURIComponent(`${lang==='es'?'Mi voz para el Foro Minero Bajo Cauca Caucasia 2026':'My voice for the Bajo Cauca Caucasia Mining Forum 2026'}\n\n${vozTxt(v)}`),'_blank');
+  vTxt.value='';vNom.value='';vTel.value='';vOk.checked=false;
+}
+function countBy(list,k){const o={};list.forEach(v=>o[v[k]]=(o[v[k]]||0)+1);return Object.entries(o).sort((a,b)=>b[1]-a[1])}
+function bars(rows,labels){const tot=rows.reduce((s,r)=>s+r[1],0)||1;return `<div class="vbars">${rows.map(([k,n])=>`<div class="r"><div class="l"><span>${esc(labels?labels[k]||k:k)}</span><b>${n}</b></div><div class="b"><i style="width:${(n/tot*100).toFixed(1)}%"></i></div></div>`).join('')}</div>`}
+function renderVoces(){
+  const el=document.getElementById('vozCon');if(!el)return;const V=db.voces||[],x=FT[lang];
+  el.innerHTML=`<h3 class="cond" style="font-size:24px;color:#fff;text-transform:uppercase">${x.conT}</h3><p style="color:var(--muted);font-size:14px">${x.conS(V.length)}</p>
+  ${V.length?`<h4 style="margin:12px 0 2px;color:#ddd;font-size:13px;text-transform:uppercase;letter-spacing:.6px">${x.porTema}</h4>${bars(countBy(V,'tema'),x.temas)}
+  <h4 style="margin:12px 0 2px;color:#ddd;font-size:13px;text-transform:uppercase;letter-spacing:.6px">${x.porMun}</h4>${bars(countBy(V,'mun').slice(0,8))}
+  <h4 style="margin:14px 0 8px;color:#ddd;font-size:13px;text-transform:uppercase;letter-spacing:.6px">${x.ult}</h4>
+  <div class="list">${[...V].reverse().slice(0,6).map(v=>`<div class="voz"><span class="tag n">${esc(x.temas[v.tema]||v.tema)}</span><span class="tag ok">${esc(v.mun)}</span><p>${esc(v.texto)}</p><small>${esc(x.tipos[v.tipo]||'')}${v.nombre?' · '+esc(v.nombre):''}${v.tel?' · '+mask(v.tel):''} · ${new Date(v.fecha).toLocaleString(lang==='es'?'es-CO':'en-US',{timeZone:TZ,day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})}</small></div>`).join('')}</div>
+  <div class="cta"><button class="btn gold sm" onclick="printVoces()">${x.print}</button><button class="btn dark sm" onclick="csvVoces()">${x.csv}</button><button class="btn dark sm" onclick="waVoces()">${x.waRes}</button><button class="btn red sm" onclick="clearVoces()">${x.clear}</button></div>`
+  :`<div class="empty" style="margin-top:12px">${x.none}</div>`}`;
+}
+function printVoces(){
+  const V=db.voces||[],x=FT[lang];
+  printArea.innerHTML=`<h1>${esc(x.memoT)}</h1><div style="font-size:12px;margin-bottom:10px">Foro Minero Bajo Cauca Caucasia 2026 · 5 nov 2026 · Cámara de Comercio de Caucasia<br>${lang==='es'?'Generado':'Generated'}: ${new Date().toLocaleString('es-CO',{timeZone:TZ})} (hora Colombia)</div>
+  <p style="margin:8px 0">${esc(x.memoTo)}</p><p style="margin:8px 0">${esc(x.memoIntro(V.length))}</p>
+  <h3 style="margin-top:10px">${x.porTema}</h3><table>${countBy(V,'tema').map(([k,n])=>`<tr><td>${esc(x.temas[k]||k)}</td><td>${n}</td></tr>`).join('')}</table>
+  <h3 style="margin-top:10px">${x.porMun}</h3><table>${countBy(V,'mun').map(([k,n])=>`<tr><td>${esc(k)}</td><td>${n}</td></tr>`).join('')}</table>
+  <h3 style="margin-top:10px">${lang==='es'?'Aportes':'Contributions'}</h3><table><tr><th>#</th><th>${x.vTema}</th><th>${x.vMun}</th><th>${x.vTipo}</th><th>${lang==='es'?'Problema o propuesta':'Problem or proposal'}</th></tr>${V.map((v,i)=>`<tr><td>${i+1}</td><td>${esc(x.temas[v.tema]||'')}</td><td>${esc(v.mun)}</td><td>${esc(x.tipos[v.tipo]||'')}</td><td>${esc(v.texto)}</td></tr>`).join('')}</table>
+  <p style="margin-top:16px;font-size:10px">${lang==='es'?'Los nombres y celulares de quienes participaron no se publican (Ley 1581 de 2012).':'Participants’ names and phone numbers are not published (Colombian Law 1581 of 2012).'} Recogido con Traza Minera — Vibras Positivas HM, Caucasia · vibraspositivashm.com · WhatsApp 311 770 0431</p>`;
+  window.print();
+}
+function csvVoces(){
+  const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"',x=FT.es;
+  const rows=(db.voces||[]).map(v=>[new Date(v.fecha).toLocaleString('es-CO',{timeZone:TZ}),v.mun,x.tipos[v.tipo]||v.tipo,x.temas[v.tema]||v.tema,v.texto,v.nombre,adminOn?v.tel:(v.tel?'oculto':'')].map(q).join(';'));
+  dl(`voz-minera-foro-${hoy()}.csv`,'﻿'+['fecha_hora_colombia','municipio','tipo','tema','problema_o_propuesta','nombre','celular'].join(';')+'\n'+rows.join('\n'),'text/csv;charset=utf-8');
+}
+function waVoces(){
+  const V=db.voces||[],x=FT[lang];
+  const txt=`${x.memoT}\nForo Minero Bajo Cauca Caucasia 2026\n${x.conS(V.length)}\n\n${x.porTema}:\n${countBy(V,'tema').map(([k,n])=>`- ${x.temas[k]||k}: ${n}`).join('\n')}\n\n${x.porMun}:\n${countBy(V,'mun').map(([k,n])=>`- ${k}: ${n}`).join('\n')}\n\n${FORO_URL}`;
+  window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+}
+function clearVoces(){if(!confirm(ft('clearAsk')))return;if(db.cfg.pin&&prompt(t('pinIn'))!==db.cfg.pin)return toast(t('pinBad'));db.voces=[];save();toast(t('deleted'));renderVoces()}
+function printQR(){
+  printArea.innerHTML=`<div style="text-align:center;padding-top:20mm"><div style="font-size:16px;letter-spacing:2px;text-transform:uppercase">${lang==='es'?'Alcaldía de Caucasia · Ministerio de Minas y Energía':'Caucasia Town Hall · Ministry of Mines and Energy'}</div>
+  <h1 style="font-size:46px;margin:10px 0 4px">FORO MINERO BAJO CAUCA<br>CAUCASIA 2026</h1><div style="font-size:20px">${lang==='es'?'Jueves 5 de noviembre · 8:00 a. m. · Cámara de Comercio':'Thursday, November 5 · 8:00 a.m. · Chamber of Commerce'}</div>
+  <img src="qr-foro.png" style="width:95mm;height:95mm;margin:14mm 0 6mm">
+  <div style="font-size:28px;font-weight:700">${lang==='es'?'Escanee y deje su voz minera':'Scan and leave your miner’s voice'}</div><div style="font-size:20px;margin-top:4px">traza-minera.netlify.app</div>
+  <div style="font-size:12px;margin-top:14mm">Traza Minera — Vibras Positivas HM · Caucasia, Antioquia · vibraspositivashm.com · WhatsApp 311 770 0431</div></div>`;
+  const im=printArea.querySelector('img');if(im.complete)window.print();else{im.onload=()=>window.print();im.onerror=()=>window.print()}
+}
+function foroFromHash(){if(location.hash==='#foro')go('foro')}
+window.addEventListener('hashchange',foroFromHash);
+
 /* ---------- Misc ---------- */
 let tt;function toast(m){const el=document.getElementById('toast');el.textContent=m;el.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('on'),2600)}
 let io;function observe(){if(!('IntersectionObserver'in window)){document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in'));return}io=io||new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal:not(.in)').forEach(e=>io.observe(e))}
@@ -812,7 +1118,7 @@ let deferred;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault(
 btnInstall.onclick=async()=>{if(!deferred)return;deferred.prompt();await deferred.userChoice;deferred=null;btnInstall.style.display='none'};
 if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 
-applyLang();loadHero();observe();
+applyLang();loadHero();observe();foroFromHash();
 </script>
 </body>
 </html>
